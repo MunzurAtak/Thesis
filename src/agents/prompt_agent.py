@@ -53,17 +53,16 @@ Write your next debate turn.
             prompt=prompt, stance=self.stance, topic=topic, round_number=round_number
         )
 
+    @staticmethod
+    def _format_history(debate_history: list[dict]) -> str:
+        if not debate_history:
+            return "No previous turns."
 
-@staticmethod
-def _format_history(debate_history: list[dict]) -> str:
-    if not debate_history:
-        return "No previous turns."
+        lines = []
+        for turn in debate_history:
+            lines.append(
+                f"round {turn['round']} | {turn['speaker']} ({turn['stance']}): "
+                f"{turn['utterance']}"
+            )
 
-    lines = []
-    for turn in debate_history:
-        lines.append(
-            f"round {turn['round']} | {turn['speaker']} ({turn['stance']}): "
-            f"{turn['utterance']}"
-        )
-
-    return "\n".join(lines)
+        return "\n".join(lines)
