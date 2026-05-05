@@ -17,6 +17,8 @@ class DebateEnvironment:
         condition: str,
         seed: int,
         output_dir: str = "outputs/transcripts",
+        experiment_name: str = "debug_experiment",
+        topic_name: str = "debug_topic",
     ):
         self.topic = topic
         self.test_agent = test_agent
@@ -26,6 +28,8 @@ class DebateEnvironment:
         self.seed = seed
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.experiment_name = experiment_name
+        self.topic_name = topic_name
 
     def run(self) -> dict:
         debate_history = []
@@ -67,7 +71,9 @@ class DebateEnvironment:
 
         transcript = {
             "debate_id": self._make_debate_id(),
+            "experiment_name": self.experiment_name,
             "condition": self.condition,
+            "topic_name": self.topic_name,
             "topic": self.topic,
             "test_agent_stance": self.test_agent.stance,
             "adversary_stance": self.adversary_agent.stance,
@@ -81,7 +87,7 @@ class DebateEnvironment:
         return transcript
 
     def _make_debate_id(self) -> str:
-        safe_topic = self.topic.lower().replace(" ", "_").replace("?", "")
+        safe_topic = self.topic_name.lower().replace(" ", "_").replace("?", "")
         return (
             f"{self.condition}_{safe_topic}_"
             f"{self.test_agent.stance}_seed{self.seed}"

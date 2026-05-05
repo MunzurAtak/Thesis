@@ -44,6 +44,8 @@ def run_prompting_experiments(config_path: str) -> None:
                     condition=condition,
                     seed=seed,
                     output_dir=output_dir,
+                    experiment_name=config["experiment_name"],
+                    topic_name=topic_name,
                 )
 
                 transcript = environment.run()
