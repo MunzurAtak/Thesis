@@ -34,7 +34,7 @@ def compute_flip_metrics(
     polarity_flip_rounds = []
 
     for turn in target_turns:
-        assigned_score = turn["stance_score"]
+        assigned_score = turn["assigned_stance_score"]
         judged_score = turn["judged_stance_score"]
         round_number = turn["round"]
 
