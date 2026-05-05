@@ -1,4 +1,4 @@
-from src.agents.mock_llm import MockLLM
+from src.llms.mock_llm import MockLLM
 from src.agents.prompt_agent import PromptAgent
 from src.debate.environment import DebateEnvironment
 
