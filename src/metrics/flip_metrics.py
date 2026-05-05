@@ -16,7 +16,7 @@ def compute_flip_metrics(
             List of turn dictionaries. Each turn must contain:
             - speaker
             - round
-            - stance_score
+            - assigned_stance_score
             - judged_stance_score
 
         speaker:
