@@ -1,0 +1,23 @@
+{
+  "experiment_name": "prompting_debug",
+  "condition": "prompting",
+  "rounds": 5,
+  "seeds": [42],
+  "topics": [
+    {
+      "name": "political_misinformation",
+      "question": "Should social media platforms ban political misinformation?"
+    }
+  ],
+  "stance_pairs": [
+    {
+      "test_agent_stance": "pro",
+      "adversary_stance": "contra"
+    },
+    {
+      "test_agent_stance": "contra",
+      "adversary_stance": "pro"
+    }
+  ],
+  "output_dir": "outputs/transcripts"
+}
