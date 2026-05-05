@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from datetime import datetime
+from src.debate.transcript_schema import validate_transcript
 
 
 class DebateEnvironment:
@@ -83,6 +84,7 @@ class DebateEnvironment:
             "turns": debate_history,
         }
 
+        validate_transcript(transcript)
         self._save_transcript(transcript)
         return transcript
 
