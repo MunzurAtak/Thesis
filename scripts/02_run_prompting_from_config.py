@@ -1,3 +1,5 @@
+import argparse
+
 from src.agents.prompt_agent import PromptAgent
 from src.debate.environment import DebateEnvironment
 from src.llms.mock_llm import MockLLM
@@ -55,9 +57,24 @@ def run_prompting_experiments(config_path: str) -> None:
                 )
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Run prompting-only debate experiments from a JSON config."
+    )
+
+    parser.add_argument(
+        "--config",
+        type=str,
+        default="configs/prompting_debug.json",
+        help="Path to the experiment config JSON file.",
+    )
+
+    return parser.parse_args()
+
+
 def main():
-    config_path = "configs/prompting_debug.json"
-    run_prompting_experiments(config_path)
+    args = parse_args()
+    run_prompting_experiments(args.config)
 
 
 if __name__ == "__main__":
