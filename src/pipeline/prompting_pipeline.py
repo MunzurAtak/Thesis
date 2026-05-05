@@ -7,6 +7,7 @@ from src.judge.mock_judge import MockJudge
 from src.llms.mock_llm import MockLLM
 from src.utils.config import load_json_config
 from src.metrics.flip_metrics import compute_flip_metrics
+from src.agents.adversary_agent import AdversaryAgent
 
 import csv
 import json
@@ -55,7 +56,7 @@ def run_prompting_experiments(config_path: str) -> None:
                     llm=llm,
                 )
 
-                adversary_agent = PromptAgent(
+                adversary_agent = AdversaryAgent(
                     name="fixed_prompting_adversary",
                     stance=adversary_stance,
                     stance_score=adversary_stance_score,
