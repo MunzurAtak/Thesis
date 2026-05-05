@@ -5,7 +5,9 @@ REQUIRED_TRANSCRIPT_FIELDS = [
     "topic_name",
     "topic",
     "test_agent_stance",
+    "test_agent_stance_score",
     "adversary_stance",
+    "adversary_stance_score",
     "rounds",
     "seed",
     "created_at",
@@ -18,6 +20,7 @@ REQUIRED_TURN_FIELDS = [
     "agent_name",
     "agent_type",
     "stance",
+    "stance_score",
     "utterance",
 ]
 
@@ -51,6 +54,11 @@ def validate_transcript(transcript: dict) -> None:
 
         if turn["stance"] not in ["pro", "contra"]:
             raise ValueError(f"Invalid stance at turn index {index}: {turn['stance']}")
+
+        if turn["stance_score"] not in [-2, -1, 0, 1, 2]:
+            raise ValueError(
+                f"Invalid stance_score at turn index {index}: {turn['stance_score']}"
+            )
 
         if not isinstance(turn["utterance"], str) or not turn["utterance"].strip():
             raise ValueError(f"Empty utterance at turn index {index}")

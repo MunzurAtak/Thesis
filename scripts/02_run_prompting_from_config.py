@@ -21,18 +21,22 @@ def run_prompting_experiments(config_path: str) -> None:
 
         for stance_pair in config["stance_pairs"]:
             test_stance = stance_pair["test_agent_stance"]
+            test_stance_score = stance_pair["test_agent_stance_score"]
             adversary_stance = stance_pair["adversary_stance"]
+            adversary_stance_score = stance_pair["adversary_stance_score"]
 
             for seed in config["seeds"]:
                 test_agent = PromptAgent(
                     name=f"{condition}_test_agent",
                     stance=test_stance,
+                    stance_score=test_stance_score,
                     llm=llm,
                 )
 
                 adversary_agent = PromptAgent(
                     name="fixed_prompting_adversary",
                     stance=adversary_stance,
+                    stance_score=adversary_stance_score,
                     llm=llm,
                 )
 

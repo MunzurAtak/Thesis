@@ -49,6 +49,7 @@ class DebateEnvironment:
                     "agent_name": self.test_agent.name,
                     "agent_type": self.condition,
                     "stance": self.test_agent.stance,
+                    "stance_score": self.test_agent.stance_score,
                     "utterance": test_utterance,
                 }
             )
@@ -66,6 +67,7 @@ class DebateEnvironment:
                     "agent_name": self.adversary_agent.name,
                     "agent_type": "prompting",
                     "stance": self.adversary_agent.stance,
+                    "stance_score": self.adversary_agent.stance_score,
                     "utterance": adversary_utterance,
                 }
             )
@@ -77,7 +79,9 @@ class DebateEnvironment:
             "topic_name": self.topic_name,
             "topic": self.topic,
             "test_agent_stance": self.test_agent.stance,
+            "test_agent_stance_score": self.test_agent.stance_score,
             "adversary_stance": self.adversary_agent.stance,
+            "adversary_stance_score": self.adversary_agent.stance_score,
             "rounds": self.rounds,
             "seed": self.seed,
             "created_at": datetime.now().isoformat(timespec="seconds"),

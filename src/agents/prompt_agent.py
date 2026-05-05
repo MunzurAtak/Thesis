@@ -8,8 +8,8 @@ class PromptAgent(DebateAgent):
     Stance of this agent is controlled only through prompting
     """
 
-    def __init__(self, name: str, stance: str, llm):
-        super().__init__(name=name, stance=stance)
+    def __init__(self, name: str, stance: str, stance_score: int, llm):
+        super().__init__(name=name, stance=stance, stance_score=stance_score)
         self.llm = llm
 
     def build_prompt(
@@ -25,6 +25,9 @@ Topic:
 
 Assigned stance:
 {self.stance}
+
+Assigned stance score:
+{self.stance_score}
 
 Instructions:
 - Maintain your assigned stance throughout the debate.
