@@ -3,8 +3,9 @@ from pathlib import Path
 from src.agents.prompt_agent import PromptAgent
 from src.debate.environment import DebateEnvironment
 from src.debate.transcript_schema import validate_transcript
-from src.judge.mock_judge import MockJudge
+from src.judge.judge_factory import create_judge, judge_metadata
 from src.llms.llm_factory import create_llm
+from src.utils import config
 from src.utils.config import load_json_config
 from src.metrics.flip_metrics import compute_flip_metrics
 from src.agents.adversary_agent import AdversaryAgent
@@ -111,7 +112,9 @@ def validate_transcript_directory(input_dir: str) -> None:
     print(f"\nValidation complete. Valid transcripts: {valid_count}")
 
 
-def score_transcript_directory(input_dir: str, output_dir: str) -> None:
+def score_transcript_directory(
+    input_dir: str, output_dir: str, judge_config: dict | None = None
+) -> None:
     transcript_dir = Path(input_dir)
 
     if not transcript_dir.exists():
@@ -122,7 +125,10 @@ def score_transcript_directory(input_dir: str, output_dir: str) -> None:
     if not transcript_files:
         raise FileNotFoundError(f"No transcript JSON files found in: {input_dir}")
 
-    judge = MockJudge()
+    if judge_config is None:
+        judge_config = {"backend": "mock", "model_name": "mock"}
+
+    judge = create_judge(judge_config)
 
     for path in transcript_files:
         with path.open("r", encoding="utf-8") as f:
@@ -147,7 +153,8 @@ def score_transcript_directory(input_dir: str, output_dir: str) -> None:
             "adversary_stance_score": transcript["adversary_stance_score"],
             "rounds": transcript["rounds"],
             "seed": transcript["seed"],
-            "judge_type": "mock",
+            "judge_type": judge_config.get("backend", "mock"),
+            "judge_llm": judge_metadata(judge),
             "judged_turns": judged_turns,
         }
 
@@ -223,6 +230,9 @@ def run_full_prompting_debug_pipeline(
     metrics_dir: str = "outputs/metrics",
     metrics_output_path: str = "outputs/metrics/prompting_debug_metrics.csv",
 ) -> None:
+    config = load_json_config(config_path)
+    judge_config = config["models"]["judge"]
+
     print("Clearing old debug outputs...")
     clear_json_files(transcript_dir)
     clear_json_files(judge_score_dir)
@@ -238,6 +248,7 @@ def run_full_prompting_debug_pipeline(
     score_transcript_directory(
         input_dir=transcript_dir,
         output_dir=judge_score_dir,
+        judge_config=judge_config,
     )
 
     print("\nComputing metrics...")
