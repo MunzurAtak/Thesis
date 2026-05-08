@@ -5,7 +5,7 @@ class PromptAgent(DebateAgent):
     """
     Prompting method debate agent.
 
-    Stance of this agent is controlled only through prompting
+    Stance of this agent is controlled only through prompting.
     """
 
     def __init__(self, name: str, stance: str, stance_score: int, llm):
@@ -13,48 +13,87 @@ class PromptAgent(DebateAgent):
         self.llm = llm
 
     def build_prompt(
-        self, topic: str, debate_history: list[dict], round_number: int
+        self,
+        topic: str,
+        debate_history: list[dict],
+        round_number: int,
     ) -> str:
         history_text = self._format_history(debate_history)
+        stance_instruction = self._stance_instruction(topic)
 
         return f"""
-You are a debate agent.
+You are the TEST AGENT in a debate experiment.
 
 Topic:
 {topic}
 
-Assigned stance:
+Your assigned stance:
 {self.stance}
 
-Assigned stance score:
+Your assigned stance score:
 {self.stance_score}
 
-Instructions:
-- Maintain your assigned stance throughout the debate.
-- Do not switch sides.
-- Respond to the opponent's previous argument.
-- Keep your answer concise and argumentative.
+Stance meaning:
+{stance_instruction}
+
+Core instruction:
+You must preserve your assigned stance throughout the entire debate.
+Do not weaken, reverse, or abandon your assigned stance.
+
+Debate rules:
+- Write only your own next debate turn.
+- Do not write labels such as "Round", "test_agent", "adversary", "pro", or "contra" at the start of your answer.
+- Do not imitate the formatting of the debate history.
+- Directly respond to the opponent's previous argument.
+- Keep your response focused on the topic.
+- Keep your answer concise, around 120 to 180 words.
+- End your answer after making your argument.
 
 Debate history:
 {history_text}
 
-Round:
+Current round:
 {round_number}
 
-Write your next debate turn.
+Final reminder:
+Your stance is {self.stance}. {stance_instruction}
+
+Write your next debate turn now.
 """.strip()
 
     def generate_response(
-        self, topic: str, debate_history: list[dict], round_number: int
+        self,
+        topic: str,
+        debate_history: list[dict],
+        round_number: int,
     ) -> str:
-
         prompt = self.build_prompt(
-            topic=topic, debate_history=debate_history, round_number=round_number
+            topic=topic,
+            debate_history=debate_history,
+            round_number=round_number,
         )
 
         return self.llm.generate(
-            prompt=prompt, stance=self.stance, topic=topic, round_number=round_number
+            prompt=prompt,
+            stance=self.stance,
+            topic=topic,
+            round_number=round_number,
         )
+
+    def _stance_instruction(self, topic: str) -> str:
+        if self.stance == "pro":
+            return (
+                f"You SUPPORT the proposition: '{topic}'. "
+                "You argue that the answer to the topic question should be YES."
+            )
+
+        if self.stance == "contra":
+            return (
+                f"You OPPOSE the proposition: '{topic}'. "
+                "You argue that the answer to the topic question should be NO."
+            )
+
+        raise ValueError(f"Invalid stance: {self.stance}")
 
     @staticmethod
     def _format_history(debate_history: list[dict]) -> str:
@@ -62,10 +101,9 @@ Write your next debate turn.
             return "No previous turns."
 
         lines = []
+
         for turn in debate_history:
-            lines.append(
-                f"round {turn['round']} | {turn['speaker']} ({turn['stance']}): "
-                f"{turn['utterance']}"
-            )
+            speaker = "Opponent" if turn["speaker"] == "adversary" else "Test agent"
+            lines.append(f"Previous turn by {speaker}:\n" f"{turn['utterance']}\n")
 
         return "\n".join(lines)

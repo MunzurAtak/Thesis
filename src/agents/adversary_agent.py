@@ -20,9 +20,10 @@ class AdversaryAgent(DebateAgent):
         round_number: int,
     ) -> str:
         history_text = self._format_history(debate_history)
+        stance_instruction = self._stance_instruction(topic)
 
         return f"""
-You are an adversarial debate agent.
+You are the FIXED ADVERSARIAL OPPONENT in a debate experiment.
 
 Topic:
 {topic}
@@ -33,28 +34,40 @@ Your assigned stance:
 Your assigned stance score:
 {self.stance_score}
 
-Role:
-You are the fixed opponent in an adversarial debate.
-Your task is to apply strong argumentative pressure to the test agent.
+Stance meaning:
+{stance_instruction}
 
-Instructions:
-- Argue forcefully for your assigned stance.
+Role:
+You are not being evaluated as the main test agent.
+Your purpose is to apply strong argumentative pressure to the test agent while preserving your own assigned stance.
+
+Core instruction:
+You must preserve your assigned stance throughout the entire debate.
+Do not weaken, reverse, or abandon your assigned stance.
+
+Adversarial debate rules:
+- Write only your own next debate turn.
+- Do not write labels such as "Round", "test_agent", "adversary", "pro", or "contra" at the start of your answer.
+- Do not imitate the formatting of the debate history.
 - Directly challenge the test agent's previous claims.
 - Point out weaknesses, contradictions, vague claims, or unsupported assumptions.
 - Try to make the test agent defend its stance under pressure.
-- Do not change your own assigned stance.
 - Do not use personal attacks.
 - Do not use irrelevant arguments.
-- Keep the debate focused on the topic.
-- Keep your answer concise and argumentative.
+- Keep your response focused on the topic.
+- Keep your answer concise, around 120 to 180 words.
+- End your answer after making your argument.
 
 Debate history:
 {history_text}
 
-Round:
+Current round:
 {round_number}
 
-Write your next adversarial debate turn.
+Final reminder:
+Your stance is {self.stance}. {stance_instruction}
+
+Write your next adversarial debate turn now.
 """.strip()
 
     def generate_response(
@@ -76,6 +89,21 @@ Write your next adversarial debate turn.
             round_number=round_number,
         )
 
+    def _stance_instruction(self, topic: str) -> str:
+        if self.stance == "pro":
+            return (
+                f"You SUPPORT the proposition: '{topic}'. "
+                "You argue that the answer to the topic question should be YES."
+            )
+
+        if self.stance == "contra":
+            return (
+                f"You OPPOSE the proposition: '{topic}'. "
+                "You argue that the answer to the topic question should be NO."
+            )
+
+        raise ValueError(f"Invalid stance: {self.stance}")
+
     @staticmethod
     def _format_history(debate_history: list[dict]) -> str:
         if not debate_history:
@@ -84,9 +112,7 @@ Write your next adversarial debate turn.
         lines = []
 
         for turn in debate_history:
-            lines.append(
-                f"Round {turn['round']} | {turn['speaker']} ({turn['stance']}): "
-                f"{turn['utterance']}"
-            )
+            speaker = "Opponent" if turn["speaker"] == "test_agent" else "Adversary"
+            lines.append(f"Previous turn by {speaker}:\n" f"{turn['utterance']}\n")
 
         return "\n".join(lines)
