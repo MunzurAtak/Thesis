@@ -79,3 +79,12 @@ class OllamaLLM(BaseLLM):
                 "Make sure Ollama is installed and running, then try again. "
                 f"URL: {url}. Original error: {error}"
             ) from error
+
+    def metadata(self) -> dict:
+        return {
+            "backend": "ollama",
+            "model_name": self.model_name,
+            "base_url": self.base_url,
+            "temperature": self.temperature,
+            "max_tokens": self.max_tokens,
+        }

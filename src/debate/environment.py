@@ -78,6 +78,8 @@ class DebateEnvironment:
             "condition": self.condition,
             "topic_name": self.topic_name,
             "topic": self.topic,
+            "test_agent_llm": self.test_agent.llm.metadata(),
+            "adversary_llm": self.adversary_agent.llm.metadata(),
             "test_agent_stance": self.test_agent.stance,
             "test_agent_stance_score": self.test_agent.stance_score,
             "adversary_stance": self.adversary_agent.stance,

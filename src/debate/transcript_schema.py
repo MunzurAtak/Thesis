@@ -12,6 +12,8 @@ REQUIRED_TRANSCRIPT_FIELDS = [
     "seed",
     "created_at",
     "turns",
+    "test_agent_llm",
+    "adversary_llm",
 ]
 
 REQUIRED_TURN_FIELDS = [

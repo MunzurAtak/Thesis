@@ -20,3 +20,9 @@ class MockLLM:
             )
 
         return f"In round {round_number}, I discuss the topic '{topic}'."
+
+    def metadata(self) -> dict:
+        return {
+            "backend": "mock",
+            "model_name": "mock",
+        }

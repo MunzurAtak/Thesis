@@ -15,3 +15,13 @@ class BaseLLM(ABC):
         """
 
         pass
+
+    def metadata(self) -> dict:
+        """
+        Return metadata about the LLM backend.
+        Child classes can override this.
+        """
+        return {
+            "backend": "unknown",
+            "model_name": "unknown",
+        }
