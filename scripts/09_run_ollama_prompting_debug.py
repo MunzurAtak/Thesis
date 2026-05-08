@@ -1,0 +1,15 @@
+from src.pipeline.prompting_pipeline import run_full_prompting_debug_pipeline
+
+
+def main():
+    run_full_prompting_debug_pipeline(
+        config_path="configs/prompting_ollama_debug.json",
+        transcript_dir="outputs/transcripts",
+        judge_score_dir="outputs/judge_scores",
+        metrics_dir="outputs/metrics",
+        metrics_output_path="outputs/metrics/prompting_ollama_debug_metrics.csv",
+    )
+
+
+if __name__ == "__main__":
+    main()
