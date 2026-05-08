@@ -244,7 +244,7 @@ def run_full_prompting_debug_pipeline(
     print("\nValidating transcripts...")
     validate_transcript_directory(transcript_dir)
 
-    print("\nScoring transcripts with mock judge...")
+    print(f"\nScoring transcripts with {judge_config['backend']} judge...")
     score_transcript_directory(
         input_dir=transcript_dir,
         output_dir=judge_score_dir,
