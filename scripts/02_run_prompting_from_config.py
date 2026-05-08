@@ -3,14 +3,15 @@ import argparse
 from src.agents.prompt_agent import PromptAgent
 from src.agents.adversary_agent import AdversaryAgent
 from src.debate.environment import DebateEnvironment
-from src.llms.mock_llm import MockLLM
+from src.llms.llm_factory import create_llm
 from src.utils.config import load_json_config
 
 
 def run_prompting_experiments(config_path: str) -> None:
     config = load_json_config(config_path)
 
-    llm = MockLLM()
+    test_llm = create_llm(config["models"]["test_agent"])
+    adversary_llm = create_llm(config["models"]["adversary_agent"])
 
     condition = config["condition"]
     rounds = config["rounds"]
@@ -31,14 +32,14 @@ def run_prompting_experiments(config_path: str) -> None:
                     name=f"{condition}_test_agent",
                     stance=test_stance,
                     stance_score=test_stance_score,
-                    llm=llm,
+                    llm=test_llm,
                 )
 
                 adversary_agent = AdversaryAgent(
                     name="fixed_prompting_adversary",
                     stance=adversary_stance,
                     stance_score=adversary_stance_score,
-                    llm=llm,
+                    llm=adversary_llm,
                 )
 
                 environment = DebateEnvironment(

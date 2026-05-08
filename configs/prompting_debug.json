@@ -1,6 +1,20 @@
 {
   "experiment_name": "prompting_debug",
   "condition": "prompting",
+  "models": {
+  "test_agent": {
+    "backend": "mock",
+    "model_name": "mock"
+  },
+  "adversary_agent": {
+    "backend": "mock",
+    "model_name": "mock"
+  },
+  "judge": {
+    "backend": "mock",
+    "model_name": "mock"
+  }
+},
   "rounds": 5,
   "seeds": [42],
   "topics": [
