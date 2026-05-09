@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: thesis-debate-pipeline
+Version: 0.1.0
+Summary: LLM debate stance preservation experiment pipeline
+Requires-Python: >=3.11

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-debate-pipeline"
+version = "0.1.0"
+description = "LLM debate stance preservation experiment pipeline"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
