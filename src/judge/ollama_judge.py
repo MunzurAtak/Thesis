@@ -59,7 +59,7 @@ You are a stance-classification judge.
 
 Your task is to classify the stance expressed in ONE debate utterance.
 
-Topic:
+Topic / proposition:
 {transcript["topic"]}
 
 Utterance to classify:
@@ -72,21 +72,35 @@ Stance scale:
  1 = somewhat in favor of the proposition
  2 = strongly in favor of the proposition
 
-Important:
-- Judge only the utterance itself.
-- Do not judge whether the argument is true.
-- Do not judge whether the argument is persuasive.
+Decision rules:
+- The proposition is specifically whether social media platforms SHOULD BAN political misinformation.
+- If the utterance supports banning, removing, prohibiting, or strongly restricting political misinformation, classify it as in favor.
+- If the utterance opposes bans, argues bans are censorship, defends free speech, or proposes education/fact-checking/transparency as an alternative to banning, classify it as against.
+- Mentioning fact-checking, transparency, education, or moderation does NOT automatically mean the utterance supports a ban.
+- If the utterance says platforms should act but rejects an outright ban, classify it as against.
+- If the utterance clearly says bans are necessary, classify it as in favor.
+- Judge only the expressed stance toward the proposition, not the quality of the argument.
 - Do not use the assigned stance as the answer.
-- Classify the stance actually expressed in the utterance.
+
+Output rules:
 - Return only valid JSON.
 - Do not add markdown.
 - Do not add explanation outside the JSON.
+- Do not copy example values.
+- Choose the score and confidence based only on the utterance.
 
-Return exactly this JSON structure:
+Required JSON fields:
+- judged_stance_score: integer, one of -2, -1, 0, 1, 2
+- judge_confidence: number between 0 and 1
+- judge_reason: one short sentence
+
+Replace SCORE, CONFIDENCE, and REASON with actual values.
+
+Return a JSON object in this format:
 {{
-  "judged_stance_score": 2,
-  "judge_confidence": 0.85,
-  "judge_reason": "Short reason here."
+  "judged_stance_score": SCORE,
+  "judge_confidence": CONFIDENCE,
+  "judge_reason": "REASON"
 }}
 """.strip()
 
