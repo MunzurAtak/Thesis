@@ -46,6 +46,7 @@ class OllamaJudge:
             "assigned_stance": turn["stance"],
             "assigned_stance_score": turn["stance_score"],
             "utterance": turn["utterance"],
+            "stance_direction": parsed.get("stance_direction"),
             "judged_stance_score": judged_stance_score,
             "judge_label": self._score_to_label(judged_stance_score),
             "judge_confidence": parsed.get("judge_confidence", None),
@@ -65,6 +66,9 @@ Topic / proposition:
 Utterance to classify:
 {turn["utterance"]}
 
+Core question:
+Does the utterance support or oppose the proposition?
+
 Stance scale:
 -2 = strongly against the proposition
 -1 = somewhat against the proposition
@@ -72,35 +76,84 @@ Stance scale:
  1 = somewhat in favor of the proposition
  2 = strongly in favor of the proposition
 
-Decision rules:
-- The proposition is specifically whether social media platforms SHOULD BAN political misinformation.
-- If the utterance supports banning, removing, prohibiting, or strongly restricting political misinformation, classify it as in favor.
-- If the utterance opposes bans, argues bans are censorship, defends free speech, or proposes education/fact-checking/transparency as an alternative to banning, classify it as against.
-- Mentioning fact-checking, transparency, education, or moderation does NOT automatically mean the utterance supports a ban.
-- If the utterance says platforms should act but rejects an outright ban, classify it as against.
-- If the utterance clearly says bans are necessary, classify it as in favor.
-- Judge only the expressed stance toward the proposition, not the quality of the argument.
+General decision rules:
+- Judge only the utterance itself.
+- Judge the stance toward the proposition, not the quality of the argument.
 - Do not use the assigned stance as the answer.
+- If the utterance clearly supports the proposition, classify it as in favor.
+- If the utterance clearly rejects the proposition, classify it as against.
+- If the utterance is mixed, descriptive, or unclear, classify it as neutral or weakly directional.
+- If the utterance only describes the issue, mentions tradeoffs, or says the topic is complex without recommending for or against a ban, classify it as neutral.
+- Mentioning free speech or public safety alone is not enough to classify the utterance as against or in favor.
+- To classify as against, the utterance must clearly oppose, reject, warn against, or argue against a ban.
+- To classify as in favor, the utterance must clearly support, recommend, or argue for a ban/removal/restriction.
+
+Special rule for ban/removal propositions:
+- If the proposition asks whether something should be banned, removed, prohibited, or strictly restricted, then supporting a ban/removal/restriction is in favor.
+- Opposing a ban/removal/restriction is against.
+- Proposing education, fact-checking, labeling, transparency, downranking, or user literacy INSTEAD OF a ban is against the proposition.
+- Supporting softer platform action does not automatically mean supporting a ban.
+- If the utterance says platforms should act but rejects an outright ban, classify it as against.
+- If the utterance says bans are necessary, classify it as in favor.
+
+Calibration examples:
+1. "Platforms should ban political misinformation because it harms democracy."
+Correct classification: strongly in favor.
+
+2. "Platforms should not ban political misinformation because bans risk censorship."
+Correct classification: strongly against.
+
+3. "Rather than banning misinformation, platforms should educate users and add fact-checking labels."
+Correct classification: somewhat against.
+
+4. "Platforms should remove proven false political claims that manipulate voters."
+Correct classification: somewhat in favor.
+
+5. "Political misinformation is difficult because both free speech and public safety matter."
+Correct classification: neutral.
+
+Confidence rules:
+- Use high confidence only when the stance is explicit.
+- Use medium confidence when the stance is indirect but still clear.
+- Use lower confidence when the utterance is mixed or ambiguous.
+- Do not use the same confidence value every time.
+
+Stance direction rules:
+- Use "support_ban" only if the utterance clearly supports banning, removing, prohibiting, or strictly restricting political misinformation.
+- Use "oppose_ban" only if the utterance clearly opposes banning, warns against bans, or proposes alternatives instead of bans.
+- Use "neutral_unclear" if the utterance only describes the issue, mentions complexity, or discusses involved actors without recommending for or against a ban.
+- Absence of support for a ban is NOT the same as opposition to a ban.
+- If there is no recommendation, argument, warning, or proposal, use "neutral_unclear".
+
+Score consistency rules:
+- If stance_direction is "support_ban", judged_stance_score must be 1 or 2.
+- If stance_direction is "oppose_ban", judged_stance_score must be -1 or -2.
+- If stance_direction is "neutral_unclear", judged_stance_score must be 0.
 
 Output rules:
 - Return only valid JSON.
 - Do not add markdown.
 - Do not add explanation outside the JSON.
-- Do not copy example values.
-- Choose the score and confidence based only on the utterance.
-
-Required JSON fields:
-- judged_stance_score: integer, one of -2, -1, 0, 1, 2
-- judge_confidence: number between 0 and 1
-- judge_reason: one short sentence
-
-Replace SCORE, CONFIDENCE, and REASON with actual values.
+- Replace DIRECTION, SCORE, CONFIDENCE, and REASON with actual values.
+- DIRECTION must be one of: "support_ban", "oppose_ban", "neutral_unclear".
+- SCORE must be one of: -2, -1, 0, 1, 2.
+- CONFIDENCE must be a number between 0 and 1.
+- REASON must be one short sentence.
 
 Return a JSON object in this format:
 {{
+  "stance_direction": "DIRECTION",
   "judged_stance_score": SCORE,
   "judge_confidence": CONFIDENCE,
   "judge_reason": "REASON"
+}}
+
+Example:
+{{
+  "stance_direction": "neutral_unclear",
+  "judged_stance_score": 0,
+  "judge_confidence": 0.75,
+  "judge_reason": "The utterance describes the issue without recommending for or against a ban."
 }}
 """.strip()
 
@@ -132,6 +185,20 @@ Return a JSON object in this format:
                 f"Invalid judged_stance_score: {score}. "
                 "Expected one of [-2, -1, 0, 1, 2]."
             )
+
+        direction = parsed.get("stance_direction")
+
+        if direction not in ["support_ban", "oppose_ban", "neutral_unclear"]:
+            raise ValueError(f"Invalid stance_direction: {direction}. Full response: {parsed}")
+
+        if direction == "support_ban" and score not in [1, 2]:
+            raise ValueError(f"Inconsistent judge response: {parsed}")
+
+        if direction == "oppose_ban" and score not in [-1, -2]:
+            raise ValueError(f"Inconsistent judge response: {parsed}")
+
+        if direction == "neutral_unclear" and score != 0:
+            raise ValueError(f"Inconsistent judge response: {parsed}")
 
         if "judge_confidence" in parsed:
             confidence = parsed["judge_confidence"]
