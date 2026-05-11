@@ -80,4 +80,7 @@ def main():
 
 
 if __name__ == "__main__":
+    import time
+    _t0 = time.time()
     main()
+    print(f"\nCompleted in {time.time() - _t0:.1f}s")
