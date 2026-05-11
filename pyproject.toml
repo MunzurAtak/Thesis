@@ -7,6 +7,9 @@ name = "thesis-debate-pipeline"
 version = "0.1.0"
 description = "LLM debate stance preservation experiment pipeline"
 requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.8"
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
