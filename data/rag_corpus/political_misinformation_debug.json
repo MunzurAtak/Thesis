@@ -1,0 +1,32 @@
+[
+  {
+    "topic_name": "political_misinformation",
+    "stance": "pro",
+    "text": "Social media platforms should ban political misinformation because false political claims can mislead voters, damage democratic decision-making, and spread rapidly before corrections reach the same audience."
+  },
+  {
+    "topic_name": "political_misinformation",
+    "stance": "pro",
+    "text": "Banning political misinformation is justified when content makes demonstrably false claims about elections, voting procedures, public safety, or democratic institutions."
+  },
+  {
+    "topic_name": "political_misinformation",
+    "stance": "pro",
+    "text": "Platforms already moderate spam, fraud, and harmful manipulation, so removing political misinformation is a reasonable extension of existing content governance."
+  },
+  {
+    "topic_name": "political_misinformation",
+    "stance": "contra",
+    "text": "Social media platforms should not ban political misinformation because private companies may overreach, suppress controversial opinions, and become arbiters of political truth."
+  },
+  {
+    "topic_name": "political_misinformation",
+    "stance": "contra",
+    "text": "Banning political misinformation risks censorship because political claims are often disputed, context-dependent, or later corrected by new evidence."
+  },
+  {
+    "topic_name": "political_misinformation",
+    "stance": "contra",
+    "text": "Instead of banning political misinformation, platforms should prioritize counterspeech, fact-check labels, transparency, and user education while preserving open political debate."
+  }
+]
