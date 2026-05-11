@@ -1,0 +1,39 @@
+{
+  "experiment_name": "rag_mock_debug",
+  "condition": "rag",
+  "models": {
+    "test_agent": {
+      "backend": "mock",
+      "model_name": "mock"
+    },
+    "adversary_agent": {
+      "backend": "mock",
+      "model_name": "mock"
+    },
+    "judge": {
+      "backend": "mock",
+      "model_name": "mock"
+    }
+  },
+  "retrieval": {
+    "corpus_path": "data/rag_corpus/political_misinformation_debug.json",
+    "top_k": 2
+  },
+  "rounds": 1,
+  "seeds": [42],
+  "topics": [
+    {
+      "name": "political_misinformation",
+      "question": "Should social media platforms ban political misinformation?"
+    }
+  ],
+  "stance_pairs": [
+    {
+      "test_agent_stance": "pro",
+      "test_agent_stance_score": 2,
+      "adversary_stance": "contra",
+      "adversary_stance_score": -2
+    }
+  ],
+  "output_dir": "outputs/transcripts"
+}
