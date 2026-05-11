@@ -42,17 +42,20 @@ class DebateEnvironment:
                 round_number=round_number,
             )
 
-            debate_history.append(
-                {
-                    "round": round_number,
-                    "speaker": "test_agent",
-                    "agent_name": self.test_agent.name,
-                    "agent_type": self.condition,
-                    "stance": self.test_agent.stance,
-                    "stance_score": self.test_agent.stance_score,
-                    "utterance": test_utterance,
-                }
-            )
+            test_turn = {
+                "round": round_number,
+                "speaker": "test_agent",
+                "agent_name": self.test_agent.name,
+                "agent_type": self.condition,
+                "stance": self.test_agent.stance,
+                "stance_score": self.test_agent.stance_score,
+                "utterance": test_utterance,
+            }
+
+            if hasattr(self.test_agent, "last_retrieval") and self.test_agent.last_retrieval:
+                test_turn["retrieval"] = self.test_agent.last_retrieval
+
+            debate_history.append(test_turn)
 
             adversary_utterance = self.adversary_agent.generate_response(
                 topic=self.topic,

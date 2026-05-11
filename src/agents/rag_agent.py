@@ -22,6 +22,7 @@ class RAGAgent(DebateAgent):
         self.llm = llm
         self.retriever = retriever
         self.topic_name = topic_name
+        self.last_retrieval = None
 
     def build_prompt(
         self,
@@ -37,6 +38,13 @@ class RAGAgent(DebateAgent):
             stance=self.stance,
         )
         retrieved_context = self.retriever.format_passages(passages)
+
+        self.last_retrieval = {
+            "topic_name": self.topic_name,
+            "stance": self.stance,
+            "top_k": self.retriever.top_k,
+            "retrieved_passages": passages,
+        }
 
         return f"""
 You are the TEST AGENT in a debate experiment.
