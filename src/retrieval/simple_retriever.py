@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 
@@ -6,13 +7,13 @@ class SimpleStanceRetriever:
     """
     Simple first-version retriever for the RAG condition.
 
-    This intentionally does not use embeddings yet.
     It filters passages by:
     - topic_name
     - stance
 
-    Later this can be replaced by a sentence-transformer + FAISS retriever
-    without changing the RAGAgent interface too much.
+    Then it optionally ranks passages by lexical overlap with a query.
+    This is still not embedding retrieval, but it is safer than returning
+    the first top-k passages from a noisy corpus.
     """
 
     def __init__(self, corpus_path: str, top_k: int = 3):
@@ -46,7 +47,12 @@ class SimpleStanceRetriever:
 
         return corpus
 
-    def retrieve(self, topic_name: str, stance: str) -> list[dict]:
+    def retrieve(
+        self,
+        topic_name: str,
+        stance: str,
+        query: str | None = None,
+    ) -> list[dict]:
         if stance not in {"pro", "contra"}:
             raise ValueError(f"Invalid stance: {stance}")
 
@@ -55,6 +61,13 @@ class SimpleStanceRetriever:
             for item in self.corpus
             if item["topic_name"] == topic_name and item["stance"] == stance
         ]
+
+        if query:
+            matches = sorted(
+                matches,
+                key=lambda item: self._lexical_score(query=query, text=item["text"]),
+                reverse=True,
+            )
 
         return matches[: self.top_k]
 
@@ -68,3 +81,59 @@ class SimpleStanceRetriever:
             lines.append(f"[Retrieved passage {i}]\n{passage['text']}")
 
         return "\n\n".join(lines)
+
+    @staticmethod
+    def _tokenize(text: str) -> set[str]:
+        stopwords = {
+            "the",
+            "a",
+            "an",
+            "and",
+            "or",
+            "but",
+            "if",
+            "to",
+            "of",
+            "in",
+            "on",
+            "for",
+            "with",
+            "by",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "that",
+            "this",
+            "it",
+            "as",
+            "at",
+            "from",
+            "not",
+            "do",
+            "does",
+            "did",
+            "should",
+            "would",
+            "could",
+            "can",
+            "we",
+            "you",
+            "they",
+            "their",
+            "our",
+            "your",
+        }
+
+        tokens = re.findall(r"[a-zA-Z]{3,}", text.lower())
+        return {token for token in tokens if token not in stopwords}
+
+    @classmethod
+    def _lexical_score(cls, query: str, text: str) -> int:
+        query_tokens = cls._tokenize(query)
+        text_tokens = cls._tokenize(text)
+
+        return len(query_tokens & text_tokens)

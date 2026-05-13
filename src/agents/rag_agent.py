@@ -33,9 +33,15 @@ class RAGAgent(DebateAgent):
         history_text = self._format_history(debate_history)
         stance_instruction = self._stance_instruction(topic)
 
+        retrieval_query = self._build_retrieval_query(
+            topic=topic,
+            debate_history=debate_history,
+        )
+
         passages = self.retriever.retrieve(
             topic_name=self.topic_name,
             stance=self.stance,
+            query=retrieval_query,
         )
         retrieved_context = self.retriever.format_passages(passages)
 
@@ -117,6 +123,16 @@ Write your next debate turn now.
             topic=topic,
             round_number=round_number,
         )
+
+    @staticmethod
+    def _build_retrieval_query(topic: str, debate_history: list[dict]) -> str:
+        if not debate_history:
+            return topic
+
+        latest_turn = debate_history[-1]
+        latest_utterance = latest_turn.get("utterance", "")
+
+        return f"{topic}\n{latest_utterance}"
 
     def _stance_instruction(self, topic: str) -> str:
         if self.stance == "pro":
