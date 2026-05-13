@@ -76,6 +76,25 @@ def clean_text(value) -> str:
         return ""
 
     text = str(value)
+
+    replacements = {
+        "â€™": "'",
+        "â€œ": '"',
+        "â€\u009d": '"',
+        "â€˜": "'",
+        "â€“": "-",
+        "â€”": "-",
+        "Â": "",
+        "\u00a0": " ",
+        "&#x200B;": " ",
+        "&amp;": "&",
+        "&gt;": ">",
+        "&lt;": "<",
+    }
+
+    for bad, good in replacements.items():
+        text = text.replace(bad, good)
+
     text = text.replace("\r", " ").replace("\n", " ")
     text = " ".join(text.split())
     return text.strip()
