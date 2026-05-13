@@ -6,6 +6,7 @@ outputs/
 data/raw/
 data/processed/
 data/rag_indices/
+data/rag_corpus/usdc_rag_corpus.json
 
 adapters/
 models/
