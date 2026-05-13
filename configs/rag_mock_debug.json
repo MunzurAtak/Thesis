@@ -16,6 +16,7 @@
     }
   },
   "retrieval": {
+    "backend": "simple",
     "corpus_path": "data/rag_corpus/political_misinformation_debug.json",
     "top_k": 2
   },

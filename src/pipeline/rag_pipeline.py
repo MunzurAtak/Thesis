@@ -10,7 +10,7 @@ from src.pipeline.prompting_pipeline import (
     score_transcript_directory,
     validate_transcript_directory,
 )
-from src.retrieval.simple_retriever import SimpleStanceRetriever
+from src.retrieval.retriever_factory import create_retriever
 from src.utils.config import load_json_config
 
 
@@ -21,10 +21,7 @@ def run_rag_experiments(config_path: str) -> None:
     adversary_llm = create_llm(config["models"]["adversary_agent"])
 
     retrieval_config = config["retrieval"]
-    retriever = SimpleStanceRetriever(
-        corpus_path=retrieval_config["corpus_path"],
-        top_k=retrieval_config.get("top_k", 3),
-    )
+    retriever = create_retriever(retrieval_config)
 
     condition = config["condition"]
     rounds = config["rounds"]
