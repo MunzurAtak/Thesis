@@ -1,0 +1,46 @@
+{
+  "experiment_name": "rag_usdc_mock_debug",
+  "condition": "rag",
+  "models": {
+    "test_agent": {
+      "backend": "mock",
+      "model_name": "mock"
+    },
+    "adversary_agent": {
+      "backend": "mock",
+      "model_name": "mock"
+    },
+    "judge": {
+      "backend": "mock",
+      "model_name": "mock"
+    }
+  },
+  "retrieval": {
+    "backend": "simple",
+    "corpus_path": "data/rag_corpus/usdc_selected_rag_corpus.json",
+    "top_k": 3
+  },
+  "rounds": 1,
+  "seeds": [42],
+  "topics": [
+    {
+      "name": "climate_change",
+      "question": "Should governments take stronger action against climate change?"
+    }
+  ],
+  "stance_pairs": [
+    {
+      "test_agent_stance": "pro",
+      "test_agent_stance_score": 2,
+      "adversary_stance": "contra",
+      "adversary_stance_score": -2
+    },
+    {
+      "test_agent_stance": "contra",
+      "test_agent_stance_score": -2,
+      "adversary_stance": "pro",
+      "adversary_stance_score": 2
+    }
+  ],
+  "output_dir": "outputs/transcripts"
+}
