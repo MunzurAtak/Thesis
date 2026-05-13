@@ -73,14 +73,9 @@ class SimpleStanceRetriever:
 
     def format_passages(self, passages: list[dict]) -> str:
         if not passages:
-            return "No stance-consistent passages were retrieved."
+            return "No additional private background is available."
 
-        lines = []
-
-        for i, passage in enumerate(passages, start=1):
-            lines.append(f"[Retrieved passage {i}]\n{passage['text']}")
-
-        return "\n\n".join(lines)
+        return "\n\n".join(passage["text"] for passage in passages)
 
     @staticmethod
     def _tokenize(text: str) -> set[str]:
