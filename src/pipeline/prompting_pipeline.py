@@ -186,9 +186,14 @@ def compute_metrics_directory(input_dir: str, output_path: str) -> None:
         with path.open("r", encoding="utf-8") as f:
             judged_transcript = json.load(f)
 
-        flip_metrics = compute_flip_metrics(
+        test_agent_flip_metrics = compute_flip_metrics(
             judged_turns=judged_transcript["judged_turns"],
             speaker="test_agent",
+        )
+
+        adversary_flip_metrics = compute_flip_metrics(
+            judged_turns=judged_transcript["judged_turns"],
+            speaker="adversary",
         )
 
         row = {
@@ -203,10 +208,14 @@ def compute_metrics_directory(input_dir: str, output_path: str) -> None:
             "rounds": judged_transcript["rounds"],
             "seed": judged_transcript["seed"],
             "judge_type": judged_transcript["judge_type"],
-            "strict_tof": flip_metrics["strict_tof"],
-            "strict_nof": flip_metrics["strict_nof"],
-            "polarity_tof": flip_metrics["polarity_tof"],
-            "polarity_nof": flip_metrics["polarity_nof"],
+            "strict_tof": test_agent_flip_metrics["strict_tof"],
+            "strict_nof": test_agent_flip_metrics["strict_nof"],
+            "polarity_tof": test_agent_flip_metrics["polarity_tof"],
+            "polarity_nof": test_agent_flip_metrics["polarity_nof"],
+            "adversary_strict_tof": adversary_flip_metrics["strict_tof"],
+            "adversary_strict_nof": adversary_flip_metrics["strict_nof"],
+            "adversary_polarity_tof": adversary_flip_metrics["polarity_tof"],
+            "adversary_polarity_nof": adversary_flip_metrics["polarity_nof"],
         }
 
         rows.append(row)
