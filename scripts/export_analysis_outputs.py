@@ -4,6 +4,7 @@ from pathlib import Path
 from export_turn_scores import export_turn_scores
 from export_drift_curve import export_drift_curve
 from plot_drift_curve import plot_drift_curve
+from summarize_metrics import summarize
 
 
 def parse_args():
@@ -55,6 +56,8 @@ def main():
     metrics_dir = Path(args.metrics_dir)
     plots_dir = Path(args.plots_dir)
 
+    metrics_path = metrics_dir / f"{args.experiment_name}_metrics.csv"
+    summary_path = metrics_dir / f"{args.experiment_name}_summary.csv"
     turn_scores_path = metrics_dir / f"{args.experiment_name}_turn_scores.csv"
     drift_curve_path = metrics_dir / f"{args.experiment_name}_drift_curve.csv"
     drift_plot_path = plots_dir / f"{args.experiment_name}_drift_curve.png"
@@ -78,7 +81,14 @@ def main():
         output_path=str(drift_plot_path),
     )
 
+    print("\nExporting metrics summary...")
+    summarize(
+        metrics_path=str(metrics_path),
+        output_path=str(summary_path),
+    )
+
     print("\nAnalysis outputs complete.")
+    print(f"Metrics summary: {summary_path}")
     print(f"Turn scores: {turn_scores_path}")
     print(f"Drift curve CSV: {drift_curve_path}")
     print(f"Drift curve plot: {drift_plot_path}")
