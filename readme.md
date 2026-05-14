@@ -40,6 +40,89 @@ Not yet implemented:
 
 ---
 
+## Current experiment workflow
+
+The main active scripts are:
+
+```text
+scripts/run_prompting_pipeline.py
+scripts/run_rag_pipeline.py
+scripts/score_existing_transcripts.py
+scripts/export_analysis_outputs.py
+scripts/compare_condition_summaries.py
+```
+
+Older numbered scripts are development checkpoints and should not be used for the main workflow.
+
+### Run prompting
+
+```powershell
+python scripts/run_prompting_pipeline.py --config configs/prompting_usdc_ollama_judge_debug.json
+```
+
+This saves outputs to:
+
+```text
+outputs/transcripts/<experiment_name>/
+outputs/judge_scores/<experiment_name>/
+outputs/metrics/<experiment_name>_metrics.csv
+```
+
+### Run RAG
+
+```powershell
+python scripts/run_rag_pipeline.py --config configs/rag_usdc_ollama_judge_debug.json
+```
+
+This saves outputs to:
+
+```text
+outputs/transcripts/<experiment_name>/
+outputs/judge_scores/<experiment_name>/
+outputs/metrics/<experiment_name>_metrics.csv
+```
+
+### Re-score existing transcripts only
+
+Use this when only the judge logic changed:
+
+```powershell
+python scripts/score_existing_transcripts.py --config configs/rag_usdc_ollama_judge_debug.json
+```
+
+### Export analysis outputs
+
+```powershell
+python scripts/export_analysis_outputs.py --experiment-name rag_usdc_ollama_judge_debug
+```
+
+This creates:
+
+```text
+outputs/metrics/<experiment_name>_metrics.csv
+outputs/metrics/<experiment_name>_summary.csv
+outputs/metrics/<experiment_name>_turn_scores.csv
+outputs/metrics/<experiment_name>_drift_curve.csv
+outputs/plots/<experiment_name>_drift_curve.png
+```
+
+### Compare condition summaries
+
+```powershell
+python scripts/compare_condition_summaries.py --summary-paths outputs/metrics/prompting_usdc_ollama_judge_debug_summary.csv outputs/metrics/rag_usdc_ollama_judge_debug_summary.csv --output-path outputs/metrics/climate_prompting_vs_rag_summary.csv
+```
+
+### Important notes
+
+- Do not commit `outputs/`.
+- Do not commit `data/raw/`.
+- Do not commit generated USDC corpus JSON files unless explicitly intended.
+- The small debug corpus can stay tracked.
+- Use smoke/mock configs while coding.
+- Full Ollama debug runs are slow and can take 10-20 minutes.
+
+---
+
 ## Setup
 
 Create and activate a virtual environment:
