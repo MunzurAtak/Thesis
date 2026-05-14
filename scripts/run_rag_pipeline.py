@@ -20,15 +20,15 @@ def parse_args():
     parser.add_argument(
         "--transcript-dir",
         type=str,
-        default="outputs/transcripts",
-        help="Directory for debate transcripts.",
+        default=None,
+        help="Directory for debate transcripts. Defaults to outputs/transcripts/<experiment_name>.",
     )
 
     parser.add_argument(
         "--judge-score-dir",
         type=str,
-        default="outputs/judge_scores",
-        help="Directory for judged transcripts.",
+        default=None,
+        help="Directory for judged transcripts. Defaults to outputs/judge_scores/<experiment_name>.",
     )
 
     parser.add_argument(
@@ -47,11 +47,13 @@ def main():
 
     experiment_name = config["experiment_name"]
     metrics_output_path = str(Path(args.metrics_dir) / f"{experiment_name}_metrics.csv")
+    transcript_dir = args.transcript_dir or str(Path("outputs/transcripts") / experiment_name)
+    judge_score_dir = args.judge_score_dir or str(Path("outputs/judge_scores") / experiment_name)
 
     run_full_rag_debug_pipeline(
         config_path=args.config,
-        transcript_dir=args.transcript_dir,
-        judge_score_dir=args.judge_score_dir,
+        transcript_dir=transcript_dir,
+        judge_score_dir=judge_score_dir,
         metrics_dir=args.metrics_dir,
         metrics_output_path=metrics_output_path,
     )

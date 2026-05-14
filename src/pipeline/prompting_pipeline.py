@@ -30,7 +30,10 @@ def clear_csv_files(directory: str) -> None:
         file_path.unlink()
 
 
-def run_prompting_experiments(config_path: str) -> None:
+def run_prompting_experiments(
+    config_path: str,
+    output_dir_override: str | None = None,
+) -> None:
     config = load_json_config(config_path)
 
     test_llm = create_llm(config["models"]["test_agent"])
@@ -38,7 +41,7 @@ def run_prompting_experiments(config_path: str) -> None:
 
     condition = config["condition"]
     rounds = config["rounds"]
-    output_dir = config["output_dir"]
+    output_dir = output_dir_override or config["output_dir"]
 
     for topic_config in config["topics"]:
         topic_name = topic_config["name"]
@@ -248,7 +251,10 @@ def run_full_prompting_debug_pipeline(
     clear_csv_files(metrics_dir)
 
     print("\nRunning prompting debates...")
-    run_prompting_experiments(config_path)
+    run_prompting_experiments(
+        config_path=config_path,
+        output_dir_override=transcript_dir,
+    )
 
     print("\nValidating transcripts...")
     validate_transcript_directory(transcript_dir)
