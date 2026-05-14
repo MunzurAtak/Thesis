@@ -5,6 +5,7 @@ from export_turn_scores import export_turn_scores
 from export_drift_curve import export_drift_curve
 from plot_drift_curve import plot_drift_curve
 from summarize_metrics import summarize
+from src.pipeline.prompting_pipeline import compute_metrics_directory
 
 
 def parse_args():
@@ -22,8 +23,8 @@ def parse_args():
     parser.add_argument(
         "--judge-score-dir",
         type=str,
-        default="outputs/judge_scores",
-        help="Directory containing judged transcript JSON files.",
+        default=None,
+        help="Directory containing judged transcript JSON files. Defaults to outputs/judge_scores/<experiment_name>.",
     )
 
     parser.add_argument(
@@ -55,6 +56,9 @@ def main():
 
     metrics_dir = Path(args.metrics_dir)
     plots_dir = Path(args.plots_dir)
+    judge_score_dir = args.judge_score_dir or str(
+        Path("outputs/judge_scores") / args.experiment_name
+    )
 
     metrics_path = metrics_dir / f"{args.experiment_name}_metrics.csv"
     summary_path = metrics_dir / f"{args.experiment_name}_summary.csv"
@@ -64,13 +68,13 @@ def main():
 
     print("Exporting turn-level judge scores...")
     export_turn_scores(
-        input_dir=args.judge_score_dir,
+        input_dir=judge_score_dir,
         output_path=str(turn_scores_path),
     )
 
     print("\nExporting drift curve CSV...")
     export_drift_curve(
-        input_dir=args.judge_score_dir,
+        input_dir=judge_score_dir,
         output_path=str(drift_curve_path),
         speaker=args.speaker,
     )
@@ -79,6 +83,12 @@ def main():
     plot_drift_curve(
         input_path=str(drift_curve_path),
         output_path=str(drift_plot_path),
+    )
+
+    print("\nComputing metrics CSV...")
+    compute_metrics_directory(
+        input_dir=judge_score_dir,
+        output_path=str(metrics_path),
     )
 
     print("\nExporting metrics summary...")
