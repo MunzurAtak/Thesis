@@ -103,8 +103,15 @@ def parse_args():
     parser.add_argument(
         "--input-dir",
         type=str,
-        default="outputs/judge_scores",
-        help="Directory containing judged transcript JSON files.",
+        default=None,
+        help="Directory containing judged transcript JSON files. Defaults to outputs/judge_scores/<experiment_name> if --experiment-name is given.",
+    )
+
+    parser.add_argument(
+        "--experiment-name",
+        type=str,
+        default=None,
+        help="Experiment name used to derive input/output paths when not explicitly provided.",
     )
 
     parser.add_argument(
@@ -119,8 +126,15 @@ def parse_args():
 
 def main():
     args = parse_args()
+    input_dir = args.input_dir
+
+    if input_dir is None:
+        if args.experiment_name is None:
+            raise ValueError("Either --input-dir or --experiment-name must be provided.")
+        input_dir = str(Path("outputs/judge_scores") / args.experiment_name)
+
     export_turn_scores(
-        input_dir=args.input_dir,
+        input_dir=input_dir,
         output_path=args.output_path,
     )
 
