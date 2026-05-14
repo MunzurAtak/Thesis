@@ -70,18 +70,16 @@ Your assigned stance score:
 Stance meaning:
 {stance_instruction}
 
-Private background material:
+Private stance-consistent background information:
 {retrieved_context}
 
-How to use the retrieved passages:
-Use the retrieved passages only as private background support for your argument.
-Do not copy them word-for-word.
-Do not mention that retrieval was used.
-Do not cite the passages explicitly.
-Do not refer to "passages", "retrieved passages", "sources", "context", "evidence above", or numbered passages.
-Do not say phrases like "Passage 1 shows", "Passage 2 argues", or "the retrieved context suggests".
-Integrate the ideas naturally into your own argument as if they are your own reasoning.
-Use them only to strengthen your assigned stance.
+How to use the private background information:
+Use the background information only as private support for your argument.
+Do not copy it word-for-word.
+Do not mention that retrieval, background information, context, sources, or passages were used.
+Do not refer to numbered passages, bullet points, sources, or background notes.
+Do not say phrases like "Passage 1", "the retrieved context", "the background information", or "the source says".
+Integrate useful ideas naturally into your own argument.
 
 Core instruction:
 You must preserve your assigned stance throughout the entire debate.

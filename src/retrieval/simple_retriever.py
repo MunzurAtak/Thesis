@@ -75,7 +75,12 @@ class SimpleStanceRetriever:
         if not passages:
             return "No additional private background is available."
 
-        return "\n\n".join(passage["text"] for passage in passages)
+        lines = []
+
+        for passage in passages:
+            lines.append(f"- {passage['text']}")
+
+        return "\n\n".join(lines)
 
     @staticmethod
     def _tokenize(text: str) -> set[str]:
