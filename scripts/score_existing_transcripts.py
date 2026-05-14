@@ -23,15 +23,21 @@ def parse_args():
     parser.add_argument(
         "--input-dir",
         type=str,
-        default="outputs/transcripts",
-        help="Directory containing existing transcript JSON files.",
+        default=None,
+        help=(
+            "Directory containing existing transcript JSON files. "
+            "Defaults to outputs/transcripts/<experiment_name>."
+        ),
     )
 
     parser.add_argument(
         "--judge-score-dir",
         type=str,
-        default="outputs/judge_scores",
-        help="Directory where judged transcripts will be saved.",
+        default=None,
+        help=(
+            "Directory where judged transcripts will be saved. "
+            "Defaults to outputs/judge_scores/<experiment_name>."
+        ),
     )
 
     parser.add_argument(
@@ -51,22 +57,27 @@ def main():
     experiment_name = config["experiment_name"]
     judge_config = config["models"]["judge"]
 
+    input_dir = args.input_dir or str(Path("outputs/transcripts") / experiment_name)
+    judge_score_dir = args.judge_score_dir or str(
+        Path("outputs/judge_scores") / experiment_name
+    )
     metrics_output_path = str(Path(args.metrics_dir) / f"{experiment_name}_metrics.csv")
 
     score_transcript_directory(
-        input_dir=args.input_dir,
-        output_dir=args.judge_score_dir,
+        input_dir=input_dir,
+        output_dir=judge_score_dir,
         judge_config=judge_config,
     )
 
     compute_metrics_directory(
-        input_dir=args.judge_score_dir,
+        input_dir=judge_score_dir,
         output_path=metrics_output_path,
     )
 
 
 if __name__ == "__main__":
     import time
+
     _t0 = time.time()
     main()
     print(f"\nCompleted in {time.time() - _t0:.1f}s")
