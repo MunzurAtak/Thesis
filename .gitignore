@@ -8,6 +8,7 @@ data/processed/
 data/rag_indices/
 data/rag_corpus/usdc_rag_corpus.json
 data/rag_corpus/usdc_selected_rag_corpus.json
+data/rag_indexes/
 
 adapters/
 models/
