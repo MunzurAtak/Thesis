@@ -22,14 +22,6 @@ def clear_json_files(directory: str) -> None:
         file_path.unlink()
 
 
-def clear_csv_files(directory: str) -> None:
-    path = Path(directory)
-    path.mkdir(parents=True, exist_ok=True)
-
-    for file_path in path.glob("*.csv"):
-        file_path.unlink()
-
-
 def run_prompting_experiments(
     config_path: str,
     output_dir_override: str | None = None,
@@ -248,7 +240,6 @@ def run_full_prompting_debug_pipeline(
     print("Clearing old debug outputs...")
     clear_json_files(transcript_dir)
     clear_json_files(judge_score_dir)
-    clear_csv_files(metrics_dir)
 
     print("\nRunning prompting debates...")
     run_prompting_experiments(

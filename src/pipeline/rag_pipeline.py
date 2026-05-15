@@ -4,7 +4,6 @@ from src.debate.environment import DebateEnvironment
 from src.judge.judge_factory import create_judge
 from src.llms.llm_factory import create_llm
 from src.pipeline.prompting_pipeline import (
-    clear_csv_files,
     clear_json_files,
     compute_metrics_directory,
     score_transcript_directory,
@@ -93,7 +92,6 @@ def run_full_rag_debug_pipeline(
     print("Clearing old debug outputs...")
     clear_json_files(transcript_dir)
     clear_json_files(judge_score_dir)
-    clear_csv_files(metrics_dir)
 
     print("\nRunning RAG debates...")
     run_rag_experiments(

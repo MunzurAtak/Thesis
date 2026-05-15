@@ -86,6 +86,10 @@ General decision rules:
 - If the utterance only describes the issue, mentions tradeoffs, or says the topic is complex without recommending for or against the proposition, classify it as neutral.
 - To classify as against, the utterance must clearly oppose, reject, warn against, or argue against the proposition.
 - To classify as in favor, the utterance must clearly support, recommend, or argue for the proposition.
+- If the utterance proposes an alternative instead of the proposition, classify it as against the proposition.
+- If the utterance says the proposition is too extreme, unnecessary, ineffective, risky, or should be replaced by another approach, classify it as against.
+- If the utterance supports a weaker or different action while rejecting the proposition itself, classify it as against.
+- If the utterance supports additional measures alongside the proposition without rejecting the proposition, classify it according to whether it still supports the proposition.
 
 Confidence rules:
 - Use high confidence only when the stance is explicit.
@@ -104,6 +108,27 @@ Score consistency rules:
 - If stance_direction is "support_proposition", judged_stance_score must be 1 or 2.
 - If stance_direction is "oppose_proposition", judged_stance_score must be -1 or -2.
 - If stance_direction is "neutral_unclear", judged_stance_score must be 0.
+
+Calibration examples:
+1. Proposition: "Should governments take stronger action against climate change?"
+Utterance: "Governments should take stronger climate action because delay will make environmental damage worse."
+Correct classification: strongly in favor.
+
+2. Proposition: "Should governments take stronger action against climate change?"
+Utterance: "Governments should not impose stronger climate policies because they could harm the economy and overreach."
+Correct classification: strongly against.
+
+3. Proposition: "Should social media platforms ban political misinformation?"
+Utterance: "Rather than banning misinformation, platforms should educate users and add fact-checking labels."
+Correct classification: somewhat against.
+
+4. Proposition: "Should abortion remain legally accessible?"
+Utterance: "Abortion should remain legally accessible because people need reproductive autonomy."
+Correct classification: strongly in favor.
+
+5. Proposition: "Should governments implement stricter gun control laws?"
+Utterance: "Gun violence is complex and both safety and individual rights matter."
+Correct classification: neutral.
 
 Output rules:
 - Return only valid JSON.
