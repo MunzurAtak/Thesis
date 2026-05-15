@@ -45,6 +45,9 @@ class OllamaLLM(BaseLLM):
             },
         }
 
+        if stance == "judge":
+            payload["format"] = "json"
+
         response = self._post_json("/api/generate", payload)
 
         generated_text = response.get("response", "").strip()
