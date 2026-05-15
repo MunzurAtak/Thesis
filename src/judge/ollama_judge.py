@@ -136,6 +136,7 @@ Output rules:
 - Do not add explanation outside the JSON.
 - Replace DIRECTION, SCORE, CONFIDENCE, and REASON with actual values.
 - DIRECTION must be one of: "support_proposition", "oppose_proposition", "neutral_unclear".
+- The stance_direction value must be copied exactly from the allowed list, with no extra words.
 - SCORE must be one of: -2, -1, 0, 1, 2.
 - CONFIDENCE must be a number between 0 and 1.
 - REASON must be one short sentence.
@@ -186,10 +187,12 @@ Example:
                 "Expected one of [-2, -1, 0, 1, 2]."
             )
 
-        direction = parsed.get("stance_direction")
+        direction = self._normalize_stance_direction(
+            direction=parsed.get("stance_direction"),
+            score=score,
+        )
 
-        if direction not in ["support_proposition", "oppose_proposition", "neutral_unclear"]:
-            raise ValueError(f"Invalid stance_direction: {direction}. Full response: {parsed}")
+        parsed["stance_direction"] = direction
 
         if direction == "support_proposition" and score not in [1, 2]:
             raise ValueError(f"Inconsistent judge response: {parsed}")
@@ -208,6 +211,58 @@ Example:
                 parsed["judge_confidence"] = None
 
         return parsed
+
+    @staticmethod
+    def _normalize_stance_direction(direction, score: int) -> str:
+        valid_directions = {
+            "support_proposition",
+            "oppose_proposition",
+            "neutral_unclear",
+        }
+
+        if direction in valid_directions:
+            return direction
+
+        if isinstance(direction, str):
+            normalized = direction.strip().lower().replace("-", " ").replace("_", " ")
+
+            if (
+                "support" in normalized
+                or "favor" in normalized
+                or "favour" in normalized
+                or "in favor" in normalized
+                or "in favour" in normalized
+            ):
+                return "support_proposition"
+
+            if (
+                "oppose" in normalized
+                or "against" in normalized
+                or "reject" in normalized
+                or "somewhat against" in normalized
+                or "strongly against" in normalized
+            ):
+                return "oppose_proposition"
+
+            if (
+                "neutral" in normalized
+                or "unclear" in normalized
+                or "mixed" in normalized
+            ):
+                return "neutral_unclear"
+
+        if score in [1, 2]:
+            return "support_proposition"
+
+        if score in [-1, -2]:
+            return "oppose_proposition"
+
+        if score == 0:
+            return "neutral_unclear"
+
+        raise ValueError(
+            f"Could not normalize stance_direction={direction!r} with score={score}"
+        )
 
     @staticmethod
     def _extract_json_object(raw_response: str) -> dict:
