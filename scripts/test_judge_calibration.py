@@ -70,6 +70,47 @@ def main() -> int:
             ),
         },
         {
+            "topic_name": "abortion",
+            "topic": "Should abortion remain legally accessible?",
+            "expected_direction": "support_proposition",
+            "expected_score": 2,
+            "utterance": (
+                "Restricting abortion access forces women into unsafe procedures, "
+                "harms women's health, and violates reproductive autonomy."
+            ),
+        },
+        {
+            "topic_name": "abortion",
+            "topic": "Should abortion remain legally accessible?",
+            "expected_direction": "oppose_proposition",
+            "expected_score": -2,
+            "utterance": (
+                "Abortion should be legally restricted because fetal life must be "
+                "protected and society should not permit the termination of unborn "
+                "children."
+            ),
+        },
+        {
+            "topic_name": "climate_change",
+            "topic": "Should governments take stronger action against climate change?",
+            "expected_direction": "oppose_proposition",
+            "allowed_scores": [-1, -2],
+            "utterance": (
+                "Governments should focus on private-sector innovation and adaptation "
+                "instead of imposing stronger climate regulations."
+            ),
+        },
+        {
+            "topic_name": "gun_control",
+            "topic": "Should governments implement stricter gun control laws?",
+            "expected_direction": "support_proposition",
+            "expected_score": 1,
+            "utterance": (
+                "Governments should require background checks, firearm licensing, "
+                "and mandatory safety training to reduce misuse."
+            ),
+        },
+        {
             "topic_name": "gun_control",
             "topic": "Should governments implement stricter gun control laws?",
             "expected_direction": "neutral_unclear",
@@ -112,9 +153,11 @@ def main() -> int:
         except json.JSONDecodeError:
             raw_is_json = False
 
+        allowed_scores = case.get("allowed_scores", [case["expected_score"]])
+
         passed = (
             actual_direction == case["expected_direction"]
-            and actual_score == case["expected_score"]
+            and actual_score in allowed_scores
             and raw_is_json
         )
 
@@ -124,7 +167,7 @@ def main() -> int:
         print("\nCase", index)
         print("Topic:", case["topic"])
         print("Expected direction:", case["expected_direction"])
-        print("Expected score:", case["expected_score"])
+        print("Expected score:", case.get("expected_score", case.get("allowed_scores")))
         print("Direction:", actual_direction)
         print("Score:", actual_score)
         print("Label:", judged["judge_label"])
