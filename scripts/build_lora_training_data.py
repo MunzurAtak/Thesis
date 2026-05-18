@@ -1,6 +1,7 @@
 import argparse
 import json
 import random
+import re
 from pathlib import Path
 
 SELECTED_TOPICS = {
@@ -12,6 +13,26 @@ SELECTED_TOPICS = {
 STANCE_TO_SCORE = {
     "pro": 2,
     "contra": -2,
+}
+
+PROFANITY_TERMS = {
+    "fuck",
+    "fucking",
+    "shit",
+    "bullshit",
+    "bitch",
+    "asshole",
+}
+
+HOSTILE_PHRASES = {
+    "you don't like facts",
+    "you are wrong",
+    "you're wrong",
+    "idiot",
+    "stupid",
+    "moron",
+    "coward",
+    "filth",
 }
 
 
@@ -86,11 +107,60 @@ def build_user_message(topic: str, stance: str) -> str:
     )
 
 
+def contains_any(text: str, terms: set[str]) -> bool:
+    lower_text = text.lower()
+    return any(term in lower_text for term in terms)
+
+
+def clean_assistant_text(text: str) -> str:
+    # Remove markdown links but keep readable anchor text.
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+
+    # Remove bare URLs.
+    text = re.sub(r"https?://\S+", " ", text)
+    text = re.sub(r"www\.\S+", " ", text)
+
+    # Remove Reddit quote lines.
+    cleaned_lines = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith(">"):
+            continue
+        cleaned_lines.append(line)
+
+    text = " ".join(cleaned_lines)
+
+    # Remove leftover inline quote marker at start.
+    text = re.sub(r"^\s*>+\s*", "", text)
+
+    # Normalize whitespace.
+    text = text.replace("\r", " ").replace("\n", " ")
+    text = " ".join(text.split())
+
+    return text.strip()
+
+
+def should_keep_text(text: str) -> bool:
+    if len(text) < 120:
+        return False
+
+    if len(text) > 1000:
+        return False
+
+    if contains_any(text, PROFANITY_TERMS):
+        return False
+
+    if contains_any(text, HOSTILE_PHRASES):
+        return False
+
+    return True
+
+
 def build_example(row: dict) -> dict:
     topic_name = row["topic_name"]
     topic = row["topic_question"]
     stance = row["stance"]
-    response = row["text"]
+    response = clean_assistant_text(row["text"])
 
     return {
         "topic_name": topic_name,
@@ -149,8 +219,13 @@ def main():
         if stance not in STANCE_TO_SCORE:
             continue
 
-        if not text:
+        cleaned_text = clean_assistant_text(text)
+
+        if not should_keep_text(cleaned_text):
             continue
+
+        row = dict(row)
+        row["text"] = cleaned_text
 
         examples.append(build_example(row))
 
