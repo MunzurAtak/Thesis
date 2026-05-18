@@ -1,0 +1,196 @@
+import argparse
+import json
+import random
+from pathlib import Path
+
+SELECTED_TOPICS = {
+    "climate_change",
+    "abortion",
+    "gun_control",
+}
+
+STANCE_TO_SCORE = {
+    "pro": 2,
+    "contra": -2,
+}
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Build LoRA supervised fine-tuning data from the selected USDC RAG corpus."
+    )
+
+    parser.add_argument(
+        "--input-path",
+        type=str,
+        default="data/rag_corpus/usdc_selected_rag_corpus.json",
+        help="Path to selected USDC corpus JSON.",
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default="data/lora_training",
+        help="Output directory for LoRA train/validation JSONL files.",
+    )
+
+    parser.add_argument(
+        "--train-output-name",
+        type=str,
+        default="usdc_3topics_lora_train.jsonl",
+        help="Train JSONL filename.",
+    )
+
+    parser.add_argument(
+        "--val-output-name",
+        type=str,
+        default="usdc_3topics_lora_val.jsonl",
+        help="Validation JSONL filename.",
+    )
+
+    parser.add_argument(
+        "--val-ratio",
+        type=float,
+        default=0.1,
+        help="Validation split ratio.",
+    )
+
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed.",
+    )
+
+    return parser.parse_args()
+
+
+def build_system_message(stance: str) -> str:
+    return (
+        "You are a debate agent in a controlled thesis experiment. "
+        f"You must consistently argue from the assigned {stance} stance. "
+        "Do not switch sides. Do not say that you are neutral. "
+        "Give a clear, concise argument that supports your assigned stance."
+    )
+
+
+def build_user_message(topic: str, stance: str) -> str:
+    stance_description = (
+        "in favor of the proposition" if stance == "pro" else "against the proposition"
+    )
+
+    return (
+        f"Topic / proposition: {topic}\n\n"
+        f"Assigned stance: {stance} ({stance_description}).\n\n"
+        "Write one debate argument that is consistent with the assigned stance."
+    )
+
+
+def build_example(row: dict) -> dict:
+    topic_name = row["topic_name"]
+    topic = row["topic_question"]
+    stance = row["stance"]
+    response = row["text"]
+
+    return {
+        "topic_name": topic_name,
+        "topic": topic,
+        "stance": stance,
+        "stance_score": STANCE_TO_SCORE[stance],
+        "source": row.get("source", "usdc"),
+        "original_label": row.get("original_label"),
+        "messages": [
+            {
+                "role": "system",
+                "content": build_system_message(stance),
+            },
+            {
+                "role": "user",
+                "content": build_user_message(topic, stance),
+            },
+            {
+                "role": "assistant",
+                "content": response,
+            },
+        ],
+    }
+
+
+def write_jsonl(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with path.open("w", encoding="utf-8") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def main():
+    args = parse_args()
+    random.seed(args.seed)
+
+    input_path = Path(args.input_path)
+
+    if not input_path.exists():
+        raise FileNotFoundError(f"Input corpus not found: {input_path}")
+
+    with input_path.open("r", encoding="utf-8") as f:
+        corpus = json.load(f)
+
+    examples = []
+
+    for row in corpus:
+        topic_name = row.get("topic_name")
+        stance = row.get("stance")
+        text = row.get("text", "").strip()
+
+        if topic_name not in SELECTED_TOPICS:
+            continue
+
+        if stance not in STANCE_TO_SCORE:
+            continue
+
+        if not text:
+            continue
+
+        examples.append(build_example(row))
+
+    if not examples:
+        raise ValueError("No LoRA examples were created.")
+
+    random.shuffle(examples)
+
+    val_size = max(1, int(len(examples) * args.val_ratio))
+    val_examples = examples[:val_size]
+    train_examples = examples[val_size:]
+
+    output_dir = Path(args.output_dir)
+    train_path = output_dir / args.train_output_name
+    val_path = output_dir / args.val_output_name
+
+    write_jsonl(train_path, train_examples)
+    write_jsonl(val_path, val_examples)
+
+    print(f"Saved train data to: {train_path}")
+    print(f"Saved validation data to: {val_path}")
+    print(f"Train examples: {len(train_examples)}")
+    print(f"Validation examples: {len(val_examples)}")
+    print(f"Total examples: {len(examples)}")
+
+    print("\nExamples by topic and stance:")
+    counts = {}
+
+    for example in examples:
+        key = (example["topic_name"], example["stance"])
+        counts[key] = counts.get(key, 0) + 1
+
+    for key in sorted(counts):
+        topic_name, stance = key
+        print(f"- {topic_name} / {stance}: {counts[key]}")
+
+
+if __name__ == "__main__":
+    import time
+
+    start_time = time.time()
+    main()
+    print(f"\nCompleted in {time.time() - start_time:.1f}s")
