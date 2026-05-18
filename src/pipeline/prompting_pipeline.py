@@ -108,7 +108,12 @@ def validate_transcript_directory(input_dir: str) -> None:
 
 
 def score_transcript_directory(
-    input_dir: str, output_dir: str, judge_config: dict | None = None
+    input_dir: str,
+    output_dir: str,
+    judge_config: dict | None = None,
+    skip_existing: bool = False,
+    max_transcripts: int | None = None,
+    max_turns: int | None = None,
 ) -> None:
     transcript_dir = Path(input_dir)
 
@@ -116,6 +121,9 @@ def score_transcript_directory(
         raise FileNotFoundError(f"Transcript directory not found: {input_dir}")
 
     transcript_files = sorted(transcript_dir.glob("*.json"))
+
+    if max_transcripts is not None:
+        transcript_files = transcript_files[:max_transcripts]
 
     if not transcript_files:
         raise FileNotFoundError(f"No transcript JSON files found in: {input_dir}")
@@ -131,9 +139,21 @@ def score_transcript_directory(
 
         validate_transcript(transcript)
 
+        output_path = Path(output_dir) / f"{transcript['debate_id']}_judged.json"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        if skip_existing and output_path.exists():
+            print(f"Skipping existing judged transcript: {output_path}")
+            continue
+
+        turns_to_judge = transcript["turns"]
+
+        if max_turns is not None:
+            turns_to_judge = turns_to_judge[:max_turns]
+
         judged_turns = [
             judge.judge_turn(transcript=transcript, turn=turn)
-            for turn in transcript["turns"]
+            for turn in turns_to_judge
         ]
 
         judged_transcript = {
@@ -152,9 +172,6 @@ def score_transcript_directory(
             "judge_llm": judge_metadata(judge),
             "judged_turns": judged_turns,
         }
-
-        output_path = Path(output_dir) / f"{judged_transcript['debate_id']}_judged.json"
-        output_path.parent.mkdir(parents=True, exist_ok=True)
 
         with output_path.open("w", encoding="utf-8") as f:
             json.dump(judged_transcript, f, indent=2, ensure_ascii=False)
