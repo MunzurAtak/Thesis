@@ -35,6 +35,71 @@ HOSTILE_PHRASES = {
     "filth",
 }
 
+TOPIC_KEYWORDS = {
+    "abortion": {
+        "abortion", "abortions", "pregnancy", "pregnant", "fetus", "foetus",
+        "unborn", "reproductive", "bodily autonomy", "pro-choice",
+        "pro-life", "roe", "wade", "viability", "mother", "womb"
+    },
+    "climate_change": {
+        "climate", "warming", "emissions", "carbon", "co2", "greenhouse",
+        "renewable", "fossil", "temperature", "environment", "ipcc",
+        "sea level", "mitigation", "adaptation", "energy"
+    },
+    "gun_control": {
+        "gun", "guns", "firearm", "firearms", "weapon", "weapons",
+        "rifle", "pistol", "handgun", "background check", "licensing",
+        "second amendment", "self defense", "nra", "magazine", "shooting",
+        "shooter", "ammo", "ammunition", "red flag"
+    },
+}
+
+UNRELATED_TOPIC_TERMS = {
+    "abortion": {
+        "gun", "guns", "firearm", "firearms", "second amendment", "nra"
+    },
+    "climate_change": {
+        "abortion", "pregnancy", "fetus", "gun", "firearm", "second amendment"
+    },
+    "gun_control": {
+        "abortion", "pregnancy", "pregnant", "fetus", "unborn", "sperm", "egg cells",
+        "roe v wade", "reproductive"
+    },
+}
+
+STANCE_KEYWORDS = {
+    ("abortion", "pro"): {
+        "legal access", "legally accessible", "bodily autonomy", "reproductive autonomy",
+        "right to choose", "safe abortion", "unsafe abortion", "women's health",
+        "should remain legal", "should be legal"
+    },
+    ("abortion", "contra"): {
+        "unborn", "fetal life", "foetal life", "life begins", "pro-life",
+        "sanctity of life", "should be restricted", "should be illegal",
+        "should not be legal", "murder"
+    },
+    ("climate_change", "pro"): {
+        "stronger action", "government action", "emission reduction", "reduce emissions",
+        "carbon pricing", "renewable energy", "climate policy", "regulation",
+        "mitigation", "greenhouse gas"
+    },
+    ("climate_change", "contra"): {
+        "adaptation", "private sector", "market-based", "too costly", "overreach",
+        "premature", "natural cycles", "not proven", "economic harm",
+        "against regulation"
+    },
+    ("gun_control", "pro"): {
+        "stricter gun control", "background checks", "background check", "licensing",
+        "waiting period", "magazine limit", "red flag", "assault weapon",
+        "reduce gun violence", "firearm regulation", "public safety"
+    },
+    ("gun_control", "contra"): {
+        "second amendment", "self defense", "self-defense", "gun rights",
+        "law-abiding", "law abiding", "constitutional right", "infringe",
+        "black market", "criminals will", "enforce existing laws"
+    },
+}
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -156,6 +221,38 @@ def should_keep_text(text: str) -> bool:
     return True
 
 
+def contains_topic_keyword(text: str, topic_name: str) -> bool:
+    lower_text = text.lower()
+    return any(keyword in lower_text for keyword in TOPIC_KEYWORDS[topic_name])
+
+
+def contains_unrelated_topic_terms(text: str, topic_name: str) -> bool:
+    lower_text = text.lower()
+    return any(term in lower_text for term in UNRELATED_TOPIC_TERMS[topic_name])
+
+
+def contains_stance_keyword(text: str, topic_name: str, stance: str) -> bool:
+    lower_text = text.lower()
+    keywords = STANCE_KEYWORDS[(topic_name, stance)]
+    return any(keyword in lower_text for keyword in keywords)
+
+
+def should_keep_example(text: str, topic_name: str, stance: str) -> bool:
+    if not should_keep_text(text):
+        return False
+
+    if not contains_topic_keyword(text, topic_name):
+        return False
+
+    if contains_unrelated_topic_terms(text, topic_name):
+        return False
+
+    if not contains_stance_keyword(text, topic_name, stance):
+        return False
+
+    return True
+
+
 def build_example(row: dict) -> dict:
     topic_name = row["topic_name"]
     topic = row["topic_question"]
@@ -221,7 +318,7 @@ def main():
 
         cleaned_text = clean_assistant_text(text)
 
-        if not should_keep_text(cleaned_text):
+        if not should_keep_example(cleaned_text, topic_name, stance):
             continue
 
         row = dict(row)
