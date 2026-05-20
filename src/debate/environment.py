@@ -132,14 +132,19 @@ class DebateEnvironment:
         sentences = re.split(r"(?<=[.!?])\s+", cleaned)
         kept_sentences = []
 
-        meta_starts = (
-            "you are ",
+        meta_markers = (
+            "you are a helpful assistant",
+            "you are an ai assistant",
             "your task",
             "the task",
-            "do not ",
-            "write your",
+            "do not write",
+            "write your next",
             "continue the debate",
+            "to continue the debate",
             "in the context of a debate",
+            "assigned stance",
+            "provide your next argument",
+            "focus on how",
         )
 
         for sentence in sentences:
@@ -149,7 +154,7 @@ class DebateEnvironment:
 
             lower = stripped.lower()
 
-            if lower.startswith(meta_starts):
+            if any(marker in lower for marker in meta_markers):
                 break
 
             kept_sentences.append(stripped)
