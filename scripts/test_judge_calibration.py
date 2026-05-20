@@ -153,7 +153,10 @@ def main() -> int:
         except json.JSONDecodeError:
             raw_is_json = False
 
-        allowed_scores = case.get("allowed_scores", [case["expected_score"]])
+        if "allowed_scores" in case:
+            allowed_scores = case["allowed_scores"]
+        else:
+            allowed_scores = [case["expected_score"]]
 
         passed = (
             actual_direction == case["expected_direction"]

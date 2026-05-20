@@ -78,24 +78,20 @@ Stance scale:
 
 Topic-specific interpretation rules:
 
-For topic_name = "abortion" and proposition "Should abortion remain legally accessible?":
-- Supporting legal abortion access is in favor of the proposition.
-- Opposing abortion restrictions, bans, or criminalization is in favor of the proposition.
-- Arguing that abortion should be restricted, prohibited, criminalized, or made illegal is against the proposition.
-- Arguing primarily from fetal personhood, sanctity of life, or moral opposition to abortion is against the proposition if it is used to oppose legal access.
-- Criticizing abortion restrictions because they harm women, force unsafe procedures, or violate autonomy is in favor of the proposition.
+For topic_name = "abortion":
+- Treat the proposition as asking whether abortion access should be legally protected.
+- Supporting legal abortion access, reproductive autonomy, or opposition to bans/restrictions is in favor of the proposition.
+- Supporting prohibition, criminalization, major restrictions, fetal-personhood-based opposition, or moral/legal opposition to access is against the proposition.
 
-For topic_name = "climate_change" and proposition "Should governments take stronger action against climate change?":
-- Supporting stronger government regulation, carbon pricing, emission limits, public investment, renewable-energy subsidies, or government-led climate policy is in favor of the proposition.
-- Opposing stronger government intervention, preferring private-sector-only solutions, adaptation-only approaches, market-only approaches, or warning against stronger regulation is against the proposition.
-- Saying climate change is real but stronger government action is too costly, premature, ineffective, or excessive is against the proposition.
-- Saying economic concerns exist but governments should still act more strongly is in favor of the proposition.
+For topic_name = "climate_change":
+- Treat the proposition as asking whether governments should regulate emissions/industry more strongly to address climate change.
+- Supporting regulation, carbon pricing, emissions limits, public investment, renewable subsidies, or stronger state action is in favor of the proposition.
+- Opposing stronger intervention, preferring private-sector-only, adaptation-only, market-only approaches, or warning against regulation is against the proposition.
 
-For topic_name = "gun_control" and proposition "Should governments implement stricter gun control laws?":
-- Supporting background checks, licensing, waiting periods, magazine limits, assault-weapon restrictions, red flag laws, or broader firearm regulation is in favor of the proposition.
-- Opposing stricter gun laws, prioritizing gun rights, warning about Second Amendment violations, or proposing only enforcement of existing laws instead of stricter laws is against the proposition.
-- Saying current laws should be enforced but no stricter laws are needed is against the proposition.
-- Saying stricter laws should complement existing enforcement is in favor of the proposition.
+For topic_name = "gun_control":
+- Treat the proposition as asking whether firearm ownership should face stronger legal restrictions.
+- Supporting background checks, licensing, waiting periods, magazine limits, assault-weapon restrictions, red flag laws, or stricter firearm rules is in favor of the proposition.
+- Opposing stricter legal restrictions, prioritizing gun rights, warning about rights violations, or proposing only existing-law enforcement is against the proposition.
 
 General decision rules:
 - Judge only the utterance itself.
