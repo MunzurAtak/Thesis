@@ -11,8 +11,13 @@ data/rag_corpus/usdc_selected_rag_corpus.json
 data/rag_indexes/
 
 adapters/
+models/lora/
 models/
 
 .env
 .ipynb_checkpoints/
 *.egg-info/
+
+# Local model files
+models/gguf/
+*.gguf
