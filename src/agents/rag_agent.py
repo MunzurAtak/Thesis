@@ -7,6 +7,9 @@ class RAGAgent(DebateAgent):
 
     This agent retrieves stance-consistent passages for the assigned topic and
     stance, then injects them into the prompt before generating a debate turn.
+
+    To avoid evaluation leakage, retrieved passages that contain the exact
+    evaluation/debate question are removed before being shown to the agent.
     """
 
     def __init__(
@@ -38,17 +41,26 @@ class RAGAgent(DebateAgent):
             debate_history=debate_history,
         )
 
-        passages = self.retriever.retrieve(
+        raw_passages = self.retriever.retrieve(
             topic_name=self.topic_name,
             stance=self.stance,
             query=retrieval_query,
         )
+
+        passages, removed_leakage_count = self._remove_exact_question_leakage(
+            passages=raw_passages,
+            eval_question=topic,
+        )
+
         retrieved_context = self.retriever.format_passages(passages)
 
         self.last_retrieval = {
             "topic_name": self.topic_name,
             "stance": self.stance,
             "top_k": self.retriever.top_k,
+            "query": retrieval_query,
+            "eval_question": topic,
+            "removed_exact_eval_question_leakage_count": removed_leakage_count,
             "retrieved_passages": passages,
         }
 
@@ -134,6 +146,32 @@ Write your next debate turn now.
         latest_utterance = latest_turn.get("utterance", "")
 
         return f"{topic}\n{latest_utterance}"
+
+    @staticmethod
+    def _normalize_for_leakage_check(text: str) -> str:
+        return " ".join(text.lower().strip().split())
+
+    def _remove_exact_question_leakage(
+        self,
+        passages: list[dict],
+        eval_question: str,
+    ) -> tuple[list[dict], int]:
+        normalized_eval_question = self._normalize_for_leakage_check(eval_question)
+
+        filtered_passages = []
+        removed_count = 0
+
+        for passage in passages:
+            passage_text = passage.get("text", "")
+            normalized_passage_text = self._normalize_for_leakage_check(passage_text)
+
+            if normalized_eval_question and normalized_eval_question in normalized_passage_text:
+                removed_count += 1
+                continue
+
+            filtered_passages.append(passage)
+
+        return filtered_passages, removed_count
 
     def _stance_instruction(self, topic: str) -> str:
         if self.stance == "pro":

@@ -21,3 +21,14 @@ models/
 # Local model files
 models/gguf/
 *.gguf
+
+# Generated / local files
+outputs/
+models/
+*.gguf
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+project_files_clean.txt
+project_files_tracked.txt
