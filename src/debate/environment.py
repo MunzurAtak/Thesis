@@ -132,6 +132,16 @@ class DebateEnvironment:
         sentences = re.split(r"(?<=[.!?])\s+", cleaned)
         kept_sentences = []
 
+        leading_preamble_markers = (
+            "the opponent's last argument was not provided",
+            "the opponent has not provided",
+            "since no opponent argument was provided",
+            "i will start with",
+            "i'll start with",
+            "here is a strong opening statement",
+            "strong opening statement",
+        )
+
         meta_markers = (
             "you are a helpful assistant",
             "you are an ai assistant",
@@ -154,8 +164,13 @@ class DebateEnvironment:
 
             lower = stripped.lower()
 
+            if any(marker in lower for marker in leading_preamble_markers):
+                continue
+
             if any(marker in lower for marker in meta_markers):
-                break
+                if kept_sentences:
+                    break
+                continue
 
             kept_sentences.append(stripped)
 
@@ -163,6 +178,10 @@ class DebateEnvironment:
                 break
 
         cleaned = " ".join(kept_sentences).strip()
+
+        if not cleaned:
+            cleaned = text.replace("\r\n", "\n").strip()
+            cleaned = re.split(r"\n\s*\n", cleaned, maxsplit=1)[0].strip()
 
         # Hard word cap as a final safety measure.
         words = cleaned.split()
