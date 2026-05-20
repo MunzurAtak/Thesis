@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 from src.debate.transcript_schema import validate_transcript
@@ -41,6 +42,7 @@ class DebateEnvironment:
                 debate_history=debate_history,
                 round_number=round_number,
             )
+            test_utterance = self._clean_debate_utterance(test_utterance)
 
             test_turn = {
                 "round": round_number,
@@ -62,6 +64,7 @@ class DebateEnvironment:
                 debate_history=debate_history,
                 round_number=round_number,
             )
+            adversary_utterance = self._clean_debate_utterance(adversary_utterance)
 
             debate_history.append(
                 {
@@ -96,6 +99,76 @@ class DebateEnvironment:
         validate_transcript(transcript)
         self._save_transcript(transcript)
         return transcript
+
+    @staticmethod
+    def _clean_debate_utterance(text: str) -> str:
+        """
+        Normalize generated debate turns before they are saved or reused.
+
+        This prevents model-generated prompt leakage, repeated second answers,
+        and meta-instruction text from entering transcripts. It is applied
+        uniformly to test-agent and adversary turns across all conditions.
+        """
+        if not text:
+            return ""
+
+        cleaned = text.replace("\r\n", "\n").strip()
+
+        # Keep only the first paragraph. Debate turns are intended to be concise.
+        cleaned = re.split(r"\n\s*\n", cleaned, maxsplit=1)[0].strip()
+
+        # Remove common generated speaker labels.
+        cleaned = re.sub(
+            r"^(test agent|adversary|opponent|assistant|pro|contra)\s*:\s*",
+            "",
+            cleaned,
+            flags=re.IGNORECASE,
+        ).strip()
+
+        # Remove code fence markers if a model accidentally emits them.
+        cleaned = cleaned.replace("```", "").strip()
+
+        # Split into sentences and drop generic meta-instruction continuations.
+        sentences = re.split(r"(?<=[.!?])\s+", cleaned)
+        kept_sentences = []
+
+        meta_starts = (
+            "you are ",
+            "your task",
+            "the task",
+            "do not ",
+            "write your",
+            "continue the debate",
+            "in the context of a debate",
+        )
+
+        for sentence in sentences:
+            stripped = sentence.strip()
+            if not stripped:
+                continue
+
+            lower = stripped.lower()
+
+            if lower.startswith(meta_starts):
+                break
+
+            kept_sentences.append(stripped)
+
+            if len(kept_sentences) >= 4:
+                break
+
+        cleaned = " ".join(kept_sentences).strip()
+
+        # Hard word cap as a final safety measure.
+        words = cleaned.split()
+        max_words = 110
+
+        if len(words) > max_words:
+            cleaned = " ".join(words[:max_words]).strip()
+            if cleaned and cleaned[-1] not in ".!?":
+                cleaned += "."
+
+        return cleaned
 
     def _make_debate_id(self) -> str:
         safe_topic = self.topic_name.lower().replace(" ", "_").replace("?", "")
