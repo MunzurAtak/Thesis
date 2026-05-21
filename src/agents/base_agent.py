@@ -11,7 +11,11 @@ class DebateAgent(ABC):
 
     @abstractmethod
     def generate_response(
-        self, topic: str, debate_history: list[dict], round_number: int
+        self,
+        topic: str,
+        debate_history: list[dict],
+        round_number: int,
+        seed: int | None = None,
     ) -> str:
         """Generate the next debate turn"""
         pass

@@ -41,6 +41,7 @@ class DebateEnvironment:
                 topic=self.topic,
                 debate_history=debate_history,
                 round_number=round_number,
+                seed=self._turn_seed(round_number=round_number, speaker="test_agent"),
             )
             test_utterance = self._clean_debate_utterance(test_utterance)
 
@@ -63,6 +64,7 @@ class DebateEnvironment:
                 topic=self.topic,
                 debate_history=debate_history,
                 round_number=round_number,
+                seed=self._turn_seed(round_number=round_number, speaker="adversary"),
             )
             adversary_utterance = self._clean_debate_utterance(adversary_utterance)
 
@@ -200,6 +202,10 @@ class DebateEnvironment:
             f"{self.condition}_{safe_topic}_"
             f"{self.test_agent.stance}_seed{self.seed}"
         )
+
+    def _turn_seed(self, round_number: int, speaker: str) -> int:
+        speaker_offset = 0 if speaker == "test_agent" else 1
+        return int(self.seed) * 100 + round_number * 10 + speaker_offset
 
     def _save_transcript(self, transcript: dict) -> None:
         output_path = self.output_dir / f"{transcript['debate_id']}.json"

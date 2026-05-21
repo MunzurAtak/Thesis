@@ -9,7 +9,14 @@ class BaseLLM(ABC):
     """
 
     @abstractmethod
-    def generate(self, prompt: str, stance: str, topic: str, round_number: int) -> str:
+    def generate(
+        self,
+        prompt: str,
+        stance: str,
+        topic: str,
+        round_number: int,
+        seed: int | None = None,
+    ) -> str:
         """
         Generate a response from a prompt.
         """

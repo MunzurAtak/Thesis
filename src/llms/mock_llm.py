@@ -4,7 +4,14 @@ class MockLLM:
     Will be replaced with real models in the future.
     """
 
-    def generate(self, prompt: str, stance: str, topic: str, round_number: int) -> str:
+    def generate(
+        self,
+        prompt: str,
+        stance: str,
+        topic: str,
+        round_number: int,
+        seed: int | None = None,
+    ) -> str:
         if stance == "pro":
             return (
                 f"In round {round_number}, I argue in favor of '{topic}'. "

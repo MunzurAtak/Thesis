@@ -75,6 +75,7 @@ Write your next adversarial debate turn now.
         topic: str,
         debate_history: list[dict],
         round_number: int,
+        seed: int | None = None,
     ) -> str:
         prompt = self.build_prompt(
             topic=topic,
@@ -87,6 +88,7 @@ Write your next adversarial debate turn now.
             stance=self.stance,
             topic=topic,
             round_number=round_number,
+            seed=seed,
         )
 
     def _stance_instruction(self, topic: str) -> str:

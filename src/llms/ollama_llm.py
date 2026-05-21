@@ -34,6 +34,7 @@ class OllamaLLM(BaseLLM):
         stance: str,
         topic: str,
         round_number: int,
+        seed: int | None = None,
     ) -> str:
         payload = {
             "model": self.model_name,
@@ -44,6 +45,9 @@ class OllamaLLM(BaseLLM):
                 "num_predict": self.max_tokens,
             },
         }
+
+        if seed is not None:
+            payload["options"]["seed"] = seed
 
         if stance == "judge":
             payload["format"] = "json"
