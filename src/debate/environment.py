@@ -147,6 +147,12 @@ class DebateEnvironment:
         meta_markers = (
             "you are a helpful assistant",
             "you are an ai assistant",
+            "you are the test agent",
+            "you are the fixed adversarial opponent",
+            "debate experiment",
+            "core instruction",
+            "debate rules",
+            "write only your own",
             "your task",
             "the task",
             "do not write",

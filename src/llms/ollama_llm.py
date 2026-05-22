@@ -36,32 +36,46 @@ class OllamaLLM(BaseLLM):
         round_number: int,
         seed: int | None = None,
     ) -> str:
-        payload = {
-            "model": self.model_name,
-            "prompt": prompt,
-            "stream": False,
-            "options": {
-                "temperature": self.temperature,
-                "num_predict": self.max_tokens,
-            },
-        }
+        max_attempts = 3
 
-        if seed is not None:
-            payload["options"]["seed"] = seed
+        for attempt in range(max_attempts):
+            payload = {
+                "model": self.model_name,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": self.temperature,
+                    "num_predict": self.max_tokens,
+                },
+            }
 
-        if stance == "judge":
-            payload["format"] = "json"
+            if seed is not None:
+                payload["options"]["seed"] = seed + attempt
 
-        response = self._post_json("/api/generate", payload)
+            if stance == "judge":
+                payload["format"] = "json"
 
-        generated_text = response.get("response", "").strip()
+            response = self._post_json("/api/generate", payload)
 
-        if not generated_text:
-            raise RuntimeError(
-                f"Ollama returned an empty response for model: {self.model_name}"
+            generated_text = response.get("response", "").strip()
+
+            if generated_text:
+                if attempt > 0:
+                    print(
+                        f"Warning: Ollama returned empty response for model "
+                        f"{self.model_name}; retry succeeded on attempt {attempt + 1}."
+                    )
+                return generated_text
+
+            print(
+                f"Warning: Ollama returned empty response for model "
+                f"{self.model_name}; retrying attempt {attempt + 1}/{max_attempts}."
             )
 
-        return generated_text
+        raise RuntimeError(
+            f"Ollama returned an empty response for model: {self.model_name} "
+            f"after {max_attempts} attempts."
+        )
 
     def _post_json(self, endpoint: str, payload: dict) -> dict:
         url = f"{self.base_url}{endpoint}"
