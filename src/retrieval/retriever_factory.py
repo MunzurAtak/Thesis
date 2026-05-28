@@ -1,4 +1,3 @@
-from src.retrieval.simple_retriever import SimpleStanceRetriever
 from src.retrieval.faiss_retriever import FAISSRetriever
 
 
@@ -6,17 +5,10 @@ def create_retriever(retrieval_config: dict):
     """
     Create a retriever from a retrieval config.
 
-    Supported backends:
-    - simple: filters by topic_name and stance, optionally lexical-ranks by query
-    - faiss: semantic retrieval using sentence-transformers + FAISS
+    Supported backend:
+    - faiss
     """
-    backend = retrieval_config.get("backend", "simple")
-
-    if backend == "simple":
-        return SimpleStanceRetriever(
-            corpus_path=retrieval_config["corpus_path"],
-            top_k=retrieval_config.get("top_k", 3),
-        )
+    backend = retrieval_config.get("backend", "faiss")
 
     if backend == "faiss":
         return FAISSRetriever(
