@@ -1,4 +1,3 @@
-from src.judge.mock_judge import MockJudge
 from src.judge.ollama_judge import OllamaJudge
 from src.llms.llm_factory import create_llm
 
@@ -7,14 +6,10 @@ def create_judge(judge_config: dict):
     """
     Create a judge from a config dictionary.
 
-    Supported judge backends:
-    - mock
+    Supported judge backend:
     - ollama
     """
-    backend = judge_config.get("backend", "mock")
-
-    if backend == "mock":
-        return MockJudge()
+    backend = judge_config.get("backend", "ollama")
 
     if backend == "ollama":
         llm = create_llm(judge_config)
@@ -31,6 +26,6 @@ def judge_metadata(judge) -> dict:
         return judge.llm.metadata()
 
     return {
-        "backend": "mock",
-        "model_name": "mock",
+        "backend": "unknown",
+        "model_name": "unknown",
     }

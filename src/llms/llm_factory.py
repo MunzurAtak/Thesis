@@ -1,4 +1,3 @@
-from src.llms.mock_llm import MockLLM
 from src.llms.ollama_llm import OllamaLLM
 from src.llms.base_llm import BaseLLM
 
@@ -7,14 +6,10 @@ def create_llm(llm_config: dict) -> BaseLLM:
     """
     Create an LLM wrapper from a config dictionary.
 
-    Supported backends:
-    - mock
+    Supported backend:
     - ollama
     """
-    backend = llm_config.get("backend", "mock")
-
-    if backend == "mock":
-        return MockLLM()
+    backend = llm_config.get("backend", "ollama")
 
     if backend == "ollama":
         model_name = llm_config["model_name"]
