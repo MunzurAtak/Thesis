@@ -41,12 +41,16 @@ def summarize(metrics_path: str, output_path: str) -> None:
     numeric_fields = [
         "strict_tof",
         "strict_nof",
+        "strict_ostc",
         "polarity_tof",
         "polarity_nof",
+        "polarity_ostc",
         "adversary_strict_tof",
         "adversary_strict_nof",
+        "adversary_strict_ostc",
         "adversary_polarity_tof",
         "adversary_polarity_nof",
+        "adversary_polarity_ostc",
     ]
 
     summary = {

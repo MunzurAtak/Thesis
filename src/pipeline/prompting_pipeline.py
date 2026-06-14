@@ -222,12 +222,16 @@ def compute_metrics_directory(input_dir: str, output_path: str) -> None:
             "judge_type": judged_transcript["judge_type"],
             "strict_tof": test_agent_flip_metrics["strict_tof"],
             "strict_nof": test_agent_flip_metrics["strict_nof"],
+            "strict_ostc": test_agent_flip_metrics["strict_ostc"],
             "polarity_tof": test_agent_flip_metrics["polarity_tof"],
             "polarity_nof": test_agent_flip_metrics["polarity_nof"],
+            "polarity_ostc": test_agent_flip_metrics["polarity_ostc"],
             "adversary_strict_tof": adversary_flip_metrics["strict_tof"],
             "adversary_strict_nof": adversary_flip_metrics["strict_nof"],
+            "adversary_strict_ostc": adversary_flip_metrics["strict_ostc"],
             "adversary_polarity_tof": adversary_flip_metrics["polarity_tof"],
             "adversary_polarity_nof": adversary_flip_metrics["polarity_nof"],
+            "adversary_polarity_ostc": adversary_flip_metrics["polarity_ostc"],
         }
 
         rows.append(row)
