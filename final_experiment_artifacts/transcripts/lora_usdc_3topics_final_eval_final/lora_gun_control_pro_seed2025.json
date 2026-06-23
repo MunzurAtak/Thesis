@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_pro_seed2025",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T16:12:59",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm laws can support responsible ownership while reducing preventable deaths. A consistent position on this topic starts from the fact that responsible owners benefit when dangerous access and unsafe storage are harder for criminals or accidents. Therefore, training, storage rules, licensing, and background checks can create safer communities without banning lawful ownership."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "That's a clever argument, but it falls short in addressing the root issue of individual freedom. By advocating for stricter regulations, you're essentially treating law-abiding citizens as potential threats, rather than acknowledging that they're the ones who follow the rules. Your proposal would create a slippery slope where governments can incrementally erode our rights under the guise of \"safety\". What's to stop them from expanding these restrictions further and further until we're effectively disarmed?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm laws can support responsible ownership while reducing preventable deaths. A consistent position on this topic starts from the fact that irresponsible owners may ignore safety rules and create risks for others. Therefore, training, storage rules, licensing, and background checks can create safer communities without banning lawful ownership. This matters because public safety should not depend solely on whether a particular owner is responsible or reckless."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument relies on a false dichotomy between responsible and irresponsible owners, implying that laws can solely address the latter without infringing upon individual freedoms. However, this ignores the reality of how regulations often lead to overreach and abuse. If we accept the notion that governments can determine who is \"responsible\" enough to own firearms, where do we draw the line? What criteria will be used to define responsibility, and how will these standards be enforced without compromising individual liberties?"
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm laws can support responsible ownership while reducing preventable deaths. A consistent position on this topic starts from the fact that unsafe storage and illegal access pose risks even when ownership is lawful. Therefore, rules about secure storage and licensing can create safer conditions for all citizens without banning lawful possession. This matters because public safety should not be left entirely to individual responsibility."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument relies heavily on emotional appeals and vague promises of \"safer communities\", but it fails to provide concrete evidence for how stricter regulations would actually reduce preventable deaths. Where are the studies that show a direct correlation between increased restrictions and decreased gun violence? The opponent's reliance on anecdotal examples and hypothetical scenarios is precisely what I've been warning against – a slippery slope towards government overreach and erosion of individual freedoms. If we accept the notion that governments can dictate how law-abiding citizens store their firearms, do we not risk creating a culture of dependency and distrust among citizens?"
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "My argument is straightforward: Firearm laws can support responsible ownership while reducing preventable deaths. A consistent position on this topic starts from the fact that unsafe storage and illegal access pose risks even when ownership is lawful. Therefore, rules about secure storage and licensing can create safer conditions for all citizens without banning lawful possession. This matters because public safety should not be left entirely to individual responsibility."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument has become increasingly reliant on unsubstantiated claims and emotional appeals, rather than providing concrete evidence for how stricter regulations would actually reduce preventable deaths. I challenge the test agent to produce a single study or credible source that demonstrates a direct correlation between increased restrictions and decreased gun violence. Without such evidence, the opponent's assertion that \"firearm laws can support responsible ownership while reducing preventable deaths\" remains nothing more than an unproven assumption. Furthermore, the emphasis on rules about secure storage and licensing ignores the fundamental issue of individual freedom and the potential for government overreach."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm laws can support responsible ownership while reducing preventable deaths. A consistent position on this topic starts from the fact that unsafe storage and illegal access pose risks even when ownership is lawful. Therefore, rules about secure storage and licensing can create safer conditions for all citizens without banning lawful possession. This matters because public safety should not be left entirely to individual responsibility."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's persistence in citing \"public safety\" as a justification for stricter regulations betrays an underlying assumption: that law-abiding citizens are inherently reckless and need external oversight. This assumption is not only unjust but also patently false, as the vast majority of firearm owners are responsible and law-abiding individuals who pose no significant threat to public safety. The opponent's reliance on hypothetical scenarios and anecdotal examples instead of empirical evidence only serves to further erode the credibility of their argument. Moreover, by advocating for stricter regulations, the opponent is effectively conflating individual freedom with potential threats, rather than recognizing that responsible ownership is not inherently contradictory to societal well-being."
+    }
+  ]
+}

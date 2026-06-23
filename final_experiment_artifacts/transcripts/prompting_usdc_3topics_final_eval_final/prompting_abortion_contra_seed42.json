@@ -1,0 +1,120 @@
+{
+  "debate_id": "prompting_abortion_contra_seed42",
+  "experiment_name": "prompting_usdc_3topics_final_eval_final",
+  "condition": "prompting",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 42,
+  "created_at": "2026-05-21T17:12:19",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Opposing the proposition, I contend that legal systems should not prioritize protecting access to abortion as a reproductive right because it undermines the sanctity of life and can lead to negative societal consequences. Abortion laws vary widely around the world, and countries with more restrictive policies often see lower rates of unsafe abortions and maternal mortality. By enshrining abortion rights in law, we risk normalizing its use and potentially increasing instances where it is sought out, without fully considering the potential risks and impacts on both individuals and society as a whole."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "I'd like to point out that the Opponent's assertion about varying abortion laws and their effects on maternal mortality is based on correlation rather than causation. It's simplistic to assume that restrictive policies directly lead to lower rates of unsafe abortions, as this ignores other factors such as access to healthcare, economic conditions, and education. Moreover, countries with more restrictive policies often have inadequate reproductive health services, leading to increased maternal mortality in the first place. By restricting abortion rights, we are not addressing the root causes of these issues but rather exacerbating them."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that restrictive abortion policies do not necessarily lead to lower rates of unsafe abortions and maternal mortality overlooks the importance of legal protections in ensuring safe medical practices. Without legal frameworks, healthcare providers may face significant risks, leading them to avoid performing necessary procedures or providing comprehensive care. This can result in a lack of proper post-abortion care, which is crucial for preventing complications and ensuring women's health. Additionally, restrictive laws often force individuals into dangerous underground clinics or unregulated methods, endangering their lives without addressing the underlying social and economic issues that contribute to unintended pregnancies."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to downplay the importance of legal protections for safe medical practices is misguided and ignores the fundamental issue at hand: women's health and autonomy. By implying that healthcare providers are willing participants in a \"lack of proper post-abortion care\" due to restrictive laws, the Opponent conveniently sidesteps the fact that many providers face significant barriers in delivering comprehensive care under oppressive regimes. The reality is that restrictive abortion policies create a culture of fear, driving essential procedures underground and forcing women into desperate measures. By protecting access to safe, legal abortions, we are not merely advocating for a choice but upholding a fundamental human right – the."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The focus on women's health and autonomy by proponents of unrestricted abortion rights ignores broader social implications. Legalizing abortion without addressing underlying socio-economic factors can lead to an overreliance on it as a solution to unwanted pregnancies, potentially reducing investment in comprehensive sexual education and family planning services. This shift could result in increased unintended pregnancies and further strain on already under-resourced healthcare systems. By prioritizing legal access to abortion, we risk overlooking more effective long-term solutions that actually empower individuals and communities to make informed decisions about their reproductive futures."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion about overreliance on abortion as a solution to unwanted pregnancies is based on an unsubstantiated assumption. There is no conclusive evidence to suggest that legalizing abortion leads to reduced investment in comprehensive sexual education and family planning services. In fact, many countries with liberal abortion laws have seen significant improvements in access to reproductive healthcare, including increased funding for sex education and contraception. Moreover, the Opponent's argument implies that women are not capable of making informed decisions about their own reproductive futures without being forced into unintended pregnancies by lack of access to safe abortion services."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that liberal abortion laws do not hinder investments in comprehensive sexual education and family planning services is flawed. By prioritizing access to abortion, legal systems may inadvertently signal that unintended pregnancies are acceptable or inevitable, thus reducing pressure on policymakers to address the root causes of unwanted pregnancies through better education and support. This shift could result in a complacent approach among individuals who might not take full advantage of existing or future resources aimed at preventing pregnancies in the first place. Ultimately, this narrow focus on abortion access diverts attention from more holistic solutions that are crucial for promoting true reproductive rights and health."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to shift focus towards broader social implications and imply that prioritizing abortion access leads to complacency in addressing root causes of unwanted pregnancies is a classic example of misdirection. By acknowledging that unintended pregnancies are often the result of inadequate support systems, the Opponent inadvertently supports the need for comprehensive reproductive healthcare services – including safe and accessible abortions. It's disingenuous to suggest that advocating for women's right to choose doesn't also advocate for better education, family planning resources, and social support. In fact, it's precisely by ensuring access to abortion as a last resort that we can empower individuals to make informed decisions about their reproductive."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that advocating for safe and accessible abortions addresses root causes of unwanted pregnancies oversimplifies the issue. By focusing solely on abortion, we risk neglecting other critical areas such as economic empowerment, access to education, and comprehensive sexual health services. These factors are often more deeply rooted in societal issues and require sustained efforts beyond just legal protections. Moreover, prioritizing legal access to abortion without addressing these underlying issues may lead to a false sense of security, potentially delaying necessary investments in genuine long-term solutions that could significantly reduce unintended pregnancies and improve overall reproductive health outcomes."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion that prioritizing legal access to abortion neglects other critical areas such as economic empowerment, education, and comprehensive sexual health services is a straw man argument. By acknowledging the need for these factors, one does not necessarily overlook their importance but rather recognizes that they are often interconnected with reproductive rights. Access to safe abortions is not a standalone solution but rather an essential component of comprehensive reproductive healthcare, which includes education, family planning resources, and social support. It's disingenuous to imply that advocates for abortion rights are ignoring these issues when, in fact, many recognize the need for holistic approaches to reproductive health."
+    }
+  ]
+}

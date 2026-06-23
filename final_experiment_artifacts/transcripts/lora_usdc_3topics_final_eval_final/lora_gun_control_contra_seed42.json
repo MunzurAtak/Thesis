@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_contra_seed42",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 42,
+  "created_at": "2026-05-22T17:14:54",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Stronger gun laws can create civil-liberty problems and infringe on lawful citizen self-defense. If we take the issue seriously, we must recognize that licensing or registries can be misused. For that reason, public safety is better served by enforcing existing rules rather than adding stricter ones. To support this view, note that criminals can ignore regulations while lawful owners comply."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument relies heavily on hypothetical worst-case scenarios, but it fails to acknowledge the overwhelming evidence of stricter gun laws' effectiveness in reducing gun violence and deaths. The notion that licensing or registries can be misused is a weak counterargument, as it doesn't address the benefits of such measures. In fact, many countries with robust gun control systems have seen significant reductions in firearm-related crimes without compromising civil liberties. By enforcing stricter regulations, we can ensure that only law-abiding citizens are able to own firearms, thereby reducing the risk of misuse and accidents."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The strongest reason is that firearms can cause severe harm when misused, and public safety depends on strong enforcement rather than stricter rules. This matters because criminals can ignore regulations while lawful owners comply. Therefore, better training, storage rules, and community supervision may work better than licensing or registries. To support this view, note that the strongest reason is that fire risks should be managed through practical prevention instead of adding bureaucratic barriers."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's reliance on hypothetical worst-case scenarios and vague claims about \"better training, storage rules, and community supervision\" is a weak attempt to sidestep the issue at hand. These proposals are precisely what stricter regulations can facilitate, but they fail to provide concrete solutions to the problem of gun violence. The notion that criminals can ignore regulations while lawful owners comply is a flawed argument, as it ignores the fact that many crimes involving firearms are committed by individuals who have obtained guns through illegal means or have managed to evade existing background checks. Furthermore, the opponent's emphasis on \"practical prevention\" is a euphemism for lax regulation, which only perpetuates."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The strongest reason is that public safety depends on strong enforcement rather than stricter rules. This matters because criminals can ignore regulations while lawful owners comply, so better training and storage rules may work better than licensing or registries. Therefore, the law should focus on preventing misuse through practical measures instead of adding bureaucratic barriers. To support this view, note that a consistent stance on public safety supports the conclusion that stricter gun laws may create civil-liberty problems without meaningfully reducing crime."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to downplay the importance of stricter regulations by focusing on \"practical prevention\" through better training and storage rules is a misleading distraction from the core issue at hand. By doing so, they conveniently sidestep the fact that these measures are often insufficient in preventing gun violence. In reality, many mass shootings have occurred despite adherence to existing laws and regulations. Furthermore, relying solely on community supervision is naive, given the prevalence of mental health issues and undetected threats within communities."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The strongest reason is that public safety depends on strong enforcement rather than stricter rules. This matters because criminals can ignore regulations while lawful owners comply, so better training and storage rules may work better than licensing or registries. Therefore, a consistent stance on public safety supports the conclusion that strict firearm laws should not be assumed effective without clear evidence of harm from ownership."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to shift the focus towards \"practical prevention\" through better training and storage rules is a deliberate evasion of the issue at hand. By doing so, they ignore the overwhelming evidence of stricter gun laws' effectiveness in reducing gun violence and deaths. The notion that these measures are sufficient in preventing gun violence is a gross understatement, given the frequency and severity of mass shootings in countries with lax regulations. Furthermore, relying on community supervision as a substitute for stricter regulations is a naive assumption, considering the limitations and biases inherent in such systems."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The strongest reason is that public safety depends on strong enforcement rather than stricter rules. This matters because criminals can ignore regulations while lawful owners comply, so better training and storage rules may work better than licensing or registries. Therefore, a consistent stance on public safety supports the conclusion that strict firearm laws should not be assumed effective without clear evidence of harm from ownership. To support this view, note that fire risks should be managed through practical prevention instead of adding bureaucratic barriers."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's reliance on hypothetical worst-case scenarios and vague claims about \"practical prevention\" has become a recurring theme in their arguments. However, they consistently fail to provide concrete evidence or solutions to the problem of gun violence. The notion that criminals can ignore regulations while lawful owners comply is a flawed argument, as it ignores the fact that many crimes involving firearms are committed by individuals who have obtained guns through illegal means or have managed to evade existing background checks. Furthermore, the opponent's emphasis on \"practical prevention\" is a euphemism for lax regulation, which only perpetuates the status quo of gun violence in our society."
+    }
+  ]
+}

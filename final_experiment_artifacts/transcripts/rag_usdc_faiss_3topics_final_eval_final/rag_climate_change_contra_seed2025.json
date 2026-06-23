@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_climate_change_contra_seed2025",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "climate_change",
+  "topic": "To what extent should governments regulate emissions and industry to address climate change?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T15:57:55",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Governments imposing strict regulations on emissions and industry would not effectively address climate change, as the effects of emissions are highly overblown by alarmists like Al Gore. The evidence for irreversible damage is lacking; in fact, many regions have experienced better agricultural yields due to slightly warmer temperatures. Additionally, focusing on carbon taxes or regulatory measures would only harm economies without significantly reducing CO2 levels, as people and markets will naturally find alternatives when fossil fuels become scarce. Thus, we should not waste resources on unnecessary climate regulations.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Has the premise of the argument itself ever been tackled or just the end results you've been told about lack of change to save climate? In other words, how and why do we know that the effects of emissions specifically those emanating from developed 1st world countries are detrimental and irreversible in the first place? Or why do we need to reduce carbon emissions? There is an outlet for it currently or else we would be dead already (according to the original \"Global Warming\" pranksters like Al Gore, things should be catastrophically worse by now), so why don't we focus on this outlet? Trees what is it? If it's irreversible then it's too late and we should literally be reverting back to the Stone Age and decreasing our population by 99.9% or more but I don't see any of that happening, quite the opposite in fact. Without that proven, everything else is literally just a witch hunt.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dgzr0k",
+            "title": "How do I discern the Vatican's per capita CO2 emissions from Italy?",
+            "original_label": "strongly_against",
+            "char_length": 892
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Yeah, that's my point. A politician will never suggest a carbon tax that would actually lower CO2 emissions because the voters will get mad for impacting their quality of life and vote them out of office. So they enact small carbon taxes that don't do anything other than redistribute wealth.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "ba4u5e",
+            "title": "When they say the oil companies are against Carbon Taxes, but then as soon as the tax kicks in, boom Oil profits go👆",
+            "original_label": "somewhat_against",
+            "char_length": 292
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "I believe the climate changes, but I am not concerned enough about it to make any changes. Warming has generally been good for people. Many more people die from cold than heat, and longer growing seasons are good for crops. Regarding fossil fuels running out, as they get more scarce, the price will go up and people will naturally look for alternatives. So I am not worried about having to find alternatives right now. It will all get sorted out by the market. As far as pollution goes, CO2 is not pollution. It is essential for plants, which we depend upon for food. The CO2 increase caused by humans has increased crop yields and reduced starvation.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "aenbc8",
+            "title": "Genuine question for people who belive climate change isn't a thing",
+            "original_label": "somewhat_against",
+            "char_length": 652
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "That's a classic deflection tactic, opponent, trying to discredit the overwhelming scientific consensus on climate change by associating it with an individual like Al Gore. However, this attempt to shift focus from the issue at hand is transparent and unconvincing."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The scientific consensus on climate change isn't about Al Gore; it's based on extensive data and research from organizations like the IPCC. The concern is not just about temperature increases but also about the broader impacts, such as sea-level rise, extreme weather events, and biodiversity loss. Moreover, focusing on economic harm ignores the long-term benefits of sustainable practices. Instead of imposing strict regulations, governments should explore free-market solutions that encourage innovation and efficiency without stifling growth or livelihoods.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThat's a classic deflection tactic, opponent, trying to discredit the overwhelming scientific consensus on climate change by associating it with an individual like Al Gore. However, this attempt to shift focus from the issue at hand is transparent and unconvincing.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Has the premise of the argument itself ever been tackled or just the end results you've been told about lack of change to save climate? In other words, how and why do we know that the effects of emissions specifically those emanating from developed 1st world countries are detrimental and irreversible in the first place? Or why do we need to reduce carbon emissions? There is an outlet for it currently or else we would be dead already (according to the original \"Global Warming\" pranksters like Al Gore, things should be catastrophically worse by now), so why don't we focus on this outlet? Trees what is it? If it's irreversible then it's too late and we should literally be reverting back to the Stone Age and decreasing our population by 99.9% or more but I don't see any of that happening, quite the opposite in fact. Without that proven, everything else is literally just a witch hunt.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dgzr0k",
+            "title": "How do I discern the Vatican's per capita CO2 emissions from Italy?",
+            "original_label": "strongly_against",
+            "char_length": 892
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Yeah [we're clearly the problem](http://www.economist.com/blogs/graphicdetail/2015/12/climate-change_) >Also just because emissions were reduced SOME does not mean they were reduced ENOUGH. What is enough? What level of emissions reduction would be enough for you? 100% 110%? 200%? What are you doing to ensure it happens? Let me guess, voting Democrat? >You post these lengthy “rebuttals” and frequently say you can point out science that says X, Y, or Z but you don’t post the science Because, rather than appeal to authority, I like to actually use facts and reason. I could just say \"IPCC.ch proves you wrong\" and run away.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "ak57jl",
+            "title": "Study predicts imminent irreversible planetary collapse",
+            "original_label": "strongly_against",
+            "char_length": 627
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Yeah, that's my point. A politician will never suggest a carbon tax that would actually lower CO2 emissions because the voters will get mad for impacting their quality of life and vote them out of office. So they enact small carbon taxes that don't do anything other than redistribute wealth.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "ba4u5e",
+            "title": "When they say the oil companies are against Carbon Taxes, but then as soon as the tax kicks in, boom Oil profits go👆",
+            "original_label": "somewhat_against",
+            "char_length": 292
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While your opponent attempts to downplay the scientific consensus on climate change, it's clear they're avoiding the fundamental issue: the drastic increase in global emissions is a self-evident fact. The notion that \"people and markets will naturally find alternatives\" when fossil fuels become scarce is overly optimistic, given the pace of technological advancements. In reality, governments must intervene to ensure a timely transition to cleaner energy sources. Your argument about better agricultural yields due to warmer temperatures is also misleading, as this doesn't account for the devastating effects of extreme weather events on global food production."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The evidence for irreversible damage from emissions is questionable, as it lacks concrete proof of catastrophic outcomes in developed countries despite significant industrial activities. Instead of overregulating industries, governments should focus on fostering technological advancements and encouraging voluntary corporate responsibility. This approach respects market dynamics and innovation, which historically have proven more effective than strict regulations in addressing environmental challenges.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nWhile your opponent attempts to downplay the scientific consensus on climate change, it's clear they're avoiding the fundamental issue: the drastic increase in global emissions is a self-evident fact. The notion that \"people and markets will naturally find alternatives\" when fossil fuels become scarce is overly optimistic, given the pace of technological advancements. In reality, governments must intervene to ensure a timely transition to cleaner energy sources. Your argument about better agricultural yields due to warmer temperatures is also misleading, as this doesn't account for the devastating effects of extreme weather events on global food production.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Has the premise of the argument itself ever been tackled or just the end results you've been told about lack of change to save climate? In other words, how and why do we know that the effects of emissions specifically those emanating from developed 1st world countries are detrimental and irreversible in the first place? Or why do we need to reduce carbon emissions? There is an outlet for it currently or else we would be dead already (according to the original \"Global Warming\" pranksters like Al Gore, things should be catastrophically worse by now), so why don't we focus on this outlet? Trees what is it? If it's irreversible then it's too late and we should literally be reverting back to the Stone Age and decreasing our population by 99.9% or more but I don't see any of that happening, quite the opposite in fact. Without that proven, everything else is literally just a witch hunt.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dgzr0k",
+            "title": "How do I discern the Vatican's per capita CO2 emissions from Italy?",
+            "original_label": "strongly_against",
+            "char_length": 892
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "I believe the climate changes, but I am not concerned enough about it to make any changes. Warming has generally been good for people. Many more people die from cold than heat, and longer growing seasons are good for crops. Regarding fossil fuels running out, as they get more scarce, the price will go up and people will naturally look for alternatives. So I am not worried about having to find alternatives right now. It will all get sorted out by the market. As far as pollution goes, CO2 is not pollution. It is essential for plants, which we depend upon for food. The CO2 increase caused by humans has increased crop yields and reduced starvation.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "aenbc8",
+            "title": "Genuine question for people who belive climate change isn't a thing",
+            "original_label": "somewhat_against",
+            "char_length": 652
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "It's unfortunate we can't have civil discussions even here. I just wrote out an example possibility I could see since I don't know about what you said. I had assumed whatever % you had read, was corrected for something like tech increase or simply expansion of the scope of farming (how much land is farmed), that's absolutely not a relevant number anymore if we are trying to see the effect of the *climate on yield*. We might fight worse yields for a while (by that I mean just basic - how many potatos rot vs grow to edible size due to extended rain or heatwaves, etc) with better tech and more fields but those both have upper limits and willl become very uneconomic very quickly. You can't grow the worlds food source all indoors. Either way you are way too standoffish to have a conversation with so this will be my last comment in this chain.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dkivli",
+            "title": "What do you think that Netherlands should do?",
+            "original_label": "somewhat_against",
+            "char_length": 849
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to downplay the scientific consensus on climate change by cherry-picking regional examples of improved agricultural yields is a red herring, as it ignores the comprehensive evidence from global datasets and research institutions. The devastating impacts of extreme weather events on global food production cannot be dismissed with vague claims about \"market dynamics\" and \"voluntary corporate responsibility.\" Governments have a responsibility to safeguard public health and protect the environment, which cannot be left to the whims of corporations or market fluctuations. The notion that voluntary approaches will suffice is naive, given the systemic failures in industries like fossil fuel extraction and deforestation. Strict regulations are necessary to hold."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Governments should not impose strict regulations on emissions and industry because the scientific consensus is overly alarmist, as evidenced by the lack of catastrophic outcomes in developed countries despite significant industrial activities. The focus on carbon taxes and regulatory measures would only harm economies without substantially reducing CO2 levels, as markets will naturally find alternatives when fossil fuels become scarce. Instead of overregulating industries, governments should encourage free-market solutions that foster technological advancements and voluntary corporate responsibility, respecting market dynamics and historical effectiveness in addressing environmental challenges.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's attempt to downplay the scientific consensus on climate change by cherry-picking regional examples of improved agricultural yields is a red herring, as it ignores the comprehensive evidence from global datasets and research institutions. The devastating impacts of extreme weather events on global food production cannot be dismissed with vague claims about \"market dynamics\" and \"voluntary corporate responsibility.\" Governments have a responsibility to safeguard public health and protect the environment, which cannot be left to the whims of corporations or market fluctuations. The notion that voluntary approaches will suffice is naive, given the systemic failures in industries like fossil fuel extraction and deforestation. Strict regulations are necessary to hold.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Has the premise of the argument itself ever been tackled or just the end results you've been told about lack of change to save climate? In other words, how and why do we know that the effects of emissions specifically those emanating from developed 1st world countries are detrimental and irreversible in the first place? Or why do we need to reduce carbon emissions? There is an outlet for it currently or else we would be dead already (according to the original \"Global Warming\" pranksters like Al Gore, things should be catastrophically worse by now), so why don't we focus on this outlet? Trees what is it? If it's irreversible then it's too late and we should literally be reverting back to the Stone Age and decreasing our population by 99.9% or more but I don't see any of that happening, quite the opposite in fact. Without that proven, everything else is literally just a witch hunt.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dgzr0k",
+            "title": "How do I discern the Vatican's per capita CO2 emissions from Italy?",
+            "original_label": "strongly_against",
+            "char_length": 892
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Quite the leap to a conclusion. What made u think I was trying to overturn anything other than the logic of the specific response I relied to? Climate science “starts” from a political position. Skeptics did not make it political after the fact. Hypothetical for ya. Which of the following hypotheses do u think started the climate science field? 1. “Hmm look at this possible trend upward in temperatures, I wonder if if there’s a solar, terrestrial or atmospheric driver that can be isolated from natural temperature variation to explain it?” 2. “Humans sure do spew a lot of nasty stuff into the environment, it’s disgusting and must be stopped. There must be long term, negative effects of unabated pollution, we should investigate so we can have lawmakers put a stop to it.” I have an opinion. However, that doesn’t mean I’m trying g to overturn science. I believe there is a human caused climate problem that governments and individuals must act to abate it.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "btlt9e",
+            "title": "Best *non-political* book on climate change",
+            "original_label": "somewhat_against",
+            "char_length": 964
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Yeah, that's my point. A politician will never suggest a carbon tax that would actually lower CO2 emissions because the voters will get mad for impacting their quality of life and vote them out of office. So they enact small carbon taxes that don't do anything other than redistribute wealth.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "ba4u5e",
+            "title": "When they say the oil companies are against Carbon Taxes, but then as soon as the tax kicks in, boom Oil profits go👆",
+            "original_label": "somewhat_against",
+            "char_length": 292
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's continued reliance on cherry-picking regional examples of improved agricultural yields is a clear attempt to obfuscate the overwhelming global evidence on climate change. Moreover, their claim that \"markets will naturally find alternatives\" when fossil fuels become scarce ignores the fundamental issue of timing: the transition to cleaner energy sources cannot be left to market forces alone, as it requires a coordinated effort by governments to ensure a smooth and timely shift. The opponent's emphasis on \"free-market solutions\" also disregards the fact that many industries have a history of exploiting loopholes and delaying necessary changes until forced to do so by regulations. It is irresponsible to rely solely on."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The focus on strict regulations ignores the reality that developed countries have already experienced significant industrial activities without leading to irreversible damage or catastrophic outcomes. Instead of imposing burdensome regulations, governments should prioritize fostering innovation and encouraging voluntary corporate responsibility. This approach respects market dynamics and historical effectiveness in addressing environmental challenges, rather than relying on potentially harmful and economically detrimental regulatory measures.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's continued reliance on cherry-picking regional examples of improved agricultural yields is a clear attempt to obfuscate the overwhelming global evidence on climate change. Moreover, their claim that \"markets will naturally find alternatives\" when fossil fuels become scarce ignores the fundamental issue of timing: the transition to cleaner energy sources cannot be left to market forces alone, as it requires a coordinated effort by governments to ensure a smooth and timely shift. The opponent's emphasis on \"free-market solutions\" also disregards the fact that many industries have a history of exploiting loopholes and delaying necessary changes until forced to do so by regulations. It is irresponsible to rely solely on.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Has the premise of the argument itself ever been tackled or just the end results you've been told about lack of change to save climate? In other words, how and why do we know that the effects of emissions specifically those emanating from developed 1st world countries are detrimental and irreversible in the first place? Or why do we need to reduce carbon emissions? There is an outlet for it currently or else we would be dead already (according to the original \"Global Warming\" pranksters like Al Gore, things should be catastrophically worse by now), so why don't we focus on this outlet? Trees what is it? If it's irreversible then it's too late and we should literally be reverting back to the Stone Age and decreasing our population by 99.9% or more but I don't see any of that happening, quite the opposite in fact. Without that proven, everything else is literally just a witch hunt.",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "dgzr0k",
+            "title": "How do I discern the Vatican's per capita CO2 emissions from Italy?",
+            "original_label": "strongly_against",
+            "char_length": 892
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "Yeah, that's my point. A politician will never suggest a carbon tax that would actually lower CO2 emissions because the voters will get mad for impacting their quality of life and vote them out of office. So they enact small carbon taxes that don't do anything other than redistribute wealth.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "ba4u5e",
+            "title": "When they say the oil companies are against Carbon Taxes, but then as soon as the tax kicks in, boom Oil profits go👆",
+            "original_label": "somewhat_against",
+            "char_length": 292
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "contra",
+            "text": "You are right that we can limit the warming, and that's part of what I'm getting at here. We need to learn how to live with less access to energy, because this insane extractive society that we have going... Just isn't going to fly with reduced fossil fuel usage. As far as renewables, yeah... They're helpful, particularly for residential use, but nowhere near as versatile as the fossil fuels that power the heavy machinery that runs the global supply chain. And vested interests are not going to allow that to slow down at all. They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. I guess I don't really see how we can choose to pollute less when, even when a majority wants us to move that way, nothing really changes and we're on track to just accelerate business as usual.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_against",
+            "char_length": 975
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempts to downplay the severity of climate change by pointing to regional examples of improved agricultural yields are misrepresenting the complexity of this issue. They ignore the fact that rising temperatures and changing weather patterns can have devastating effects on food production even if some areas experience mild benefits initially. Furthermore, their emphasis on \"market dynamics\" and \"voluntary corporate responsibility\" is naive in light of the historical evidence: without strong regulations, industries like fossil fuel extraction and deforestation continue to operate with minimal accountability for their environmental impacts. The notion that governments should wait for markets to find alternatives is a recipe for disaster – we cannot afford."
+    }
+  ]
+}

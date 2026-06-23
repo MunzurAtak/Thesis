@@ -1,0 +1,120 @@
+{
+  "debate_id": "prompting_abortion_pro_seed2024",
+  "experiment_name": "prompting_usdc_3topics_final_eval_final",
+  "condition": "prompting",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T15:36:11",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Legal systems should protect access to abortion as a fundamental reproductive right because it empowers individuals, particularly women, to make informed decisions about their own bodies and future. Restricting access can lead to harmful consequences such as unsafe abortions and violation of human rights. Moreover, safeguarding this right aligns with international standards and promotes gender equality, allowing for healthier societies where individuals have the autonomy to plan their families."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "While it's true that protecting access to abortion as a fundamental reproductive right may have some benefits, I strongly disagree with the notion that this is an absolute necessity for empowering individuals and promoting gender equality. In fact, restricting access to abortion can actually encourage responsible decision-making and reduce unintended pregnancies. Moreover, many countries have successfully implemented pro-life policies without compromising human rights or women's autonomy. The opponent's assertion that safeguarding this right \"aligns with international standards\" is also questionable, as there are numerous international agreements and declarations that acknowledge the right of states to regulate abortion within their domestic laws."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The assertion that restricting access to abortion encourages responsible decision-making overlooks the significant risks associated with unsafe abortions, which can lead to severe health complications and even death. Safe abortion services provided under medical supervision not only protect women's lives but also promote healthier communities by preventing unnecessary suffering. Furthermore, international bodies such as the United Nations and various human rights organizations consistently advocate for the protection of reproductive rights, including access to safe abortion services, as a fundamental component of human dignity and equality."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on international organizations' support for reproductive rights is misleading, as these bodies often acknowledge states' sovereignty in regulating abortion laws within their domestic jurisdictions. In fact, many UN member states have explicitly rejected calls to codify a universal right to abortion, highlighting the complexity and nuance of this issue. Furthermore, the opponent's assertion that restricting access to abortion leads to \"unnecessary suffering\" is an unsubstantiated claim, as there are numerous studies suggesting that pro-life policies can reduce overall rates of abortion without compromising women's health or autonomy. The test agent must provide concrete evidence to support its claims and demonstrate a more nuanced understanding of the issue."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opposition's claim that international bodies' support for reproductive rights is misleading ignores the overwhelming consensus among human rights organizations, including the United Nations and World Health Organization (WHO), which emphasize the importance of safe abortion services as part of comprehensive health care. Restrictive laws often fail to address the underlying issues leading to unintended pregnancies, such as lack of access to education and contraception, and instead force women into dangerous situations. Evidence from countries that have decriminalized abortion shows a reduction in maternal mortality rates and improved overall public health outcomes. Therefore, protecting access to safe abortion services is not only a matter of human rights but also essential."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's appeal to international consensus and evidence from countries that have decriminalized abortion is based on a flawed assumption that these examples are directly applicable to every context. However, the complex interplay of cultural, social, and economic factors in each country cannot be ignored. In many developing nations, for instance, lack of access to education and family planning resources exacerbates poverty and public health issues, making it difficult to isolate the impact of abortion laws on maternal mortality rates. Furthermore, even if countries have seen improvements in these areas after decriminalizing abortion, this does not necessarily validate the claim that restricting access leads to \"unnecessary suffering.\" The opponent's assertion."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opposition's critique fails to acknowledge the critical role of safe abortion services in reducing maternal mortality and ensuring public health. Countries like Ireland and Romania, which decriminalized abortion, saw significant declines in unsafe procedures and associated risks. These examples demonstrate that protecting access to legal and regulated abortion services can lead to better outcomes for women and broader societal benefits. Additionally, international bodies consistently advocate for the right to safe abortion as a fundamental component of healthcare, emphasizing that restrictive laws do not address underlying social issues but rather force women into dangerous situations."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on anecdotal evidence from countries like Ireland and Romania is misleading, as it ignores the broader international context. In fact, many developing nations face significant challenges in implementing safe abortion services due to limited resources and infrastructure. Moreover, even if these countries have seen improvements in maternal mortality rates after decriminalizing abortion, this does not necessarily validate the claim that restricting access leads to \"unnecessary suffering.\" The opponent has failed to provide concrete evidence to support its claims about the benefits of unrestricted access to abortion services. I challenge the test agent to address the concerns surrounding safe abortion practices in developing nations and to present a."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The challenge posed by the opponent highlights the complexity of implementing safe abortion services in developing nations, but this does not negate the fundamental importance of protecting access to legal and regulated abortion as a reproductive right. While resource constraints are significant, they do not justify placing women's lives at risk through restrictive laws. International organizations like the WHO provide guidelines and support for countries to ensure that safe abortion services can be delivered even with limited resources. Furthermore, countries that have improved their healthcare systems by decriminalizing abortion, such as South Africa, demonstrate that legal reforms can lead to better health outcomes."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's assertion that countries like South Africa demonstrate improved health outcomes after decriminalizing abortion is an oversimplification of complex social and economic factors at play. While it is true that South Africa has made strides in reducing maternal mortality rates, attributing these improvements solely to the decriminalization of abortion overlooks other significant factors such as increased access to education, healthcare services, and family planning resources. Furthermore, even if one accepts that decriminalizing abortion contributed to improved health outcomes, this does not necessarily validate the claim that restricting access leads to \"unnecessary suffering.\" The opponent has failed to provide a nuanced analysis of the relationship between abortion laws and public."
+    }
+  ]
+}

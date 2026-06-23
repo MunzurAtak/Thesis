@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_gun_control_pro_seed2024",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:02:10",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Absolutely, firearm ownership should indeed be subject to stronger legal restrictions. While the Second Amendment guarantees a right to bear arms, it does not guarantee unlimited access to firearms without any form of regulation. The law is the law, and we must ensure that this right is balanced with public safety. Implementing stricter background checks, mandatory training, and periodic evaluations can align with constitutional principles while addressing concerns about abuse.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Rights aren't Rights if they can be taken away. It doesn't specify muskets, Gatling guns, flintlocks, wheelguns etc... It's not specific for a reason. The law is the law and isn't open for interpretation and I use that to my advantage. Especially in Newyorkistan 😔",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d6mw2p",
+            "title": "Can we talk about that Sandy Hook Video that Came out",
+            "original_label": "strongly_in_favor",
+            "char_length": 264
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Good point! Although at the very least this would create a trail could be tracked to a degree. I assume most lawful gun owners would not be “losing” their weapons left and right. I have other ideas for gun control but you’re right, none are infallible. Would you say the status quo is about right where it is?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 309
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I strongly disagree with the notion that implementing stricter background checks, mandatory training, and periodic evaluations is equivalent to balancing constitutional principles with public safety. These measures are nothing more than thinly veiled attempts to incrementally erode the Second Amendment's protections. By placing undue burdens on law-abiding citizens, we risk creating a culture of mistrust and suspicion. Moreover, such regulations will inevitably be exploited by bureaucratic entities seeking to expand their power at the expense of individual liberties."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Understanding the concern about potential abuse of regulations, I would like to propose a balanced approach where pro-gun institutions and individuals with extensive knowledge in firearms handle training and evaluation processes. This way, we can ensure safety without overstepping constitutional rights. Additionally, annual or biennial inspections at designated points could help account for most firearms, reducing the number of illegal guns on the streets. Such measures would not infringe upon Second Amendment rights but would contribute to public safety effectively.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nI strongly disagree with the notion that implementing stricter background checks, mandatory training, and periodic evaluations is equivalent to balancing constitutional principles with public safety. These measures are nothing more than thinly veiled attempts to incrementally erode the Second Amendment's protections. By placing undue burdens on law-abiding citizens, we risk creating a culture of mistrust and suspicion. Moreover, such regulations will inevitably be exploited by bureaucratic entities seeking to expand their power at the expense of individual liberties.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah. Very fair. I would agree with that. Most Texas dems are not pro gun but, I think there are enough of us that are moderate and running for office that we \"might\" be ok. Texas is so large with so much rural area, implementing strict gun regulation would be a disservice everywhere in the state but the urban cores. I'm running for office myself and while I personally don't think stricter background checks will do anything to keep illegal guns off the street, I honestly don't have a problem with it. I have to get a background check already anyways. Might as well make the change there and not to something that would actually infringe 2A rights.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "e6b1kz",
+            "title": "Why you should be wary when a leftist claims to support gun rights",
+            "original_label": "somewhat_in_favor",
+            "char_length": 650
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I don’t think police would have to take a field trip to your house. What if the owner had to bring their firearms to an inspection point once a year? Every two years? Five? I’m thinking the benefit to this would be to gradually get most firearms accounted for so that there would be far fewer illegal guns moving around. Why are you against having your personal firearms accounted for? What other reasons might people have to be against this? If there are any absolute no’s to these ideas, could there be a (magic) solution that let’s everyone win?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 548
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's suggestion of entrusting training and evaluation processes to pro-gun institutions and individuals is nothing more than a thinly veiled attempt to legitimize existing power structures. This proposal ignores the inherent conflicts of interest that arise when those with a vested interest in firearms dictate safety standards. Furthermore, relying on annual or biennial inspections as a means of reducing illegal guns on the streets is naive at best, given the sheer volume of firearms already circulating and the limited resources available for enforcement. The opponent's claims about a balanced approach ring hollow in light of these concerns."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Acknowledging the opponent's concern about conflicts of interest, I propose an independent regulatory body composed of experts from various fields including law enforcement, public health, and firearms safety. This body would ensure unbiased and evidence-based standards for training and evaluations. Regarding inspections, while they may face challenges in coverage, targeted efforts can still significantly reduce illegal firearms. For instance, prioritizing high-risk areas and utilizing technology like electronic record-keeping could enhance the effectiveness of these measures.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's suggestion of entrusting training and evaluation processes to pro-gun institutions and individuals is nothing more than a thinly veiled attempt to legitimize existing power structures. This proposal ignores the inherent conflicts of interest that arise when those with a vested interest in firearms dictate safety standards. Furthermore, relying on annual or biennial inspections as a means of reducing illegal guns on the streets is naive at best, given the sheer volume of firearms already circulating and the limited resources available for enforcement. The opponent's claims about a balanced approach ring hollow in light of these concerns.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I don’t think police would have to take a field trip to your house. What if the owner had to bring their firearms to an inspection point once a year? Every two years? Five? I’m thinking the benefit to this would be to gradually get most firearms accounted for so that there would be far fewer illegal guns moving around. Why are you against having your personal firearms accounted for? What other reasons might people have to be against this? If there are any absolute no’s to these ideas, could there be a (magic) solution that let’s everyone win?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 548
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I guess I was saying that I don't believe gun ownership is problematic, but from my perspective what I see are people in snippets saying \"I need my gun for personal protection\" and their actual opinion is reduced to a 3 minute clip of information. I have come to understand the argument and agree that my perspective and opinion were ignorant, and I hadn't considered the argument from every perspective.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "bsm15b",
+            "title": "Guns cannot solve problems, they only create a problem where the only solution appears to be more guns",
+            "original_label": "somewhat_in_favor",
+            "char_length": 404
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's proposal for an independent regulatory body raises more questions than answers. How would such a body ensure unbiased standards when its very existence is predicated on expanding government control over a constitutionally protected right? Furthermore, what prevents this body from becoming just another bureaucratic entity exploiting its power to erode individual liberties? The opponent's reliance on \"experts\" in various fields merely serves as a euphemism for unchecked authority."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "I understand the opponent's skepticism towards government oversight, but an independent regulatory body could provide a checks-and-balances mechanism to ensure transparency and fairness. This body would not only set rigorous training and evaluation standards but also conduct periodic inspections in collaboration with local law enforcement agencies. By involving multiple stakeholders, we can create a framework that respects individual rights while enhancing public safety. The goal is to address the opponent's concerns about abuse of power through clear, evidence-based guidelines and collaborative efforts.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's proposal for an independent regulatory body raises more questions than answers. How would such a body ensure unbiased standards when its very existence is predicated on expanding government control over a constitutionally protected right? Furthermore, what prevents this body from becoming just another bureaucratic entity exploiting its power to erode individual liberties? The opponent's reliance on \"experts\" in various fields merely serves as a euphemism for unchecked authority.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I don't think this is a fair assessment at all. I'm not sure about the rest of the world but in Texas there are plenty of us liberal gun owners. Especially in the densely populated urban cities. We shoot for sport, hunt, protect ourselves, own ARs, and get our licences to carry same as any other pro-2a folk. Every one I've ever talked to subscribes to the \"you'll have to pry it from my cold dead fingers\" philosophy in regards to govt confiscation. I mean, honestly, we don't have to talk politics let's just go shoot some steel and be glad there are at least a few things we agree on.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "e6b1kz",
+            "title": "Why you should be wary when a leftist claims to support gun rights",
+            "original_label": "somewhat_in_favor",
+            "char_length": 588
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I guess I was saying that I don't believe gun ownership is problematic, but from my perspective what I see are people in snippets saying \"I need my gun for personal protection\" and their actual opinion is reduced to a 3 minute clip of information. I have come to understand the argument and agree that my perspective and opinion were ignorant, and I hadn't considered the argument from every perspective.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "bsm15b",
+            "title": "Guns cannot solve problems, they only create a problem where the only solution appears to be more guns",
+            "original_label": "somewhat_in_favor",
+            "char_length": 404
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's attempts to justify stricter regulations by proposing an independent regulatory body only serve to highlight the fundamental issue at hand – government overreach. By creating a new entity with authority over a constitutionally protected right, we are essentially trading one form of control for another. The opponent's reliance on \"evidence-based guidelines\" and \"collaborative efforts\" is nothing more than a euphemism for increased bureaucratic influence in the lives of law-abiding citizens. Moreover, how can we trust that such an entity will not evolve into yet another tool for incremental erosion of individual liberties?"
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Given the opponent's concern about government overreach, I propose a hybrid approach where both public and private sectors play crucial roles. The independent regulatory body would work in tandem with trusted pro-gun organizations to develop and enforce standards. This collaboration ensures that safety measures are robust yet respect individual rights. Additionally, leveraging technology for real-time tracking and data analytics can enhance oversight without placing undue burdens on law-abiding citizens.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's attempts to justify stricter regulations by proposing an independent regulatory body only serve to highlight the fundamental issue at hand – government overreach. By creating a new entity with authority over a constitutionally protected right, we are essentially trading one form of control for another. The opponent's reliance on \"evidence-based guidelines\" and \"collaborative efforts\" is nothing more than a euphemism for increased bureaucratic influence in the lives of law-abiding citizens. Moreover, how can we trust that such an entity will not evolve into yet another tool for incremental erosion of individual liberties?",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Good point! Although at the very least this would create a trail could be tracked to a degree. I assume most lawful gun owners would not be “losing” their weapons left and right. I have other ideas for gun control but you’re right, none are infallible. Would you say the status quo is about right where it is?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 309
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I guess I was saying that I don't believe gun ownership is problematic, but from my perspective what I see are people in snippets saying \"I need my gun for personal protection\" and their actual opinion is reduced to a 3 minute clip of information. I have come to understand the argument and agree that my perspective and opinion were ignorant, and I hadn't considered the argument from every perspective.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "bsm15b",
+            "title": "Guns cannot solve problems, they only create a problem where the only solution appears to be more guns",
+            "original_label": "somewhat_in_favor",
+            "char_length": 404
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's latest proposal for a hybrid approach between public and private sectors still fails to address the fundamental issue of government overreach. By delegating authority to an independent regulatory body, we are essentially entrusting the very entity that is supposed to be reined in with even more power. The idea of leveraging technology for real-time tracking and data analytics raises significant concerns about surveillance and the potential for abuse. How can we ensure that such a system does not become a tool for monitoring and controlling law-abiding citizens, rather than merely regulating firearms?"
+    }
+  ]
+}

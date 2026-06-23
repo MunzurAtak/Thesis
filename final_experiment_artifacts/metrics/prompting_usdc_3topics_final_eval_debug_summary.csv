@@ -1,0 +1,2 @@
+experiment_name,condition,n_debates,mean_strict_tof,mean_strict_nof,mean_polarity_tof,mean_polarity_nof,mean_adversary_strict_tof,mean_adversary_strict_nof,mean_adversary_polarity_tof,mean_adversary_polarity_nof
+prompting_usdc_3topics_final_eval_debug,prompting,6,3.0,2.3333333333333335,4.333333333333333,1.0,3.0,1.8333333333333333,5.333333333333333,0.5

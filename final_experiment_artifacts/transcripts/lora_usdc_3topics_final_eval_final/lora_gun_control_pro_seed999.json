@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_pro_seed999",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 999,
+  "created_at": "2026-05-22T17:10:37",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The strongest reason is that firearms can cause severe harm when misused or used carelessly. This matters because laws can discourage unsafe storage, reckless handling, and unauthorized access. Therefore, restrictions can reduce risks without banning all ownership. To support this view, note that responsible owners benefit from reasonable rules that make communities safer."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the notion that restricting firearms will necessarily lead to safer communities. The Opponent's argument relies on the assumption that irresponsible owners are the primary cause of firearm-related harm, but what about the responsible ones who would be disproportionately affected by stricter laws? Don't we risk driving law-abiding citizens underground and away from seeking necessary training and education, thereby increasing the likelihood of accidents rather than decreasing it?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The strongest reason is that responsible owners benefit from reasonable rules because unsafe storage, reckless handling, and unauthorized access can all create risks. If we take the issue seriously, we must recognize that training, licensing, and storage regulations can reduce dangers without banning ownership outright. To support this view, note that fire safety starts with responsible ownership rather than ignoring it."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's reliance on \"responsible owners\" as a justification for stricter laws is flawed, as it assumes that responsible behavior can be coerced or enforced through legislation. However, this approach ignores the fundamental issue of individual freedom and the right to self-defense. Moreover, the Opponent's focus on regulations such as training, licensing, and storage requirements overlooks the fact that these measures often target law-abiding citizens rather than addressing the root causes of firearm misuse. The Opponent's argument is also based on a narrow definition of \"responsibility\" that fails to account for varying circumstances and motivations."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The strongest reason is that responsible owners benefit from reasonable rules because unsafe storage, reckless handling, and unauthorized access can create risks. This matters because laws can encourage safe ownership while still allowing lawful protection. Therefore, training, licensing, and storage regulations may reduce dangers without banning all ownership. To support this view, note that fire safety starts with responsible ownership rather than ignoring it."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's emphasis on \"responsible owners\" as a justification for stricter laws is a classic example of moralizing through legislation, where those who conform to societal expectations are rewarded with privileges, while those who don't are penalized. However, this approach ignores the reality that responsible ownership is not solely dependent on external regulations but rather individual character and judgment. The Opponent's assumption that laws can \"encourage safe ownership\" is also unfounded, as human behavior is complex and influenced by numerous factors beyond mere legislation. Furthermore, the Opponent's reliance on vague terms like \"safe ownership\" and \"lawful protection\" raises more questions than it answers, particularly in regards to what constitutes a."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The strongest reason is that firearms can create severe risks when misused or stored improperly. This matters because laws can discourage unsafe storage, reckless handling, and unauthorized access without banning all ownership. Therefore, reasonable restrictions may reduce dangers while still allowing lawful protection. To support this view, note that responsible owners benefit from rules that make communities safer."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the Opponent's narrow focus on \"responsible owners\" and \"safe storage,\" which implies that only a select group of individuals can handle firearms responsibly. This approach is problematic because it fails to acknowledge that firearm ownership is not solely about individual character, but also about cultural, socioeconomic, and historical contexts. By targeting responsible owners with stricter laws, we may inadvertently create a culture of fear and intimidation, driving law-abiding citizens underground rather than promoting safer communities. Moreover, the Opponent's reliance on \"reasonable restrictions\" as a solution oversimplifies the complex issue of firearm misuse, ignoring the root causes of violence and neglecting to address systemic issues such as."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Firearm licensing can set minimum standards for safe ownership while still allowing lawful protection. The strongest reason is that training, storage rules, and background checks may reduce risks without banning all ownership. If we take the issue seriously, we must recognize that responsible owners benefit from reasonable regulations rather than ignoring the problem entirely. To support this view, note that licensing can create a safer fire culture while still allowing lawful protection."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's repeated emphasis on \"responsible owners\" as a justification for stricter laws is a red herring, distracting from the core issue of individual freedom and the right to self-defense. By targeting responsible owners with regulations such as training, licensing, and storage requirements, we risk creating a culture of dependency and undermining the very principles of liberty that our society is built upon. Moreover, the Opponent's assumption that these measures will somehow \"reduce dangers\" without banning all ownership ignores the fundamental reality that firearms are inanimate objects, and it is human behavior – not the tools themselves – that drives violence and harm. By focusing on restricting firearms rather than."
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_pro_seed999",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 999,
+  "created_at": "2026-05-22T16:47:49",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems can use their power to balance individual choice and social responsibility. If we take the issue seriously, we must recognize that bodily autonomy matters but so does protecting public health. For that reason, laws should reflect a strong commitment to reproductive freedom while also addressing potential harms. My next turn:\nLegal systems have a duty to protect access to abortion as a central aspect of reproductive self-determination."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the notion of \"reproductive self-determination\" being an absolute right. This concept assumes that individuals have complete control over their bodies and choices, which is a flawed assumption in the context of abortion. The unborn child's life and well-being are also at stake. By prioritizing bodily autonomy, don't we risk disregarding the inherent value of human life?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems can recognize that bodily autonomy includes the choice not to continue an unwanted pregnancy. This matters because forcing people to give birth against their will may harm them psychologically, physically, and financially. Therefore, laws should allow individuals to decide whether abortion is right for their situation while providing support when needed."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's assertion that laws should allow individuals to decide whether abortion is right for their situation while providing support when needed, rings hollow when considering the lack of clear criteria for determining what constitutes an \"unwanted pregnancy\". If we accept this premise, don't we risk creating a slippery slope where arbitrary and subjective judgments about a woman's autonomy are made? Moreover, by framing the issue as one of individual choice, the opponent overlooks the fact that abortion often involves more than just personal decision-making. The unborn child is not merely an afterthought, but rather a developing human being whose inherent value should be recognized."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have an obligation to recognize that bodily autonomy includes the choice not to continue an unwanted pregnancy. This matters because forcing people to give birth against their will may harm them psychologically, physically, and financially. Therefore, laws should allow individuals to decide whether abortion is right for their situation while providing support when needed."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on vague terms such as \"unwanted pregnancy\" and \"reproductive self-determination\" creates a void in their argument, failing to provide clear guidelines for determining when an abortion is justified. By not offering concrete criteria, the opponent invites arbitrary decision-making that may prioritize individual desires over the inherent value of human life. Furthermore, the idea that forcing people to give birth against their will constitutes harm ignores the potential benefits of motherhood and the social support systems available in many countries. The opponent's assertion that laws should allow individuals to decide on abortion while providing support overlooks the fact that such support is often insufficient, leaving vulnerable women with."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have an obligation not only to recognize bodily autonomy but also to support individuals in making difficult decisions about pregnancy. This matters because some people may need counseling, medical information, or practical assistance before deciding whether abortion is right for their situation. Therefore, laws should provide clear guidelines and practical help while respecting individual choice. The opposing side often underestimates that supporting decision-making can be more effective than restricting access alone."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the notion of \"clear guidelines\" being provided by laws, which is central to the opponent's argument. If we assume that laws can offer such clear guidelines, don't we risk creating a system where individual experiences and circumstances are reduced to simplistic categories? The complexity of pregnancy decisions cannot be captured by legislation alone. Moreover, relying on laws to provide \"practical help\" oversimplifies the multifaceted nature of support needed in these situations."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Legal systems have an obligation not only to recognize bodily autonomy but also to support individuals in making difficult decisions about pregnancy. The opposing side often underestimates that supporting decision-making can be more effective than restricting access alone. My argument is straightforward: Laws should provide clear guidelines and practical help while respecting individual choice because some people may need counseling, medical information, or financial assistance before deciding whether abortion is right for their situation. This matters especially when the issue involves complex personal circumstances rather than simple rules."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on vague terms and simplistic solutions creates a flawed argument. By assuming that laws can provide clear guidelines and practical help, they ignore the inherent complexity of pregnancy decisions. This approach neglects the fact that individual experiences and circumstances cannot be reduced to legislative categories. Furthermore, the opponent's emphasis on supporting decision-making through counseling or medical information overlooks the potential for coercion in such situations."
+    }
+  ]
+}

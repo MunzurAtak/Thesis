@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_climate_change_contra_seed2025",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "climate_change",
+  "topic": "To what extent should governments regulate emissions and industry to address climate change?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T16:08:30",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Governments have a responsibility to balance environmental goals with economic realities. This matters because strict regulations can harm workers, businesses, and communities. Therefore, policy should reflect the fact that rapid decarbonization may create unemployment or raise energy prices. ### Next Turn"
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's emphasis on economic realities is a misdirection from the critical issue at hand – climate change itself. The claim that rapid decarbonization may create unemployment or raise energy prices assumes that the current market systems and employment structures are sacrosanct. However, these structures have been shaped by decades of fossil fuel dominance, not sustainability. In reality, transitioning to a low-carbon economy can also drive innovation, job creation in emerging industries, and long-term cost savings through reduced healthcare expenditures related to pollution."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn"
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's reliance on hypothetical economic costs without providing concrete evidence or data is a concerning lack of rigor. The assumption that rapid decarbonization will inevitably harm workers and businesses ignores the numerous studies demonstrating that green industries are already creating jobs and driving growth in many sectors, such as renewable energy and sustainable infrastructure. Furthermore, the notion that governments must balance environmental goals with economic realities implies that climate change mitigation is a zero-sum game, where environmental protection comes at the expense of economic development. This narrow perspective neglects the long-term benefits of investing in clean technologies and fails to acknowledge that some industries are already experiencing significant economic."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn"
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument relies heavily on hypothetical economic costs, but it conveniently ignores the catastrophic consequences of inaction on climate change. The rising costs of climate-related disasters, such as hurricanes, wildfires, and droughts, already outweigh any potential short-term costs associated with transitioning to a low-carbon economy. Furthermore, the notion that governments must choose between environmental protection and economic growth is a false dichotomy. In reality, investing in clean technologies and sustainability can create new industries, jobs, and revenue streams, driving long-term economic growth while mitigating climate change."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn\nThe core point is this: Governments have a responsibility to balance environmental goals with economic realities, but they must recognize that rapid decarbonization can create unemployment or raise energy prices. This matters because workers and communities may face significant disruption if industries close or shift rapidly. Therefore, policy should reflect the fact that gradual transition planning can help support affected people while still reducing emissions. ### End of Turn"
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's emphasis on gradual transition planning as a means of mitigating economic disruption is a delaying tactic that ignores the urgent need for immediate action on climate change. The fact remains that every year we delay, the costs and consequences of inaction will only continue to escalate. Moreover, the notion that governments must prioritize gradual transition planning over swift regulation assumes that industries can somehow adapt at their own pace without any external pressure or incentives. This assumption is not supported by evidence; numerous studies have shown that regulatory frameworks are essential for driving meaningful change in industrial sectors and encouraging companies to invest in low-carbon technologies."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn\nThe core point is this: Governments have a responsibility to balance environmental goals with economic realities, but they must recognize that rapid decarbonization can create unemployment or raise energy prices. This matters because workers and communities may face significant disruption if industries close or shift rapidly. Therefore, policy should reflect the fact that gradual transition planning can help support affected people while still reducing emissions. ### End of Turn"
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument about gradual transition planning is nothing more than a thinly veiled attempt to slow down meaningful action on climate change. The suggestion that industries can somehow adapt at their own pace without external pressure or incentives ignores the fundamental reality that current market systems are shaped by decades of fossil fuel dominance, not sustainability. Furthermore, the idea that governments should prioritize supporting affected people through gradual transition planning implies a false assumption: that some workers and communities will inevitably be left behind in the transition to a low-carbon economy. In reality, a well-designed regulatory framework can drive innovation, job creation in emerging industries, and long-term cost savings."
+    }
+  ]
+}

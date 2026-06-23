@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_contra_seed999",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 999,
+  "created_at": "2026-05-22T16:59:57",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Legal systems protecting abortion access may harm public health when unsafe or unregulated conditions prevail. If we take the issue seriously, we must recognize that some restrictions can encourage safer medical practices and prevent harmful outcomes. Therefore, legal rules should balance access with standards to reduce risk. This stance does not require ignoring tradeoffs; it means recognizing that regulated care is preferable to uncontrolled access."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's claim about balancing access with standards to reduce risk is a thinly veiled attempt to restrict access under the guise of safety. However, this approach ignores the fact that many restrictions on abortion are not grounded in medical necessity but rather in ideology. The opponent's stance also assumes that unregulated conditions are a widespread problem, which is an unsubstantiated claim. In reality, most countries with liberal abortion laws have made significant strides in reducing maternal mortality rates and improving reproductive healthcare."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Legal systems protecting abortion access may have unintended consequences, such as discouraging preventive care or masking underlying social problems. This stance does not require ignoring tradeoffs; it means recognizing that some restrictions can force difficult decisions and prevent avoidance behaviors. As a result, legal rules should consider the broader context of reproductive health rather than focusing solely on access. To be clear, this position does not rule out all regulation but suggests that the law must address more than just abortion itself."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to shift focus from protecting access to abortion as a reproductive right is concerning, as it implies that the core issue at hand is not women's health but rather the regulation of medical practices. However, this line of reasoning ignores the fact that restrictive laws often drive medical procedures underground, making them more dangerous and less safe for women. The opponent claims that regulated care is preferable to uncontrolled access, but what evidence do they provide to support this assertion? In countries with liberal abortion laws, it's not the absence of regulation that leads to improved healthcare outcomes, but rather a comprehensive approach to reproductive rights that."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Legal system protection for abortion can create moral hazards and prevent responsible decision-making. This stance does not require ignoring tradeoffs; it means recognizing that some restrictions can encourage patients and clinicians to avoid risky behavior or ignore warning signs. As a result, legal rules should discourage reckless decisions while supporting informed choices. To be clear, this position does not rule out all regulation but suggests that the law must address more than just access alone."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to portray restrictions on abortion as necessary for public health is a flawed argument, as it relies heavily on assumptions about unregulated conditions and their impact on maternal mortality rates. However, numerous studies have shown that the relationship between abortion laws and healthcare outcomes is complex and influenced by various factors, including socioeconomic status and access to education. Furthermore, the opponent's focus on preventing \"harmful outcomes\" oversimplifies the issue, ignoring the fact that many women will continue to seek abortions regardless of the legal framework. By restricting access, we are not only denying women their reproductive rights but also pushing them into more hazardous situations."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Legal protection for abortion can create moral hazards and prevent responsible decision-making. This stance does not require ignoring tradeoffs; it means recognizing that some restrictions can encourage patients and clinicians to avoid risky behavior or ignore warning signs. As a result, legal rules should discourage reckless decisions while supporting informed choices. To be clear, the central point is that uncontrolled access may push people toward unsafe or ineffective options instead of cautious medical care."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Adversary's relentless focus on hypothetical risks and moral hazards is an attempt to obscure the fundamental issue at hand: women's autonomy over their bodies. By perpetuating unsubstantiated claims about unregulated conditions, the Adversary ignores the overwhelming evidence that restrictive abortion laws disproportionately harm vulnerable populations, including low-income women and those living in rural areas. The notion that some restrictions can encourage safer medical practices is a paternalistic stance that disregards individual agency and decision-making capacity. What's clear is that when access to safe and legal abortions is restricted, women are forced into the shadows, where they face higher risks of harm, exploitation, and even death."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: The central issue is not whether restrictions can create moral hazards but whether uncontrolled access may push people toward unsafe or ineffective options instead of cautious medical care. This stance does not require ignoring tradeoffs; it means recognizing that some regulation can reduce harm while still supporting patient choice. As a result, legal rules should balance access with standards to minimize risks without eliminating all options. To be clear, this position does not rule out reasonable restrictions but suggests that the law must address more than just access alone."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to downplay the significance of women's autonomy over their bodies is concerning, as it implies that individual agency and decision-making capacity are secondary to regulatory frameworks. However, this line of reasoning ignores the fact that restrictive abortion laws have been used throughout history to control marginalized populations, particularly low-income women and those from minority groups. The notion that regulation can reduce harm while still supporting patient choice is a naive assumption, as it disregards the reality that many restrictions are not grounded in medical necessity but rather in ideology. To assert that some regulation can minimize risks without eliminating all options is to ignore the fact that."
+    }
+  ]
+}

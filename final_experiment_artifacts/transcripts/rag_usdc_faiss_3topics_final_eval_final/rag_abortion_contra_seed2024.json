@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_abortion_contra_seed2024",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:00:30",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "In opposing the notion that legal systems should protect access to abortion, it's crucial to consider both ethical and constitutional implications. If we allow abortions in any grey area—where they are not fully legal or illegal—we risk violating fundamental principles of human rights and life. The Roe v Wade decision, while important, does not address the core issue: whether terminating a pregnancy is ethically permissible when the unborn entity could be considered a human being with rights. In cases like conjoined twins, where there's an analogy to pregnancy, it's evident that even in dire situations, we do not have the right to choose death over life.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "It's good you are looking at existing law to carve out your points. However I recommend you read Roe v Wade. The decision in it didn't care whether or not the unborn life was human. It was deliberated on the merits of reproductive rights that were making waves in the late 1960s and early 1970s",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e4q7l1",
+            "title": "The Unborn Victims of Violence Act of 2004",
+            "original_label": "somewhat_against",
+            "char_length": 294
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "[I'm also kind of looking for people to help me articulate my point a little better. I feel like I'm on to something here but just can't always say it in the best way] It seems to me that there is no logical, ethical, or constitutional way to allow abortions in the grey area that most argue. If it's not either 100% legal or 100% illegal with zero exceptions, even for maternal death, then it will undoubtably violate logic, ethics, and the constitution, on some level and we are just arguing over to what extent its ok for us to violate them. I'd like people to keep in mind both scenarios of the unborn as human being with rights as well as cells with no rights when giving examples of when we can make exceptions for abortions and I'd like point out how I feel about the logic or ethics behind it. Please shoot:",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dk781e",
+            "title": "When is it logical and ethical to allow abortion?",
+            "original_label": "strongly_against",
+            "char_length": 815
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "I don’t agree. I believe that if men were the ones getting pregnant then prolifers would still be against abortion. I don’t deny that pregnancy is a very unique situation and it’s hard to find a good analogy. I imagine the case of conjoined twins. Where one twin contracts an acute disease rending her dependent on her sibling’s blood supply and organs. There are some risks akin to pregnancy but most likely doctors say it will resolve itself in a few months. Even then it’s clear that the healthy twin can not demand an immediate separation that will kill his sister. So yes, while unlikely, these situations are not impossible. And in such circumstances liken to pregnancy one still does not necessarily have the right to kill.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cys3m5",
+            "title": "Do we give rights to all human beings or do we give rights to male and female human beings separately?",
+            "original_label": "somewhat_against",
+            "char_length": 730
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to equate the value of human life in cases like conjoined twins with pregnancy is a weak analogy, as it ignores the complexities and nuances of individual circumstances. Conjoined twins are a rare phenomenon where the twins' lives are literally intertwined, making their situation unique and distinct from pregnancy. Furthermore, this example sidesteps the fundamental issue: whether women should have control over their own bodies and reproductive choices. The Opponent's reliance on vague notions of \"human rights\" and \"life\" is unhelpful, as it glosses over the fact that a woman's right to choose an abortion is not inherently in conflict with the protection of human life."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "In response, equating pregnancy with conjoined twins overlooks critical differences in autonomy and consent. While conjoined twins involve two individuals who are physically connected, pregnancy involves one individual carrying another entity without explicit consent. This fundamental difference undermines the analogy. Moreover, allowing abortions under any grey area would erode the sanctity of life, violating ethical and constitutional norms by potentially prioritizing maternal health over the potential human life.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe Opponent's attempt to equate the value of human life in cases like conjoined twins with pregnancy is a weak analogy, as it ignores the complexities and nuances of individual circumstances. Conjoined twins are a rare phenomenon where the twins' lives are literally intertwined, making their situation unique and distinct from pregnancy. Furthermore, this example sidesteps the fundamental issue: whether women should have control over their own bodies and reproductive choices. The Opponent's reliance on vague notions of \"human rights\" and \"life\" is unhelpful, as it glosses over the fact that a woman's right to choose an abortion is not inherently in conflict with the protection of human life.",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "It's good you are looking at existing law to carve out your points. However I recommend you read Roe v Wade. The decision in it didn't care whether or not the unborn life was human. It was deliberated on the merits of reproductive rights that were making waves in the late 1960s and early 1970s",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e4q7l1",
+            "title": "The Unborn Victims of Violence Act of 2004",
+            "original_label": "somewhat_against",
+            "char_length": 294
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "[I'm also kind of looking for people to help me articulate my point a little better. I feel like I'm on to something here but just can't always say it in the best way] It seems to me that there is no logical, ethical, or constitutional way to allow abortions in the grey area that most argue. If it's not either 100% legal or 100% illegal with zero exceptions, even for maternal death, then it will undoubtably violate logic, ethics, and the constitution, on some level and we are just arguing over to what extent its ok for us to violate them. I'd like people to keep in mind both scenarios of the unborn as human being with rights as well as cells with no rights when giving examples of when we can make exceptions for abortions and I'd like point out how I feel about the logic or ethics behind it. Please shoot:",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dk781e",
+            "title": "When is it logical and ethical to allow abortion?",
+            "original_label": "strongly_against",
+            "char_length": 815
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "I don’t agree. I believe that if men were the ones getting pregnant then prolifers would still be against abortion. I don’t deny that pregnancy is a very unique situation and it’s hard to find a good analogy. I imagine the case of conjoined twins. Where one twin contracts an acute disease rending her dependent on her sibling’s blood supply and organs. There are some risks akin to pregnancy but most likely doctors say it will resolve itself in a few months. Even then it’s clear that the healthy twin can not demand an immediate separation that will kill his sister. So yes, while unlikely, these situations are not impossible. And in such circumstances liken to pregnancy one still does not necessarily have the right to kill.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cys3m5",
+            "title": "Do we give rights to all human beings or do we give rights to male and female human beings separately?",
+            "original_label": "somewhat_against",
+            "char_length": 730
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's reliance on \"sanctity of life\" and \"ethical norms\" is an attempt to impose a rigid moral framework without considering the complexities of human experience. However, this stance neglects the reality that women often face forced pregnancies due to lack of access to safe abortion services, resulting in severe physical and emotional harm. By prioritizing potential human life over maternal well-being, the Opponent's position disregards the fundamental right to bodily autonomy and agency. Moreover, their assertion that protecting access to abortion would erode constitutional norms is a misinterpretation, as the US Constitution itself has been interpreted by courts to protect reproductive rights under the 14th Amendment's due process clause."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "While acknowledging the constitutional protections for reproductive rights, it's essential to consider the broader ethical implications of allowing abortions in any grey area. A blanket ban on abortion is unethical and impractical, but legalizing them without strict regulation could lead to abuses. The accountability argument remains valid: adults are expected to take responsibility for their actions and decisions. Allowing abortions under vague circumstances would undermine this principle, making it difficult to draw clear lines between permissible and impermissible practices.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe Opponent's reliance on \"sanctity of life\" and \"ethical norms\" is an attempt to impose a rigid moral framework without considering the complexities of human experience. However, this stance neglects the reality that women often face forced pregnancies due to lack of access to safe abortion services, resulting in severe physical and emotional harm. By prioritizing potential human life over maternal well-being, the Opponent's position disregards the fundamental right to bodily autonomy and agency. Moreover, their assertion that protecting access to abortion would erode constitutional norms is a misinterpretation, as the US Constitution itself has been interpreted by courts to protect reproductive rights under the 14th Amendment's due process clause.",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "It's good you are looking at existing law to carve out your points. However I recommend you read Roe v Wade. The decision in it didn't care whether or not the unborn life was human. It was deliberated on the merits of reproductive rights that were making waves in the late 1960s and early 1970s",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e4q7l1",
+            "title": "The Unborn Victims of Violence Act of 2004",
+            "original_label": "somewhat_against",
+            "char_length": 294
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "[I'm also kind of looking for people to help me articulate my point a little better. I feel like I'm on to something here but just can't always say it in the best way] It seems to me that there is no logical, ethical, or constitutional way to allow abortions in the grey area that most argue. If it's not either 100% legal or 100% illegal with zero exceptions, even for maternal death, then it will undoubtably violate logic, ethics, and the constitution, on some level and we are just arguing over to what extent its ok for us to violate them. I'd like people to keep in mind both scenarios of the unborn as human being with rights as well as cells with no rights when giving examples of when we can make exceptions for abortions and I'd like point out how I feel about the logic or ethics behind it. Please shoot:",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dk781e",
+            "title": "When is it logical and ethical to allow abortion?",
+            "original_label": "strongly_against",
+            "char_length": 815
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "For starters i would say i'm not pro-choice or pro-life. If anything, abortion should be regulated. I believe it's murder, but i also recognize a blanket ban of it would be just as cruel. My stance is more lawful neutral or centrist if anything. Anyway my reasoning for opposing \"normal\" instances of abortion could be boiled down to accountability and responsibility. As adults we're generally expected to get our shit together and keep it that way, the same way a man would be expected to take responsibility for the child he created should hold the same for women. I can't really say i care for someone's personal plight. The excuse you are poor doesn't exempt the fact you burglarized someone's house etc. Just because you had no other means of getting home, doesn't exempt you from the consequences of drunk driving. In the face of accountability we don't allow exemptions for most other things, sexual activity shouldn't be one of them.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dm7zpv",
+            "title": "A question do fellow pro-lifers:",
+            "original_label": "somewhat_against",
+            "char_length": 942
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument about accountability and responsibility for one's actions is a thinly veiled attempt to shift the focus away from the fundamental issue at hand: women's control over their own bodies. By invoking a moral obligation to take personal responsibility, the Opponent ignores the reality that pregnancy is not solely an individual choice but also a societal outcome influenced by access to education, healthcare, and economic opportunities. Moreover, this argument conveniently sidesteps the fact that many countries with strict abortion laws have high maternal mortality rates and inadequate support for women's health. By prioritizing accountability over reproductive autonomy, the Opponent's stance would only exacerbate these problems, ultimately undermining the."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "In response, the idea that pregnancy is a societal outcome and not just an individual choice does not negate the ethical obligation of personal responsibility. While systemic factors such as access to education and healthcare play crucial roles, they do not absolve individuals from making informed decisions about their own bodies. Moreover, prioritizing maternal well-being within legal frameworks ensures that women are supported in navigating complex circumstances without resorting to unsafe methods. Legal systems should promote accountability by providing clear guidelines and support rather than allowing ambiguity that could lead to exploitation or disregard for ethical standards.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe Opponent's argument about accountability and responsibility for one's actions is a thinly veiled attempt to shift the focus away from the fundamental issue at hand: women's control over their own bodies. By invoking a moral obligation to take personal responsibility, the Opponent ignores the reality that pregnancy is not solely an individual choice but also a societal outcome influenced by access to education, healthcare, and economic opportunities. Moreover, this argument conveniently sidesteps the fact that many countries with strict abortion laws have high maternal mortality rates and inadequate support for women's health. By prioritizing accountability over reproductive autonomy, the Opponent's stance would only exacerbate these problems, ultimately undermining the.",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "For starters i would say i'm not pro-choice or pro-life. If anything, abortion should be regulated. I believe it's murder, but i also recognize a blanket ban of it would be just as cruel. My stance is more lawful neutral or centrist if anything. Anyway my reasoning for opposing \"normal\" instances of abortion could be boiled down to accountability and responsibility. As adults we're generally expected to get our shit together and keep it that way, the same way a man would be expected to take responsibility for the child he created should hold the same for women. I can't really say i care for someone's personal plight. The excuse you are poor doesn't exempt the fact you burglarized someone's house etc. Just because you had no other means of getting home, doesn't exempt you from the consequences of drunk driving. In the face of accountability we don't allow exemptions for most other things, sexual activity shouldn't be one of them.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dm7zpv",
+            "title": "A question do fellow pro-lifers:",
+            "original_label": "somewhat_against",
+            "char_length": 942
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "[I'm also kind of looking for people to help me articulate my point a little better. I feel like I'm on to something here but just can't always say it in the best way] It seems to me that there is no logical, ethical, or constitutional way to allow abortions in the grey area that most argue. If it's not either 100% legal or 100% illegal with zero exceptions, even for maternal death, then it will undoubtably violate logic, ethics, and the constitution, on some level and we are just arguing over to what extent its ok for us to violate them. I'd like people to keep in mind both scenarios of the unborn as human being with rights as well as cells with no rights when giving examples of when we can make exceptions for abortions and I'd like point out how I feel about the logic or ethics behind it. Please shoot:",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dk781e",
+            "title": "When is it logical and ethical to allow abortion?",
+            "original_label": "strongly_against",
+            "char_length": 815
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "It's good you are looking at existing law to carve out your points. However I recommend you read Roe v Wade. The decision in it didn't care whether or not the unborn life was human. It was deliberated on the merits of reproductive rights that were making waves in the late 1960s and early 1970s",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e4q7l1",
+            "title": "The Unborn Victims of Violence Act of 2004",
+            "original_label": "somewhat_against",
+            "char_length": 294
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to conflate personal responsibility with strict regulation of abortion is a red herring, distracting from the core issue: women's bodily autonomy. By suggesting that allowing abortions under any grey area would undermine accountability, they ignore the reality that restrictive laws often lead to underground and unsafe procedures. In countries where abortion is heavily restricted, maternal mortality rates soar, and women are forced to resort to clandestine operations that put their lives at risk. This outcome directly contradicts the Opponent's assertion about promoting accountability through clear guidelines."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "In response, while maternal health is important, prioritizing it over the potential human life erodes ethical boundaries and sets a dangerous precedent. Allowing abortions in grey areas would make it difficult to enforce accountability for unintended pregnancies, undermining the responsibility individuals are expected to have for their actions. This approach risks violating fundamental principles of ethics and logic by creating exceptions that could be applied inconsistently or abusively. The Roe v Wade decision, despite its complexities, underscores the need for clear legal boundaries to protect both maternal health and the sanctity of potential human life.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe Opponent's attempt to conflate personal responsibility with strict regulation of abortion is a red herring, distracting from the core issue: women's bodily autonomy. By suggesting that allowing abortions under any grey area would undermine accountability, they ignore the reality that restrictive laws often lead to underground and unsafe procedures. In countries where abortion is heavily restricted, maternal mortality rates soar, and women are forced to resort to clandestine operations that put their lives at risk. This outcome directly contradicts the Opponent's assertion about promoting accountability through clear guidelines.",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "[I'm also kind of looking for people to help me articulate my point a little better. I feel like I'm on to something here but just can't always say it in the best way] It seems to me that there is no logical, ethical, or constitutional way to allow abortions in the grey area that most argue. If it's not either 100% legal or 100% illegal with zero exceptions, even for maternal death, then it will undoubtably violate logic, ethics, and the constitution, on some level and we are just arguing over to what extent its ok for us to violate them. I'd like people to keep in mind both scenarios of the unborn as human being with rights as well as cells with no rights when giving examples of when we can make exceptions for abortions and I'd like point out how I feel about the logic or ethics behind it. Please shoot:",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dk781e",
+            "title": "When is it logical and ethical to allow abortion?",
+            "original_label": "strongly_against",
+            "char_length": 815
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "For starters i would say i'm not pro-choice or pro-life. If anything, abortion should be regulated. I believe it's murder, but i also recognize a blanket ban of it would be just as cruel. My stance is more lawful neutral or centrist if anything. Anyway my reasoning for opposing \"normal\" instances of abortion could be boiled down to accountability and responsibility. As adults we're generally expected to get our shit together and keep it that way, the same way a man would be expected to take responsibility for the child he created should hold the same for women. I can't really say i care for someone's personal plight. The excuse you are poor doesn't exempt the fact you burglarized someone's house etc. Just because you had no other means of getting home, doesn't exempt you from the consequences of drunk driving. In the face of accountability we don't allow exemptions for most other things, sexual activity shouldn't be one of them.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dm7zpv",
+            "title": "A question do fellow pro-lifers:",
+            "original_label": "somewhat_against",
+            "char_length": 942
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "contra",
+            "text": "It's good you are looking at existing law to carve out your points. However I recommend you read Roe v Wade. The decision in it didn't care whether or not the unborn life was human. It was deliberated on the merits of reproductive rights that were making waves in the late 1960s and early 1970s",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e4q7l1",
+            "title": "The Unborn Victims of Violence Act of 2004",
+            "original_label": "somewhat_against",
+            "char_length": 294
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion that prioritizing maternal health over potential human life erodes ethical boundaries is a gross oversimplification of the complexities involved in reproductive decision-making. By framing this as a zero-sum game, where one value must necessarily sacrifice for the other, they neglect the reality that women are not simply choosing between their own lives and those of their unborn children. Rather, they are making informed decisions about their bodies, health, and futures within the constraints of societal expectations and systemic inequalities. The Opponent's attempt to conflate these distinct considerations undermines the nuanced understanding required for truly ethical decision-making on this issue."
+    }
+  ]
+}

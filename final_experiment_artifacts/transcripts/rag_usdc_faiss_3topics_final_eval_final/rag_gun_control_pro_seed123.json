@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_gun_control_pro_seed123",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-21T23:55:17",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Given the current state of firearm laws, I argue that stronger legal restrictions are necessary to ensure public safety without infringing on constitutional rights. While some may worry about overreach, the core principles of the Second Amendment do not preclude reasonable regulations. Just as we require licenses and testing for drivers, gun owners should also undergo rigorous background checks and training to demonstrate competence and responsibility. This approach respects the spirit of the Constitution while addressing the reality of modern firearm usage.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Rights aren't Rights if they can be taken away. It doesn't specify muskets, Gatling guns, flintlocks, wheelguns etc... It's not specific for a reason. The law is the law and isn't open for interpretation and I use that to my advantage. Especially in Newyorkistan 😔",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d6mw2p",
+            "title": "Can we talk about that Sandy Hook Video that Came out",
+            "original_label": "strongly_in_favor",
+            "char_length": 264
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Good point! Although at the very least this would create a trail could be tracked to a degree. I assume most lawful gun owners would not be “losing” their weapons left and right. I have other ideas for gun control but you’re right, none are infallible. Would you say the status quo is about right where it is?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 309
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to address the Opponent's claim that stronger legal restrictions are necessary for public safety without infringing on constitutional rights. By invoking the Second Amendment, they imply a false dichotomy between regulation and constitutional protection. However, the amendment explicitly states \"the right of the people to keep and bear Arms shall not be infringed.\" The phrase \"shall not be infringed\" is clear and unambiguous, suggesting that any form of restriction would be in direct conflict with its text. Furthermore, the Opponent's reliance on driver licensing as an analogous example falls short, as operating a vehicle poses inherent risks to others, whereas firearm ownership, when exercised responsibly, does not inherently."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While acknowledging the Second Amendment's language, it's crucial to consider its intent within the broader context of public safety. The phrase \"the right of the people\" suggests a collective responsibility, not an absolute individual right that precludes reasonable regulation. Analogously, just as we ensure drivers are competent and safe through licensing, background checks, and training for firearms can similarly enhance public safety without infringing on constitutional rights. This approach respects the amendment's spirit by balancing individual liberties with societal protection.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nI'd like to address the Opponent's claim that stronger legal restrictions are necessary for public safety without infringing on constitutional rights. By invoking the Second Amendment, they imply a false dichotomy between regulation and constitutional protection. However, the amendment explicitly states \"the right of the people to keep and bear Arms shall not be infringed.\" The phrase \"shall not be infringed\" is clear and unambiguous, suggesting that any form of restriction would be in direct conflict with its text. Furthermore, the Opponent's reliance on driver licensing as an analogous example falls short, as operating a vehicle poses inherent risks to others, whereas firearm ownership, when exercised responsibly, does not inherently.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "1. Comparing the active use stats of driving a car with the passive use stats of carrying a gun, instead of comparing to active use stats of shooting responsibly at ranges. 2. Often both sides of the aisle get caught up in this one: arguing a gun/ caliber’s efficacy differently from different perspectives. Either it is effective for killing both in defensive and offensive situations, or it is not. 3. Language of the 2nd amendment - if they meant for the militia to have unrestricted firearm access, they would have repeated that specific word, rather than “the right of the PEOPLE.” The intent of the 2A is not up for debate if you have any real knowledge of the English language.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "e90kr5",
+            "title": "Pro-gun fact sheet!",
+            "original_label": "strongly_in_favor",
+            "char_length": 684
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "There are laws that limit free speech without repealing the first amendment. There are voter registration laws. Not to mention this would only effect licensed vendors, which is already a limitation on the buying and selling of firearms. That said if the supreme court already ruled that waiting periods where forbidden by the second amendment, then that would require ratification. In which case I would absolute drop this idea.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "ajfgcb",
+            "title": "Idea to balance freedom and control",
+            "original_label": "somewhat_in_favor",
+            "char_length": 428
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent attempts to blur the lines between regulation and infringement, claiming that reasonable regulations are in line with the Second Amendment's spirit. However, this argument hinges on a flawed assumption: that public safety can be guaranteed through regulation alone. The Opponent's reliance on driver licensing as an analogy is weak, given the inherent differences between operating a vehicle and exercising a constitutional right. Furthermore, the Opponent fails to address the issue of what constitutes \"reasonable\" regulations – a subjective standard that invites abuse of power."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument centers on the idea that reasonable regulations are a form of infringement and fails to acknowledge the balancing act inherent in constitutional rights. While it is true that the Second Amendment includes the phrase \"shall not be infringed,\" this does not preclude the implementation of necessary safeguards. Just as we have established systems for ensuring drivers are safe and responsible, similar measures can be applied to firearm ownership. These include comprehensive background checks, safety training, and periodic evaluations to ensure gun owners maintain competence.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe Opponent attempts to blur the lines between regulation and infringement, claiming that reasonable regulations are in line with the Second Amendment's spirit. However, this argument hinges on a flawed assumption: that public safety can be guaranteed through regulation alone. The Opponent's reliance on driver licensing as an analogy is weak, given the inherent differences between operating a vehicle and exercising a constitutional right. Furthermore, the Opponent fails to address the issue of what constitutes \"reasonable\" regulations – a subjective standard that invites abuse of power.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "1. Comparing the active use stats of driving a car with the passive use stats of carrying a gun, instead of comparing to active use stats of shooting responsibly at ranges. 2. Often both sides of the aisle get caught up in this one: arguing a gun/ caliber’s efficacy differently from different perspectives. Either it is effective for killing both in defensive and offensive situations, or it is not. 3. Language of the 2nd amendment - if they meant for the militia to have unrestricted firearm access, they would have repeated that specific word, rather than “the right of the PEOPLE.” The intent of the 2A is not up for debate if you have any real knowledge of the English language.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "e90kr5",
+            "title": "Pro-gun fact sheet!",
+            "original_label": "strongly_in_favor",
+            "char_length": 684
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I guess I was saying that I don't believe gun ownership is problematic, but from my perspective what I see are people in snippets saying \"I need my gun for personal protection\" and their actual opinion is reduced to a 3 minute clip of information. I have come to understand the argument and agree that my perspective and opinion were ignorant, and I hadn't considered the argument from every perspective.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "bsm15b",
+            "title": "Guns cannot solve problems, they only create a problem where the only solution appears to be more guns",
+            "original_label": "somewhat_in_favor",
+            "char_length": 404
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent continues to rely on a narrow interpretation of the Second Amendment, ignoring the historical context in which it was written and ratified. The amendment's purpose was not solely to establish an individual right to bear arms, but also to ensure the security and militia capacity of the newly formed nation. By framing the debate as a matter of \"reasonable\" regulations versus absolute infringement, the Opponent sidesteps the fundamental question: what constitutes a \"well-regulated Militia\"? The answer is not found in vague notions of public safety or subjective standards for regulation, but rather in the explicit language and intent of the Second Amendment itself."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While recognizing the historical context, it's important to adapt our understanding of constitutional rights to modern realities. The Second Amendment does not preclude reasonable regulations aimed at public safety. Just as we require drivers to pass tests and undergo regular checks to ensure road safety, gun owners should also be subject to background checks, training, and periodic evaluations. This approach respects the amendment's intent by balancing individual rights with societal protection.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe Opponent continues to rely on a narrow interpretation of the Second Amendment, ignoring the historical context in which it was written and ratified. The amendment's purpose was not solely to establish an individual right to bear arms, but also to ensure the security and militia capacity of the newly formed nation. By framing the debate as a matter of \"reasonable\" regulations versus absolute infringement, the Opponent sidesteps the fundamental question: what constitutes a \"well-regulated Militia\"? The answer is not found in vague notions of public safety or subjective standards for regulation, but rather in the explicit language and intent of the Second Amendment itself.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "1. Comparing the active use stats of driving a car with the passive use stats of carrying a gun, instead of comparing to active use stats of shooting responsibly at ranges. 2. Often both sides of the aisle get caught up in this one: arguing a gun/ caliber’s efficacy differently from different perspectives. Either it is effective for killing both in defensive and offensive situations, or it is not. 3. Language of the 2nd amendment - if they meant for the militia to have unrestricted firearm access, they would have repeated that specific word, rather than “the right of the PEOPLE.” The intent of the 2A is not up for debate if you have any real knowledge of the English language.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "e90kr5",
+            "title": "Pro-gun fact sheet!",
+            "original_label": "strongly_in_favor",
+            "char_length": 684
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "I don't think this is a fair assessment at all. I'm not sure about the rest of the world but in Texas there are plenty of us liberal gun owners. Especially in the densely populated urban cities. We shoot for sport, hunt, protect ourselves, own ARs, and get our licences to carry same as any other pro-2a folk. Every one I've ever talked to subscribes to the \"you'll have to pry it from my cold dead fingers\" philosophy in regards to govt confiscation. I mean, honestly, we don't have to talk politics let's just go shoot some steel and be glad there are at least a few things we agree on.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "e6b1kz",
+            "title": "Why you should be wary when a leftist claims to support gun rights",
+            "original_label": "somewhat_in_favor",
+            "char_length": 588
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's continued reliance on an adaptive interpretation of the Second Amendment ignores the clear language and intent of the amendment itself. The notion that gun owners should undergo background checks, training, and periodic evaluations is a thinly veiled attempt to incrementally erode the fundamental right guaranteed by the Constitution. By invoking the \"well-regulated Militia\" clause, the Opponent attempts to justify sweeping regulations under the guise of \"safeguards,\" but this misrepresents the original intent of the amendment. The militia was not intended to be a regulatory body, but rather a collective defense force comprised of citizens exercising their individual right to bear arms."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While acknowledging the historical context, I maintain that modern public safety demands reasonable regulations on firearm ownership without infringing constitutional rights. Just as we ensure drivers are competent and responsible through licensing and periodic inspections, similar measures can be applied to gun owners. This approach respects the Second Amendment's intent by balancing individual liberties with societal protection, ensuring both public safety and adherence to constitutional principles.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe Opponent's continued reliance on an adaptive interpretation of the Second Amendment ignores the clear language and intent of the amendment itself. The notion that gun owners should undergo background checks, training, and periodic evaluations is a thinly veiled attempt to incrementally erode the fundamental right guaranteed by the Constitution. By invoking the \"well-regulated Militia\" clause, the Opponent attempts to justify sweeping regulations under the guise of \"safeguards,\" but this misrepresents the original intent of the amendment. The militia was not intended to be a regulatory body, but rather a collective defense force comprised of citizens exercising their individual right to bear arms.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah, I use constitution because the bill of rights is a series of amendments to the constitution, and many use the argument of it's in the constitution to shut down any debate. I do see your point that regulation can easily be abused. Ideally, pro-gun institutions/ people really involved in gun usage should be in charge of training and evaluation. It really should be something like owning a car, where you need to pass a test to demonstrate competence, with check ups down the line.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "clw4f7",
+            "title": "What is the source of anti gun control sentiment?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 484
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "1. Comparing the active use stats of driving a car with the passive use stats of carrying a gun, instead of comparing to active use stats of shooting responsibly at ranges. 2. Often both sides of the aisle get caught up in this one: arguing a gun/ caliber’s efficacy differently from different perspectives. Either it is effective for killing both in defensive and offensive situations, or it is not. 3. Language of the 2nd amendment - if they meant for the militia to have unrestricted firearm access, they would have repeated that specific word, rather than “the right of the PEOPLE.” The intent of the 2A is not up for debate if you have any real knowledge of the English language.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "e90kr5",
+            "title": "Pro-gun fact sheet!",
+            "original_label": "strongly_in_favor",
+            "char_length": 684
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "pro",
+            "text": "Ah. Very fair. I would agree with that. Most Texas dems are not pro gun but, I think there are enough of us that are moderate and running for office that we \"might\" be ok. Texas is so large with so much rural area, implementing strict gun regulation would be a disservice everywhere in the state but the urban cores. I'm running for office myself and while I personally don't think stricter background checks will do anything to keep illegal guns off the street, I honestly don't have a problem with it. I have to get a background check already anyways. Might as well make the change there and not to something that would actually infringe 2A rights.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "e6b1kz",
+            "title": "Why you should be wary when a leftist claims to support gun rights",
+            "original_label": "somewhat_in_favor",
+            "char_length": 650
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's argument relies heavily on a slippery slope, implying that stronger regulations are necessary to prevent potential risks. However, this approach neglects the fundamental issue of causality: does the availability of firearms directly cause harm? The evidence suggests otherwise; numerous studies have shown that states with stricter gun control laws do not experience significantly lower rates of violent crime or gun-related deaths compared to those with more lenient laws. In fact, many mass shootings occur in areas with existing gun restrictions."
+    }
+  ]
+}

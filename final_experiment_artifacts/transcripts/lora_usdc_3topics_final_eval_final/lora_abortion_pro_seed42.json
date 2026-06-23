@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_pro_seed42",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 42,
+  "created_at": "2026-05-22T16:40:08",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems should use their power to restrict access only when there are strong reasons related to health, safety, or public interest. This stance does not require ignoring tradeoffs; it means recognizing that reproductive decisions involve complex personal circumstances and medical risks. As a result, the law should balance these factors rather than assuming that restriction is always better. To support this view, note that some countries with strict rules still have high rates of abortion-related harm or death."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's assertion that legal systems should restrict access only in cases of strong health, safety, or public interest reasons is a vague and unprincipled stance. By advocating for \"balance\" between reproductive decisions and restriction, they fail to provide clear criteria for when restrictions are justified. This approach invites arbitrary decision-making and undermines the rule of law."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have a duty to support reproductive autonomy when medical and social conditions make pregnancy risky or unwanted. This stance does not require ignoring tradeoffs; it means recognizing that some pregnancies involve serious health risks, economic hardship, or abuse. As a result, the law should use its authority to protect individuals from harm while respecting their choices. To support this view, note that legal restriction can create practical barriers for people with urgent needs."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's assertion that legal systems have a duty to support reproductive autonomy is based on an overly broad and emotive appeal. By equating medical and social risks with \"serious harm,\" they conflate a variety of circumstances, some of which may not necessarily justify abortion as a matter of public policy. Moreover, the opponent's argument implies that individuals should be shielded from all negative consequences of pregnancy, rather than being held accountable for their choices. This is precisely the kind of moral hazard that restrictive policies aim to mitigate by ensuring that decisions about abortion are made responsibly and with careful consideration for the well-being of both mother and child."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have a duty to support reproductive autonomy when pregnancy poses serious health risks or involves abuse and neglect. This stance does not require ignoring tradeoffs; it means recognizing that some pregnancies involve direct medical danger, ongoing harm, or severe hardship for the child. As a result, the law should use its authority to protect individuals from irreversible damage while respecting their choices. To support this view, note that legal restriction can create practical barriers for people with urgent needs and cannot change whether pregnancy harms occur."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's repeated assertion that legal systems have a duty to support reproductive autonomy is based on an overly simplistic and medically inaccurate understanding of pregnancy risks. By equating \"serious health risks\" with direct medical danger, they fail to acknowledge the complexities of maternal mortality and morbidity statistics, which often involve multiple factors beyond abortion itself. Moreover, their claim that legal restriction creates practical barriers for people with urgent needs ignores the fact that these individuals are precisely those who should be held accountable for their choices rather than enabled by a system that shields them from consequences. The opponent's stance relies on emotional appeals and a lack of nuance."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have a duty to support reproductive autonomy when pregnancy involves ongoing abuse or neglect. This stance does not require ignoring tradeoffs; it means recognizing that some pregnancies involve serious harm for the child and may prevent further injury. As a result, the law should use its authority to protect individuals from irreversible damage while respecting their choices. To support this view, note that legal restriction can create practical barriers for people with urgent needs but cannot change whether abuse or neglect occurs."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's attempt to justify reproductive autonomy through vague appeals to \"serious health risks\" and \"ongoing abuse or neglect\" is precisely the kind of slippery slope argumentation that undermines the rule of law. By failing to provide clear criteria for when restrictions are justified, they invite arbitrary decision-making and create a precedent for unlimited access to abortion. This stance also ignores the fact that many countries with restrictive policies have lower rates of abortion-related harm or death, suggesting that there is no inherent link between restriction and increased risk. Furthermore, the opponent's emphasis on \"irreversible damage\" implies that the value of human life can be measured solely in terms of."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Legal systems have a duty to support reproductive autonomy when pregnancy involves serious health risks or ongoing abuse and neglect. This stance does not require ignoring tradeoffs; it means recognizing that some pregnancies involve direct medical danger, economic hardship, or severe harm for the child. As a result, the law should use its authority to protect individuals from irreversible damage while respecting their choices. To support this view, note that legal restriction can create practical barriers but cannot change whether pregnancy harms occur."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's repeated attempts to justify reproductive autonomy through vague appeals to \"serious health risks\" and \"ongoing abuse or neglect\" are still woefully inadequate in providing clear criteria for when restrictions are justified. Their stance relies on emotionally charged language rather than principled reasoning, which is precisely the kind of slippery slope argumentation that undermines the rule of law. Moreover, their claim that legal restriction can create practical barriers for people with urgent needs ignores the fact that such individuals are often those who would benefit most from education and support services aimed at promoting responsible decision-making, rather than being shielded from consequences through unlimited access to abortion."
+    }
+  ]
+}

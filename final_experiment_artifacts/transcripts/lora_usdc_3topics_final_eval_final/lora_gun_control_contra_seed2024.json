@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_contra_seed2024",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:13:41",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Firearm ownership can involve responsibility and training, not automatic restriction. This matters because responsible owners can use firearms safely while untrained individuals may cause harm. Therefore, laws should reflect the difference between responsible owners and those who need more education before owning a firearm. ### Next Turn"
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While you acknowledge the potential for responsible owners, it's crucial to recognize that even with training and education, firearms can still pose a significant risk to public safety. Moreover, relying on individual responsibility alone is insufficient, as it assumes that every owner will act prudently in all situations. However, human error and unpredictable circumstances can occur, leading to accidents or intentional harm."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Firearm ownership requires responsibility and training, but it does not automatically justify stronger restrictions for all owners. This matters because responsible owners can use firearms safely while untrained individuals may cause harm. Therefore, laws should reflect the difference between responsible owners and those who need more education before owning a firearm. ### End of Turn"
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument hinges on distinguishing between responsible owners and those who need more education, but this distinction is inherently flawed. If we rely solely on individual responsibility, as the Opponent suggests, how do we account for owners who have completed extensive training programs yet still engage in reckless behavior? Furthermore, what criteria would we use to determine which individuals are truly responsible enough to own firearms? The Opponent's proposal essentially amounts to a subjective evaluation of an owner's character, rather than a concrete policy addressing the inherent risks associated with firearm ownership."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Firearm licensing and training are better alternatives than broad restrictions. This matters because responsible owners can use firearms safely if they have proper instruction. Therefore, laws should require licensing and mandatory training instead of imposing stronger restrictions on all owners. ### End of Turn"
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's emphasis on licensing and training as a solution overlooks the fundamental issue of accountability. Even if owners complete extensive training programs, there is no guarantee they will adhere to safe practices in high-stress situations or when confronted with unexpected circumstances. Moreover, relying solely on individual responsibility ignores the systemic factors that contribute to firearm-related violence. For instance, lax background checks and loopholes in existing regulations enable individuals with histories of violent behavior or mental health issues to acquire firearms."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn"
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's reliance on licensing and training as a panacea for addressing firearm-related risks is misguided, as it fails to acknowledge the complexities of human behavior and the limitations of even the most rigorous training programs. Moreover, the Opponent's proposal would only serve to further entrench existing loopholes and inadequacies in our current regulations, allowing those who are intent on causing harm to still acquire firearms through various means, including straw purchases or private sales. This would ultimately undermine any efforts to strengthen public safety, as it would allow individuals with malicious intentions to exploit the system. The Opponent's approach is overly simplistic and neglects the need for more robust."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "### Next Turn"
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Adversary's argument that even with training and licensing, individuals can still pose a risk due to human error or unpredictable circumstances is a valid concern, but it doesn't justify dismissing stronger restrictions altogether. In fact, many countries have implemented such regulations and seen significant decreases in firearm-related violence. The Adversary's assertion that my proposal for stricter laws would be overly simplistic neglects the complexity of existing loopholes and inadequacies in our current regulations. If we don't address these systemic issues through more robust legislation, we're merely treating symptoms rather than tackling the root causes of the problem."
+    }
+  ]
+}

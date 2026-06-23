@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_gun_control_contra_seed999",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 999,
+  "created_at": "2026-05-22T00:17:13",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The idea of imposing stricter legal restrictions on firearm ownership is fraught with impracticality and potential abuse. For instance, how can we ensure guns don't change hands illegally if a thief can simply declare them stolen? This loophole negates the effectiveness of such laws. Moreover, in Texas, businesses posting signs to indicate the presence of firearms for sale or use have legal standing if violated, suggesting that mere signage can be a form of regulation.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "I'm kinda being a dick, here, there are plenty of knife enthusiasts who are completely on board with gun rights. What I'm speaking of is a minority position. But it exists, and it doesn't make much logical sense, and yes it is really hypocritical.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "atctej",
+            "title": "Les de Asis, Founder of Benchmade, donates primarily to anti-gun Democrats",
+            "original_label": "somewhat_against",
+            "char_length": 247
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "In Texas, as I understand it, if a business is posted with a proper 30.06 sign that meets statutory requirements for size and visibility and such, it has the force of law, and if you’re found in violation of it you can be prosecuted. I am not a lawyer, but I think that it’s possible that if you carried in violation of that law and had to use your gun on the premises—making it obvious that you’d been violating the prohibition—you might still succeed in using an affirmative defense.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "dnizkx",
+            "title": "Have you ever seen a store or other business that had a “no-guns, not even legal CCW” policy change its mind and rescind the policy?",
+            "original_label": "somewhat_against",
+            "char_length": 485
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument relies on hypothetical scenarios and anecdotal evidence, rather than providing concrete solutions or addressing the core issue at hand. The example of stolen firearms is a misdirection, as it doesn't negate the need for stronger regulations but rather highlights the importance of proper law enforcement and prosecution. Furthermore, Texas' signage laws are specific to that state's context and don't apply universally to justify dismissing stricter national regulations. To assert that such measures are impractical or ineffective without considering the potential benefits, such as reduced gun violence and improved public safety, is a leap in logic."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The notion of stricter regulations ignores practical realities in Texas and beyond. Just as signage laws indicate, mere paperwork cannot enforce compliance. Criminals will exploit loopholes regardless of new laws. Additionally, the spike in \"gun stupidity\" is more a reflection of political influence by the NRA than an argument against sensible restrictions.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's argument relies on hypothetical scenarios and anecdotal evidence, rather than providing concrete solutions or addressing the core issue at hand. The example of stolen firearms is a misdirection, as it doesn't negate the need for stronger regulations but rather highlights the importance of proper law enforcement and prosecution. Furthermore, Texas' signage laws are specific to that state's context and don't apply universally to justify dismissing stricter national regulations. To assert that such measures are impractical or ineffective without considering the potential benefits, such as reduced gun violence and improved public safety, is a leap in logic.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "In Texas, as I understand it, if a business is posted with a proper 30.06 sign that meets statutory requirements for size and visibility and such, it has the force of law, and if you’re found in violation of it you can be prosecuted. I am not a lawyer, but I think that it’s possible that if you carried in violation of that law and had to use your gun on the premises—making it obvious that you’d been violating the prohibition—you might still succeed in using an affirmative defense.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "dnizkx",
+            "title": "Have you ever seen a store or other business that had a “no-guns, not even legal CCW” policy change its mind and rescind the policy?",
+            "original_label": "somewhat_against",
+            "char_length": 485
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to downplay the significance of stricter regulations by pointing to loopholes and anecdotal evidence only serves to highlight the need for a more comprehensive approach to firearm regulation. By acknowledging that some individuals will exploit existing laws, the opponent inadvertently underscores the importance of strengthening those laws to prevent such abuse. Furthermore, their dismissal of \"gun stupidity\" as a reflection of NRA influence rather than an issue in itself is a cop-out; it sidesteps the very real consequences of reckless behavior and the need for education and responsible ownership practices that stricter regulations can foster. To truly address public safety concerns, we must confront these issues head-on."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The spike in \"gun stupidity\" and its correlation with Republican and NRA influence does not justify dismissing sensible regulations. Criminals will continue to commit crimes regardless of gun laws, as they often operate outside legal constraints. Focusing on educating and empowering law-abiding citizens is more effective than overregulating responsible firearm ownership. Gun owners should be trusted to make ethical choices, and imposing stricter rules risks infringing on their constitutional rights without significantly enhancing public safety.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's attempt to downplay the significance of stricter regulations by pointing to loopholes and anecdotal evidence only serves to highlight the need for a more comprehensive approach to firearm regulation. By acknowledging that some individuals will exploit existing laws, the opponent inadvertently underscores the importance of strengthening those laws to prevent such abuse. Furthermore, their dismissal of \"gun stupidity\" as a reflection of NRA influence rather than an issue in itself is a cop-out; it sidesteps the very real consequences of reckless behavior and the need for education and responsible ownership practices that stricter regulations can foster. To truly address public safety concerns, we must confront these issues head-on.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "How about you shut the fuck up? Guns are not the problem, nor is the NRA (as stupid as they are). Criminals are the problem. People CHOOSE to commit crime. They also CHOOSE the tools they use to commit crime. They don't just see a gun and be like \"me kill people.\"",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 264
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "Ok. And? What people like you can not seem to understand is that the guns do not \"cause\" anything. A person is committing a violent act. Period. Full stop. When I was in college, we lived next to a dry county. Kids from a school in that county used to come over, get blasted silly, then try to drive back home. But, somehow, no one ever blamed the Coors for their troubles. Blame was placed exactly where it belonged. At the feet of the dumbass that decided to go and get drunk and drive.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "cji9qe",
+            "title": "The Gilroy Garlic festival shooter bought his gun in Nevada.",
+            "original_label": "somewhat_against",
+            "char_length": 488
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's reliance on vague terms like \"gun stupidity\" and attempts to shift blame onto external factors such as NRA influence are a diversion from the core issue at hand: public safety. By downplaying the consequences of reckless behavior, the opponent ignores the numerous documented cases of preventable tragedies resulting from lax gun laws. The fact that some individuals will exploit loopholes is not a reason to abandon sensible regulations, but rather a call for their strengthening. Moreover, the opponent's assertion that focusing on educating and empowering law-abiding citizens is more effective than regulating responsible firearm ownership is unfounded; numerous studies have shown that stricter regulations lead to significant reductions."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The notion of stricter regulations on gun ownership is misguided and impractical. The real issue lies in addressing criminal behavior, not in overcomplicating laws for law-abiding citizens. Criminals will continue their illegal activities regardless of legal restrictions, as evidenced by the numerous loopholes and easy avenues for obtaining firearms through theft or black markets. Moreover, the spike in \"gun stupidity\" is more a result of political influence from the NRA than an argument against sensible regulations.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's reliance on vague terms like \"gun stupidity\" and attempts to shift blame onto external factors such as NRA influence are a diversion from the core issue at hand: public safety. By downplaying the consequences of reckless behavior, the opponent ignores the numerous documented cases of preventable tragedies resulting from lax gun laws. The fact that some individuals will exploit loopholes is not a reason to abandon sensible regulations, but rather a call for their strengthening. Moreover, the opponent's assertion that focusing on educating and empowering law-abiding citizens is more effective than regulating responsible firearm ownership is unfounded; numerous studies have shown that stricter regulations lead to significant reductions.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "How about you shut the fuck up? Guns are not the problem, nor is the NRA (as stupid as they are). Criminals are the problem. People CHOOSE to commit crime. They also CHOOSE the tools they use to commit crime. They don't just see a gun and be like \"me kill people.\"",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 264
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's dismissal of stricter regulations as impractical and ineffective relies heavily on unsubstantiated claims about loopholes and black markets. However, this ignores the overwhelming evidence from countries with robust firearm regulation systems that demonstrate significant reductions in gun violence and improved public safety. The notion that law-abiding citizens are being unfairly restricted is a mischaracterization; responsible gun ownership can coexist with stringent regulations that prevent unauthorized access to firearms. Moreover, the opponent's attempt to shift blame onto NRA influence rather than acknowledging the role of lax laws in enabling tragedies is a clear avoidance of responsibility."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The spike in \"gun stupidity\" and its association with Republican and NRA influence does not justify overregulating responsible gun owners. Criminals will continue their illegal activities regardless of new laws, exploiting loopholes such as theft or black markets. Moreover, focusing on education and empowerment for law-abiding citizens is a more effective approach than imposing impractical regulations that infringe on constitutional rights without significantly enhancing public safety.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe opponent's dismissal of stricter regulations as impractical and ineffective relies heavily on unsubstantiated claims about loopholes and black markets. However, this ignores the overwhelming evidence from countries with robust firearm regulation systems that demonstrate significant reductions in gun violence and improved public safety. The notion that law-abiding citizens are being unfairly restricted is a mischaracterization; responsible gun ownership can coexist with stringent regulations that prevent unauthorized access to firearms. Moreover, the opponent's attempt to shift blame onto NRA influence rather than acknowledging the role of lax laws in enabling tragedies is a clear avoidance of responsibility.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "How about you shut the fuck up? Guns are not the problem, nor is the NRA (as stupid as they are). Criminals are the problem. People CHOOSE to commit crime. They also CHOOSE the tools they use to commit crime. They don't just see a gun and be like \"me kill people.\"",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 264
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempts to shift blame onto external factors such as NRA influence and loopholes are a clear evasion of the core issue: the need for stronger regulations to prevent gun violence. By dismissing the documented cases of preventable tragedies resulting from lax laws, the opponent ignores the human cost of inaction. Furthermore, their assertion that focusing on education and empowerment is more effective than regulating responsible firearm ownership is contradicted by numerous studies showing that stricter regulations lead to significant reductions in gun violence. The reality is that some individuals will exploit loopholes regardless of new laws, but this does not justify abandoning sensible regulations; rather, it highlights the."
+    }
+  ]
+}

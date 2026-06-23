@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_pro_seed2024",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:09:15",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Restricting abortion can push people toward unsafe or illegal procedures or force them to continue risky pregnancies. If we take the issue seriously, we must recognize that legal access reduces harm and supports reproductive health. For that reason, legal systems should protect safe access instead of forcing people into dangerous alternatives. To support this view, consider that medical standards and regulation can make a practical difference in safety and outcomes."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "While you focus on safety concerns, I'd like to question the underlying assumption that restricting abortion is solely responsible for pushing people toward unsafe procedures. Isn't it possible that other factors, such as socioeconomic conditions and access to healthcare, play a more significant role in this issue? Furthermore, doesn't your argument rely on a binary choice between safe legal abortion and unsafe alternatives, ignoring the fact that many countries with restrictive abortion laws have implemented measures to mitigate harm, like counseling services or alternative forms of family planning support?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Legal systems have a responsibility to provide safe and regulated medical care, including abortion when it is necessary. This matters because unregulated or illegal procedures can create greater risks for patients. Therefore, legal access allows standards, oversight, and follow-up care that might not be possible outside the medical system. In practice, regulated access is more responsible than leaving decisions to private settings with less accountability."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the opponent's assumption about the role of regulation in ensuring safety. They claim that unregulated or illegal procedures create greater risks for patients, but isn't it also true that many abortion clinics with strict regulations and standards have been known to compromise patient care due to bureaucratic red tape? Furthermore, don't proponents of regulated access often rely on a paternalistic view of women's health, assuming they are incapable of making informed decisions about their own bodies. This approach undermines the core argument for protecting reproductive rights, which is that individuals should be free to make choices about their own lives without undue interference from the state."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "In response, consider this: Legal systems have a responsibility to provide safe and regulated medical care when it comes to abortion. The central point is that unregulated or illegal procedures can create greater risks for patients because they may lack oversight, standards, or follow-up care. A better policy approach is that legal access allows standards, oversight, and support that might not be possible outside the medical system. For that reason, regulated access is more responsible than leaving decisions to private settings with less accountability."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument relies heavily on the assumption that regulation is the key to ensuring patient safety, but this overlooks the reality that strict regulations can sometimes create barriers to care rather than solutions. For instance, in some places with restrictive abortion laws, clinics have been forced to close due to costly and bureaucratic requirements, leaving patients without access to safe medical care altogether. This shows that relying on regulation alone may not be enough to ensure safety, and instead of advocating for protected access, we should be examining the root causes of unsafe practices and addressing them through more comprehensive policies."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Legal system protection matters because unsafe or illegal procedures can create greater risks for patients when standards and oversight are lacking. This stance does not require ignoring tradeoffs; it means recognizing that regulated access allows standards, oversight, and support that might not be possible outside the medical system. As a result, legal protection is more responsible than leaving decisions to private settings with less accountability. To strengthen this view, consider that medical standards can make a practical difference in safety and outcomes for patients."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument relies on a simplistic view of regulation as the sole solution to ensuring patient safety, ignoring the complex interplay between laws, social conditions, and individual choices. However, this approach glosses over the fact that restrictive abortion laws often stem from deeply ingrained societal attitudes toward women's roles and reproductive autonomy. By advocating for protected access, we risk reinforcing these problematic norms rather than addressing their root causes. Furthermore, the opponent's focus on medical standards overlooks the need to consider broader social determinants of health, such as poverty, education, and access to healthcare, which significantly impact individuals' ability to make informed decisions about their reproductive lives."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Restrictive laws can create barriers to safe care rather than solutions. This matters because unregulated or illegal procedures may lack oversight, standards, and follow-up support. Therefore, legal access allows medical standards and regulation that might not be possible outside the system. In practice, regulated access is more responsible than leaving decisions to private settings with less accountability."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the opponent's reliance on hypothetical scenarios of unregulated or illegal procedures, which they claim would create greater risks for patients. However, this assumption is based on a lack of concrete evidence and ignores real-world examples where restrictive abortion laws have been implemented without corresponding increases in unsafe practices. In fact, some countries with strict regulations have seen significant decreases in maternal mortality rates, suggesting that the relationship between regulation and safety is more nuanced than the opponent suggests. Furthermore, the opponent's focus on medical standards overlooks the role of education and counseling in reducing unintended pregnancies and promoting safe reproductive choices."
+    }
+  ]
+}

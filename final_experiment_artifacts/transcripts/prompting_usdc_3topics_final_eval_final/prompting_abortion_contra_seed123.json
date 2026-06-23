@@ -1,0 +1,120 @@
+{
+  "debate_id": "prompting_abortion_contra_seed123",
+  "experiment_name": "prompting_usdc_3topics_final_eval_final",
+  "condition": "prompting",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-21T17:16:11",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Legal systems should not prioritize abortion as a fundamental right because it undermines the sanctity of life and can lead to societal moral decay. Proponents often cite bodily autonomy, but this overlooks the potential harm to individuals who may make hasty decisions without proper consideration. Moreover, legal protections for abortion can exacerbate issues like sex selection abortions and increase pressure on vulnerable populations to terminate pregnancies. It is crucial to balance individual rights with the broader ethical considerations of human life."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's claim that prioritizing abortion undermines societal moral decay is a classic example of overstating the issue. Where is the evidence that restricting access to abortion would lead to a moral resurgence? The data shows that countries with more restrictive abortion laws often have higher rates of maternal mortality and morbidity, not to mention increased instances of unsafe back-alley procedures. The notion that legal protections for abortion can exacerbate issues like sex selection abortions is also disingenuous; in fact, many studies suggest that laws restricting access to abortion are more likely to lead to these practices."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The evidence of higher maternal mortality in countries with restrictive abortion laws does not necessarily equate to better moral values or ethical treatment of life. Instead, it highlights the dangers of denying women access to safe and legal medical procedures. Legal protections for abortion are essential to safeguarding public health and preventing dangerous practices that can arise from illegal back-alley abortions. Furthermore, focusing on the potential harm of hasty decisions ignores the reality that many women undergo thorough consideration before making such a significant decision."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent attempts to downplay the moral implications of restricting access to abortion by suggesting it's an overstatement. However, this dismissal overlooks the inherent value of human life and dignity. The argument that restrictive laws lead to higher maternal mortality is a symptom of a larger issue: denying women autonomy over their reproductive choices. This autonomy is not only essential for individual well-being but also a fundamental right enshrined in numerous international human rights agreements."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that autonomy over one's body justifies unrestricted access to abortion overlooks critical ethical considerations. Protecting life from conception is not merely an abstract principle; it involves safeguarding the most vulnerable members of society. Restricting abortion does not inherently devalue women’s rights but rather seeks to balance individual choices with broader societal interests in protecting potential human life. Legal systems that do not protect access to abortion can still ensure women have the information and support they need for informed decision-making, while also addressing the root causes of unwanted pregnancies."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's latest attempt to balance individual choices with broader societal interests in protecting potential human life is nothing but a thinly veiled attempt to impose a paternalistic moral agenda on women. The idea that restricting abortion somehow safeguards the \"most vulnerable members of society\" is a red herring, as it ignores the fact that restricting access to safe and legal abortions only serves to put more lives at risk through back-alley procedures. Furthermore, the opponent's assertion that legal systems can ensure women have the information and support they need for informed decision-making while restricting abortion is a clear example of bureaucratic paternalism. It assumes that policymakers know better than."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The claim that restricting abortion protects the most vulnerable members of society is flawed and ignores the reality that many unwanted pregnancies result from failures in sexual education, contraception, and support systems. Legal protections for abortion do not equate to an endorsement of hasty decisions; rather, they provide a safety net for women who may face difficult circumstances. By not prioritizing access to safe abortions, legal systems fail to address the root causes of unwanted pregnancies, such as lack of sexual education and economic instability, which can lead to more harm than good. It is crucial to consider both individual autonomy and public health in a balanced approach that does."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's latest attempt to shift the focus away from individual autonomy and towards \"balancing\" choices with societal interests is nothing but an avoidance tactic. By claiming that restricting abortion somehow safeguards the most vulnerable members of society, they conveniently ignore the numerous studies showing that such restrictions lead to increased maternal mortality and morbidity rates. Furthermore, their assertion that legal systems can ensure women have access to information and support for informed decision-making while restricting abortion is a classic case of \"beating around the bush.\" It's time for the opponent to confront the stark reality: by denying women safe and legal access to abortions, we are not only violating."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Denying safe and legal abortions does not address the root causes of unwanted pregnancies but instead forces women into dangerous and often illegal procedures. Moreover, focusing solely on individual autonomy ignores the broader ethical considerations of protecting potential human life from conception. Balancing these interests requires a nuanced approach that acknowledges both the sanctity of life and the necessity of providing safe options for those facing difficult circumstances. Legal systems should prioritize the well-being of all members of society by offering comprehensive sexual education, contraception access, and support services rather than limiting choices that can lead to irreversible harm."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempt to shift focus towards addressing root causes of unwanted pregnancies through education and support services is a welcome acknowledgement, but it falls short in providing a comprehensive solution. While these measures are essential, they do not eradicate the need for safe and accessible abortion options, especially for women who have already made a decision to terminate their pregnancy. Restricting access to abortion does not prevent unwanted pregnancies; instead, it forces women into more hazardous situations. The opponent's emphasis on \"balancing\" individual autonomy with societal interests is still problematic because it prioritizes the life of the fetus over the woman's right to bodily autonomy and self-determination."
+    }
+  ]
+}

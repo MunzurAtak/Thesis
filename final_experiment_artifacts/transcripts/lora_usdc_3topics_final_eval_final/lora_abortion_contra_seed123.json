@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_contra_seed123",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-22T16:55:36",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opposing side often underestimates that restricting abortion can express society's value priorities and shape moral norms. This matters because law reflects more than individual choice; it also shapes public ethics. Therefore, legal systems may restrict access when protecting life or reinforcing strong social standards is important. To be clear, the central point is that reproductive decisions should not define all aspects of law."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "I'd like to point out that the opponent's claim that restricting abortion reflects society's value priorities and shapes moral norms oversimplifies the complexity of human decision-making. The idea that law can dictate what is \"moral\" or not raises concerns about paternalism, where the state presumes it knows better than individuals what choices are in their best interest. Furthermore, restricting access to abortion does not necessarily imply a stronger commitment to social standards; rather, it often results in more clandestine and dangerous procedures, which can lead to harm to women's health and well-being. The opponent's assertion that reproductive decisions should not define all aspects of law ignores the fundamental principle of."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opposing side often underestimates that restrictive laws can push people toward unsafe or illegal procedures instead of safe medical care. This matters because if we take the issue seriously, we must recognize that legal access is safer than forcing abortion into hidden or unregulated settings. Therefore, regulated medical access is a practical reason to oppose excessive restrictions. To be clear, the central point is that safety should guide legal policy rather than strict prohibition alone."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's claim that restrictive laws push people toward unsafe or illegal procedures is a common argument, but it relies heavily on anecdotal evidence and lacks concrete data to support its assertions. Moreover, this line of reasoning implies that individuals are incapable of making informed decisions about their own reproductive health, which undermines the fundamental principle of autonomy in medical care. I'd like to challenge the opponent's stance by asking: if safety is truly the primary concern, why not advocate for comprehensive sex education and accessible birth control as preventive measures, rather than relying on restrictive laws that only serve to drive the issue further underground?"
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opposing side often underestimates that restricting abortion can express society's value priorities and shape moral norms without forcing unsafe or illegal procedures. This matters because law sets broader ethical standards rather than determining every individual choice. Therefore, legal systems may restrict access when protecting life or reinforcing strong social standards is important while still providing safe medical options for those in need. To be clear, the central point is that reproductive decisions should not define all aspects of law but can reflect society's core values through regulated means."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's claim that legal systems may restrict access when protecting life or reinforcing strong social standards is important while still providing safe medical options for those in need, is a non-sequitur. This concession undermines their initial stance, as it acknowledges the importance of reproductive rights and access to safe abortion. By accepting this, they implicitly agree with the fundamental principle that women's health and autonomy should be prioritized. However, this compromise also reveals a lack of conviction in their argument."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opposing side often overestimates that restricting abortion can shape moral norms without ignoring other important ethical issues. This matters because law must balance various interests, including individual choice and public health. Therefore, legal systems may restrict access when protecting life or reinforcing strong social standards is important while still providing safe medical options for those in need. To be clear, the central point is that reproductive decisions should not define all aspects of law but can reflect society's core values through regulated means rather than uncontrolled restriction alone."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's attempts to justify restrictions on abortion under the guise of \"protecting life\" or \"shaping moral norms\" rely heavily on unsubstantiated claims and a paternalistic attitude toward women's reproductive choices. By acknowledging that regulated medical access is necessary for safety, they inadvertently concede the importance of protecting women's health and autonomy. However, this concession only highlights the contradiction in their stance: if they genuinely believe that restricting abortion reflects society's core values, why do they feel compelled to provide safe medical options for those who still choose to access abortion? This inconsistency reveals a fundamental flaw in their argument, which prioritizes rhetoric over reality."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opposing side often underestimates that restricting abortion can reflect society's value priorities and shape moral norms without forcing unsafe or illegal procedures. This matters because law sets broader ethical standards rather than determining every individual choice. Therefore, legal systems may restrict access when protecting life or reinforcing strong social standards is important while still providing safe medical options for those in need. To be clear, the central point is that reproductive decisions should not define all aspects of law but can reflect society's core values through regulated means instead of uncontrolled restriction alone."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's repeated attempts to justify restrictions on abortion under the guise of \"protecting life\" or \"shaping moral norms\" demonstrate a fundamental misunderstanding of the issue at hand. By acknowledging that regulated medical access is necessary for safety, they inadvertently concede the importance of protecting women's health and autonomy. However, this concession only highlights the contradiction in their stance: if they genuinely believe that restricting abortion reflects society's core values, why do they feel compelled to provide safe medical options for those who still choose to access abortion? This inconsistency reveals a fundamental flaw in their argument, which prioritizes rhetoric over reality."
+    }
+  ]
+}

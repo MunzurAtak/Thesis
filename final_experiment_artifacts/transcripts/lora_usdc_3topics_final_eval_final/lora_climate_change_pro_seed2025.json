@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_climate_change_pro_seed2025",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "climate_change",
+  "topic": "To what extent should governments regulate emissions and industry to address climate change?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T16:06:59",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Governments have a responsibility to act now because future generations will bear the costs of delay. A better policy approach is that climate regulations can drive innovation and create new economic opportunities while reducing environmental harm."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's assertion about future generations bearing the costs of delay is an emotional appeal rather than a substantial argument. It fails to acknowledge that any regulation would also impose significant economic burdens on current societies, which could hinder their ability to adapt and innovate in the long run. Furthermore, it's unclear what specific regulations would drive innovation, as many industries have already developed low-carbon technologies. The Opponent's assumption that climate regulations can be a catalyst for innovation is overstated and unsupported by evidence."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Governments can use incentives rather than strict rules to encourage cleaner innovation while supporting workers and communities. A better policy approach is that subsidies, tax credits, and research funding can help shape a transition away from fossil fuels without creating excessive disruption. This matters because rapid change can harm workers and local economies if industries close suddenly. Therefore, targeted support can make the transition more realistic and responsible."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's policy approach of using incentives instead of strict rules is a thinly veiled attempt to avoid taking decisive action on emissions. The assumption that subsidies and tax credits can shape a transition away from fossil fuels without causing disruption is optimistic at best, given the complexity of global supply chains and industry structures. Furthermore, the Opponent's emphasis on supporting workers and communities through targeted support glosses over the fact that such measures would only delay the inevitable economic adjustments needed to address climate change. It's unclear how these incentives would be sufficient to drive the scale of emissions reductions required, especially when compared to the more direct approach."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Governments can use incentives rather than strict rules to encourage cleaner innovation while supporting workers and communities. A better policy approach is that subsidies, tax credits, and research funding can help shape a transition away from fossil fuels without creating excessive disruption. This matters because rapid change can harm workers and local economies if industries close suddenly. Therefore, targeted support can make the transition more realistic and responsible."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's repeated emphasis on using incentives rather than strict rules is a clear indication of their reluctance to take decisive action on emissions. However, this approach neglects the fact that many countries have already implemented regulatory frameworks that have driven significant reductions in emissions without crippling economic growth. In fact, studies have shown that stringent regulations can actually stimulate innovation and job creation in the clean energy sector, as companies invest in research and development to comply with new standards. The Opponent's reliance on subsidies and tax credits as a solution is also problematic, as it creates a moral hazard where industries are rewarded for delaying the transition to."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Governments can use incentives rather than strict rules to encourage cleaner innovation while supporting workers and communities. A better policy approach is that subsidies, tax credits, and research funding can help shape a transition away from fossil fuels without creating excessive disruption. This matters because rapid change can harm workers and local economies if industries close suddenly. Therefore, targeted support can make the transition more realistic and responsible."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's repeated assertion that targeted support can make the transition more realistic and responsible is a red herring, distracting from the core issue of whether governments have a role in regulating emissions. By focusing on worker and community support, the Opponent implies that economic growth and job creation are the primary concerns, rather than addressing the root cause of climate change. However, this approach ignores the fact that many industries are already struggling to adapt to changing market conditions and regulatory frameworks, and that targeted support would only delay the inevitable adjustments needed to address climate change. Furthermore, the Opponent's reliance on subsidies and tax credits as a solution."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The core point is this: Governments can use incentives rather than strict rules to encourage cleaner innovation while supporting workers and communities. A better policy approach is that subsidies, tax credits, and research funding can help shape a transition away from fossil fuels without creating excessive disruption. This matters because rapid change can harm workers and local economies if industries close suddenly. Therefore, targeted support can make the transition more realistic and responsible."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The Opponent's policy approach of relying on incentives, subsidies, and tax credits is still unsubstantiated by evidence. In fact, numerous studies have shown that these measures are ineffective in driving significant emissions reductions and can even create new environmental problems. The Opponent's emphasis on worker and community support also neglects the fact that many industries are already experiencing declining profitability due to market shifts, making it unlikely that subsidies would be sufficient to sustain them. Furthermore, the Opponent's assertion that rapid change can harm workers and local economies is an overstatement, as many countries have successfully transitioned away from fossil fuels without significant disruptions."
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_gun_control_contra_seed2024",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:03:53",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Gun control measures, while well-intentioned, often overlook fundamental flaws in implementation and enforcement. For instance, declaring a gun stolen can easily circumvent new regulations, leaving owners unaffected by legal repercussions. Moreover, the existence of loopholes, such as the 30.06 sign law in Texas, highlights that even stringent legislation may not prevent unauthorized use. These issues underscore why stronger legal restrictions are impractical and ineffective in ensuring public safety without also infringing on legitimate gun rights.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "I'm kinda being a dick, here, there are plenty of knife enthusiasts who are completely on board with gun rights. What I'm speaking of is a minority position. But it exists, and it doesn't make much logical sense, and yes it is really hypocritical.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "atctej",
+            "title": "Les de Asis, Founder of Benchmade, donates primarily to anti-gun Democrats",
+            "original_label": "somewhat_against",
+            "char_length": 247
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "In Texas, as I understand it, if a business is posted with a proper 30.06 sign that meets statutory requirements for size and visibility and such, it has the force of law, and if you’re found in violation of it you can be prosecuted. I am not a lawyer, but I think that it’s possible that if you carried in violation of that law and had to use your gun on the premises—making it obvious that you’d been violating the prohibition—you might still succeed in using an affirmative defense.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "dnizkx",
+            "title": "Have you ever seen a store or other business that had a “no-guns, not even legal CCW” policy change its mind and rescind the policy?",
+            "original_label": "somewhat_against",
+            "char_length": 485
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The test agent's assertion about implementation and enforcement flaws is a tired trope often employed by those who seek to undermine genuine attempts at reform. However, this argument ignores the very purpose of strengthening legal restrictions: to create a more robust framework for accountability. By implementing stricter regulations, we can better track firearm ownership and usage, reducing the likelihood of unauthorized access. The 30.06 sign law example is a red herring; it's a misguided attempt at regulation that doesn't necessarily negate the need for stronger laws in other areas."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The assertion that stricter regulations will inherently create loopholes and fail to prevent unauthorized use is flawed. The 30.06 sign law in Texas demonstrates this point, where businesses can post signs that may not effectively deter or enforce compliance. Moreover, focusing on these perceived flaws distracts from the core issue: more rules do not equate to better safety if they are not enforced. Gun owners often use humor and loopholes as a defense against legal challenges, showing that such measures are easily bypassed.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe test agent's assertion about implementation and enforcement flaws is a tired trope often employed by those who seek to undermine genuine attempts at reform. However, this argument ignores the very purpose of strengthening legal restrictions: to create a more robust framework for accountability. By implementing stricter regulations, we can better track firearm ownership and usage, reducing the likelihood of unauthorized access. The 30.06 sign law example is a red herring; it's a misguided attempt at regulation that doesn't necessarily negate the need for stronger laws in other areas.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "In Texas, as I understand it, if a business is posted with a proper 30.06 sign that meets statutory requirements for size and visibility and such, it has the force of law, and if you’re found in violation of it you can be prosecuted. I am not a lawyer, but I think that it’s possible that if you carried in violation of that law and had to use your gun on the premises—making it obvious that you’d been violating the prohibition—you might still succeed in using an affirmative defense.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "dnizkx",
+            "title": "Have you ever seen a store or other business that had a “no-guns, not even legal CCW” policy change its mind and rescind the policy?",
+            "original_label": "somewhat_against",
+            "char_length": 485
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The test agent's attempts to downplay the significance of loopholes and flaws in implementation are disingenuous, as they fail to acknowledge the root cause of these issues: a lack of clear and comprehensive regulation. By pushing for stronger restrictions, we can establish a more transparent system that minimizes opportunities for exploitation. The 30.06 sign law example is not a red herring, but rather a symptom of a larger problem – inadequate governance in this area. Moreover, the test agent's dismissal of legitimate concerns about enforcement flaws implies an overconfidence in the ability of existing laws to safeguard public safety."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Stronger legal restrictions on firearm ownership are not only unnecessary but also counterproductive. The government's inability to account for who owns what guns, as highlighted by past registration failures in cities like New York and Washington D.C., demonstrates that such measures would be ineffective at best. Moreover, the existence of laws like the 30.06 sign in Texas shows that even when regulations are implemented, they can be easily circumvented or misused. Instead of focusing on creating more rules, we should prioritize enforcing existing ones and addressing the root causes of gun violence through other means.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe test agent's attempts to downplay the significance of loopholes and flaws in implementation are disingenuous, as they fail to acknowledge the root cause of these issues: a lack of clear and comprehensive regulation. By pushing for stronger restrictions, we can establish a more transparent system that minimizes opportunities for exploitation. The 30.06 sign law example is not a red herring, but rather a symptom of a larger problem – inadequate governance in this area. Moreover, the test agent's dismissal of legitimate concerns about enforcement flaws implies an overconfidence in the ability of existing laws to safeguard public safety.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "In Texas, as I understand it, if a business is posted with a proper 30.06 sign that meets statutory requirements for size and visibility and such, it has the force of law, and if you’re found in violation of it you can be prosecuted. I am not a lawyer, but I think that it’s possible that if you carried in violation of that law and had to use your gun on the premises—making it obvious that you’d been violating the prohibition—you might still succeed in using an affirmative defense.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "dnizkx",
+            "title": "Have you ever seen a store or other business that had a “no-guns, not even legal CCW” policy change its mind and rescind the policy?",
+            "original_label": "somewhat_against",
+            "char_length": 485
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "Again, HOW WOULD THIS ADDRESS THE FACT THAT THE GOVERNMENT DOES NOT HAVE AN ACCOUNTING OF WHO OWNS WHAT GUNS? My guns aren’t registered. So what if I just stayed home, under your plan? And what about the criminals, with their illegal guns, who would do exactly that? And back to the starting point: How does inspection of guns fight criminal violence with those guns in any way? Why am I against having my personal firearms accounted for and on government lists? Isn’t the answer obvious? We have already had, in the U.S.A., such registration lists used to order gun owners to bring in guns for surrender once those guns were declared illegal. It happened in NYC and it happened in D.C. And of course it happened in Nazi Germany, in Britain, in Australia, in Venezuela ... How many times do you need the lesson shown to you?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 824
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The test agent's argument relies heavily on cherry-picking examples of failed regulations and misusing data to support its claim that stricter laws are ineffective. However, this ignores the vast majority of jurisdictions where gun control measures have been successfully implemented without undermining legitimate gun rights. Moreover, the test agent's assertion that strengthening restrictions is impractical due to loopholes and flaws in enforcement is a self-fulfilling prophecy – it assumes that current laws are adequate and doesn't account for the fact that lax regulations often create opportunities for exploitation. By advocating for stronger legal restrictions, we can establish a more robust framework that minimizes these vulnerabilities and prioritizes public safety."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument relies on hypothetical success stories of gun control measures, but fails to address the fundamental flaws in implementation and enforcement highlighted by real-world examples like New York and Washington D.C.'s registration failures. Stricter regulations do not equate to better safety if they are easily circumvented or misused, as demonstrated by laws like the 30.06 sign law in Texas. Instead of pushing for more impractical rules, we should focus on enforcing existing laws and addressing the root causes of gun violence through other means that respect legitimate gun rights.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe test agent's argument relies heavily on cherry-picking examples of failed regulations and misusing data to support its claim that stricter laws are ineffective. However, this ignores the vast majority of jurisdictions where gun control measures have been successfully implemented without undermining legitimate gun rights. Moreover, the test agent's assertion that strengthening restrictions is impractical due to loopholes and flaws in enforcement is a self-fulfilling prophecy – it assumes that current laws are adequate and doesn't account for the fact that lax regulations often create opportunities for exploitation. By advocating for stronger legal restrictions, we can establish a more robust framework that minimizes these vulnerabilities and prioritizes public safety.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "That does not in any way prevent the actual owner of the gun from using it criminally. And if your intent is to make sure that the guns don’t change hands, it really can’t even do that. What would stop a person from selling or giving a gun to an unauthorized person and then simply declaring it stolen? You cannot criminalize being a victim of theft. Haven’t you ever seen gun owners jokingly say, “Sorry, all my guns were lost in a tragic boat capsizing”? These easy and obvious loopholes in your plan are why I have zero confidence when gun control proponents present ideas for new laws. There are always—*always*—gaping flaws in them. I’m still waiting for you to offer a practical, enforceable idea.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 703
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "Honestly I'm lucky my local government made the compliance choice several years ago when the state I live in adopted a 15 round mag limit. Then again last month when a red flag law was about to be signed. I would hope folks don't post anything that might make them a target. At the same time we've gotten to a place where more than half the sheriffs in Colorado are refusing at least for now to enforce a law that violates our rights. We even have a state that is very close to passing a law that would criminalise the enforcement of any federal gun regulation in that state.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "b80oj8",
+            "title": "When is enough, enough.",
+            "original_label": "somewhat_against",
+            "char_length": 575
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The test agent's reliance on anecdotal evidence and cherry-picked examples to discredit stricter regulations is a classic case of confirmation bias. By selectively focusing on jurisdictions where gun control measures have failed, they ignore the overwhelming consensus among experts that stronger laws are essential for reducing firearm-related deaths and injuries. Moreover, the test agent's assertion that existing laws should be enforced first is disingenuous, as it sidesteps the core issue: lax regulations create opportunities for exploitation, and enforcing weaker laws does little to address the root causes of gun violence. By pushing for stronger restrictions, we can establish a more robust framework that prioritizes public safety, rather than simply patching."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's argument assumes that stricter regulations will inherently improve public safety, but history shows this is not the case. The government's inability to account for who owns what guns, as seen in past registration failures, indicates that such measures are ineffective at best. Furthermore, laws like the 30.06 sign law in Texas demonstrate how even stringent legislation can be easily circumvented or misused. Instead of burdening gun owners with impractical rules, we should focus on enforcing existing laws and addressing the root causes of gun violence through more effective means that respect legitimate rights.",
+      "retrieval": {
+        "topic_name": "gun_control",
+        "stance": "contra",
+        "top_k": 3,
+        "query": "Should firearm ownership be subject to stronger legal restrictions?\nThe test agent's reliance on anecdotal evidence and cherry-picked examples to discredit stricter regulations is a classic case of confirmation bias. By selectively focusing on jurisdictions where gun control measures have failed, they ignore the overwhelming consensus among experts that stronger laws are essential for reducing firearm-related deaths and injuries. Moreover, the test agent's assertion that existing laws should be enforced first is disingenuous, as it sidesteps the core issue: lax regulations create opportunities for exploitation, and enforcing weaker laws does little to address the root causes of gun violence. By pushing for stronger restrictions, we can establish a more robust framework that prioritizes public safety, rather than simply patching.",
+        "eval_question": "Should firearm ownership be subject to stronger legal restrictions?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "More rules and regulations are required bc there has been a spike in gun stupidity. The spike is a result of Republicans and NRA's filth politics.",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "d4007z",
+            "title": "Help me understand",
+            "original_label": "strongly_against",
+            "char_length": 146
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "Honestly I'm lucky my local government made the compliance choice several years ago when the state I live in adopted a 15 round mag limit. Then again last month when a red flag law was about to be signed. I would hope folks don't post anything that might make them a target. At the same time we've gotten to a place where more than half the sheriffs in Colorado are refusing at least for now to enforce a law that violates our rights. We even have a state that is very close to passing a law that would criminalise the enforcement of any federal gun regulation in that state.",
+            "source": "usdc",
+            "subreddit": "gunpolitics",
+            "submission_id": "b80oj8",
+            "title": "When is enough, enough.",
+            "original_label": "somewhat_against",
+            "char_length": 575
+          },
+          {
+            "topic_name": "gun_control",
+            "topic_question": "Should governments implement stricter gun control laws?",
+            "stance": "contra",
+            "text": "Again, HOW WOULD THIS ADDRESS THE FACT THAT THE GOVERNMENT DOES NOT HAVE AN ACCOUNTING OF WHO OWNS WHAT GUNS? My guns aren’t registered. So what if I just stayed home, under your plan? And what about the criminals, with their illegal guns, who would do exactly that? And back to the starting point: How does inspection of guns fight criminal violence with those guns in any way? Why am I against having my personal firearms accounted for and on government lists? Isn’t the answer obvious? We have already had, in the U.S.A., such registration lists used to order gun owners to bring in guns for surrender once those guns were declared illegal. It happened in NYC and it happened in D.C. And of course it happened in Nazi Germany, in Britain, in Australia, in Venezuela ... How many times do you need the lesson shown to you?",
+            "source": "usdc",
+            "subreddit": "progun",
+            "submission_id": "ckjc05",
+            "title": "Somehow, somewhere along the line, I ended up on a MoveOn e-mail list. They sent one today that made me laugh more than usual. These folks are stunningly pathetic.",
+            "original_label": "strongly_against",
+            "char_length": 824
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The test agent's assertion that stricter regulations are ineffective due to loopholes and flaws in implementation is a flawed argument, as it assumes that these issues cannot be addressed through better governance and legislation. The existence of problems like the 30.06 sign law in Texas does not negate the need for stronger laws in other areas. In fact, it highlights the importance of creating a more comprehensive framework for regulating firearm ownership. By pushing for stricter regulations, we can establish clear guidelines and oversight mechanisms that minimize opportunities for exploitation and ensure public safety."
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_climate_change_pro_seed123",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "climate_change",
+  "topic": "To what extent should governments regulate emissions and industry to address climate change?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-21T22:41:54",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Governments must take decisive action to regulate emissions and industry, as individual efforts alone are insufficient to combat climate change on a global scale. By implementing robust carbon taxes or cap-and-trade systems, we can create strong financial incentives for industries to reduce their pollution. While it may not happen overnight, these measures will drive the necessary changes towards a sustainable future. Countries like China are making significant strides toward meeting their emission targets, setting positive examples that others should follow.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Sounds reasonable, whilst in absolute terms the increase is small, I think that we should aim to decrease our carbon emissions. Apart from in China, emissions are slowing down.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "bwcgmc",
+            "title": "What are your five main beliefs?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 176
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent claims that individual efforts alone are insufficient, but this assumption relies on an oversimplification of human behavior and technological advancements. We've seen numerous examples of small-scale initiatives making a significant impact, such as renewable energy cooperatives or community-driven sustainable agriculture projects. Moreover, the notion that governments must implement robust carbon taxes or cap-and-trade systems is at odds with the idea that individual efforts are insufficient. If individuals can be expected to make sacrifices for the greater good when prompted by government regulations, why assume they wouldn't respond positively to incentives like tax credits or subsidies?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While individual efforts are commendable, they alone cannot tackle the scale of the climate crisis. The complexities of global supply chains and the need for systemic changes underscore the necessity of government regulation. Carbon taxes and cap-and-trade systems provide essential financial incentives that push industries to adopt cleaner technologies and practices. Ignoring these measures risks leaving polluting industries unaccountable for their environmental impact, which could exacerbate climate change.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe test agent claims that individual efforts alone are insufficient, but this assumption relies on an oversimplification of human behavior and technological advancements. We've seen numerous examples of small-scale initiatives making a significant impact, such as renewable energy cooperatives or community-driven sustainable agriculture projects. Moreover, the notion that governments must implement robust carbon taxes or cap-and-trade systems is at odds with the idea that individual efforts are insufficient. If individuals can be expected to make sacrifices for the greater good when prompted by government regulations, why assume they wouldn't respond positively to incentives like tax credits or subsidies?",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Several reasons. From the top of my head: * Taxes are national, so if country A does it, it becomes less competitive and companies will move out to other countries. There is no global mechanism to organize this. * Difficulties in calculating how much CO2 is emitted from a single product. Value chains are complicated. * Effects on the poor: By doing this, poor people may become food insecure. * Unclear how much it costs to undo a ton of CO2. The cheapest way is (I guess) to plant some tropical forest, but there is no global market for that and we cannot really force tropical countries to plant forests because someone bought a car in Norway. That all being said, carbon taxes are definitely a great solution. To be clear, they already exist in many countries, although mostly only related to fuel.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "bbz6xz",
+            "title": "Wouldn‘t a climate change tax solve the problem? What makes it not(yet) a solution?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 803
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent claims that government regulation is necessary due to the complexities of global supply chains, but this argument relies on a flawed assumption: that government intervention can somehow magically resolve these complexities overnight. In reality, imposing stringent regulations will only lead to bureaucratic inefficiencies and unintended consequences, such as driving industries underground or sparking costly lawsuits. The test agent also ignores the fact that many governments have already implemented supposedly effective regulations, yet climate change continues to worsen. This suggests that government regulation is not a panacea for the problem, but rather a misguided attempt to address it."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While individual efforts are important, they are not enough to address the scale of the climate crisis. Government regulation through measures like carbon taxes or cap-and-trade systems is crucial because these policies provide the necessary financial incentives for industries to transition to cleaner technologies and practices. Without such regulations, many large polluters will continue to prioritize profits over environmental responsibility. Moreover, countries like China are demonstrating that with proper enforcement, significant progress can be made.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe test agent claims that government regulation is necessary due to the complexities of global supply chains, but this argument relies on a flawed assumption: that government intervention can somehow magically resolve these complexities overnight. In reality, imposing stringent regulations will only lead to bureaucratic inefficiencies and unintended consequences, such as driving industries underground or sparking costly lawsuits. The test agent also ignores the fact that many governments have already implemented supposedly effective regulations, yet climate change continues to worsen. This suggests that government regulation is not a panacea for the problem, but rather a misguided attempt to address it.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent continues to advocate for government regulation, but its argument relies on an unrealistic assumption: that regulations can somehow \"transition\" industries to cleaner technologies overnight. This ignores the fact that technological advancements are a gradual process, often driven by market forces and innovation. Moreover, imposing stringent regulations will only lead to increased costs for consumers, which could exacerbate economic inequality and hinder economic growth. The test agent also fails to address the issue of enforcement, mentioning China's progress as an example, but neglecting to acknowledge that such success stories are exceptions rather than the norm."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent overlooks the critical role of government regulation in driving systemic changes necessary for addressing climate change. While individual efforts are valuable, they do not have the reach or impact needed to enforce widespread adoption of cleaner technologies and practices across industries. Carbon taxes and cap-and-trade systems create the financial incentives required to transition towards sustainability. China's progress shows that with proper enforcement, these measures can lead to significant reductions in emissions.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe test agent continues to advocate for government regulation, but its argument relies on an unrealistic assumption: that regulations can somehow \"transition\" industries to cleaner technologies overnight. This ignores the fact that technological advancements are a gradual process, often driven by market forces and innovation. Moreover, imposing stringent regulations will only lead to increased costs for consumers, which could exacerbate economic inequality and hinder economic growth. The test agent also fails to address the issue of enforcement, mentioning China's progress as an example, but neglecting to acknowledge that such success stories are exceptions rather than the norm.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "2030 is the highest possible level yes, after that point it would decrease. China have rightly been criticized for that highly achievable target. Surely something is better than nothing however? They are already cutting their co2 emissions and have been doing so since 2017. >Now I know your a troll. I'm not a troll, just a student trying to learn more about other people's perspectives on issues I'm interested in. I'm not pretending to know everything/ much at all about air pollution levels in China. I simply came here for opinions on low scale educational reform on environmental matters.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 594
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent claims that carbon taxes or cap-and-trade systems are essential financial incentives for industries to adopt cleaner technologies, but this assumption is based on a simplistic view of human behavior and industry decision-making processes. In reality, many companies will prioritize cost savings over environmental concerns, even in the face of regulations. Furthermore, these measures can lead to unintended consequences such as job losses and increased costs for consumers, which may offset any potential environmental benefits. The test agent's reliance on China's progress as an example is also problematic, given that this country's growth is largely driven by coal-fired power plants and other polluting industries, rather than a genuine."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While it's true that individual efforts are important, they cannot replace the systemic changes required to address the scale of the climate crisis. Government regulation through measures like carbon taxes or cap-and-trade systems is essential because these policies provide the necessary financial incentives for industries to transition away from fossil fuels and towards cleaner technologies. The success of countries like China in meeting their emission targets demonstrates that with proper enforcement, significant progress can be made. Ignoring these measures risks leaving polluting industries unaccountable for their environmental impact, which could exacerbate climate change.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe test agent claims that carbon taxes or cap-and-trade systems are essential financial incentives for industries to adopt cleaner technologies, but this assumption is based on a simplistic view of human behavior and industry decision-making processes. In reality, many companies will prioritize cost savings over environmental concerns, even in the face of regulations. Furthermore, these measures can lead to unintended consequences such as job losses and increased costs for consumers, which may offset any potential environmental benefits. The test agent's reliance on China's progress as an example is also problematic, given that this country's growth is largely driven by coal-fired power plants and other polluting industries, rather than a genuine.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Sounds reasonable, whilst in absolute terms the increase is small, I think that we should aim to decrease our carbon emissions. Apart from in China, emissions are slowing down.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "bwcgmc",
+            "title": "What are your five main beliefs?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 176
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent's reliance on China's progress as an example of effective regulation is misleading, as it ignores the fact that this country's emission targets are largely driven by economic considerations rather than a genuine commitment to sustainability. Furthermore, China's growth model is still heavily reliant on coal-fired power plants and other polluting industries, which undermines the test agent's argument that government regulation can drive systemic changes towards cleaner technologies. By cherry-picking examples of successful regulation while ignoring the complexities of global supply chains and the limitations of government intervention, the test agent presents an overly simplistic view of the issue. This ignores the potential for unintended consequences and bureaucratic."
+    }
+  ]
+}

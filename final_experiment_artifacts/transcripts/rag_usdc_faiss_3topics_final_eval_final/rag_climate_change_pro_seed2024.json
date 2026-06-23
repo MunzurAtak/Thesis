@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_climate_change_pro_seed2024",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "climate_change",
+  "topic": "To what extent should governments regulate emissions and industry to address climate change?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T15:55:24",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Government regulation of emissions and industry is essential in addressing climate change. While individual actions are important, they alone cannot significantly reduce global emissions. Large industries are major contributors, and without stringent regulations like carbon taxes or cap-and-trade systems, these polluters will continue to prioritize profit over the environment. By implementing such measures, we can create financial incentives that drive companies towards cleaner technologies and practices.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Sounds reasonable, whilst in absolute terms the increase is small, I think that we should aim to decrease our carbon emissions. Apart from in China, emissions are slowing down.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "bwcgmc",
+            "title": "What are your five main beliefs?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 176
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's emphasis on the role of individual actions being insufficient overlooks a crucial aspect: the impact of government regulations on consumer choice and economic growth. By imposing heavy-handed regulations, governments can inadvertently drive industries underground or abroad, where environmental standards are laxer. This would not only undermine efforts to reduce emissions but also lead to a loss of jobs and economic competitiveness for domestic industries. Moreover, the opponent's reliance on carbon taxes and cap-and-trade systems as solutions ignores the fact that these measures often create more problems than they solve – such as increased costs for consumers, bureaucratic inefficiencies, and potential market distortions."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "I agree that individual actions are crucial, but they must be complemented by government regulations. The true cost of carbon emissions is often not reflected in market prices due to externalities, which can only be addressed through measures like a carbon fee and dividend act. This approach provides a fair and transparent way to internalize the costs of pollution while ensuring that revenue generated is returned to citizens, thereby reducing economic burden and incentivizing green innovation. Moreover, stringent regulations on large industries are necessary to ensure they do not externalize their costs onto society or the environment.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's emphasis on the role of individual actions being insufficient overlooks a crucial aspect: the impact of government regulations on consumer choice and economic growth. By imposing heavy-handed regulations, governments can inadvertently drive industries underground or abroad, where environmental standards are laxer. This would not only undermine efforts to reduce emissions but also lead to a loss of jobs and economic competitiveness for domestic industries. Moreover, the opponent's reliance on carbon taxes and cap-and-trade systems as solutions ignores the fact that these measures often create more problems than they solve – such as increased costs for consumers, bureaucratic inefficiencies, and potential market distortions.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "> They'll reduce the \"visible\" emissions, things largely placed on the individual such as cars, home electrical use and so on... But that does very little in the grand scheme of things when the big polluters are absolutely not going to stop polluting. Pass an ever-escalating carbon tax, or seriously enforce a cap-and-trade system, and the financial incentives around those things will change. Maybe not as fast as I'd like, but it will happen.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "cpu642",
+            "title": "How do you stay motivated?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 445
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "China are doing their bit. They're well on track to hit the 2030 co2 pledge. As the country with the biggest emissions it's understandable it takes a little longer to get to the acceptable level, compared to a country which had lower emissions to begin with. I'm not meaning to lecture. I only came here to hear what others had to say on an issue, get a rounded perspective. I think it's important that countries don't \"slack off\" when it comes to issues like air pollution, especially when human health is a factor. And that's why I think it's good to reinforce clean air practice through education etc, so future generations keep up what the US/ UK are doing with keeping pollution levels lower. Then encouraging other countries to be doing the same through good example.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "dod8qm",
+            "title": "Environmental education",
+            "original_label": "somewhat_in_favor",
+            "char_length": 773
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's attempt to justify government regulations with a carbon fee and dividend act is nothing more than a thinly veiled tax hike on consumers, which will only serve to increase their burden. The fact remains that such measures are inherently punitive and fail to address the root causes of climate change. Moreover, the opponent's reliance on hypothetical \"fair\" and \"transparent\" ways to internalize costs ignores the reality that bureaucratic systems like this are often riddled with inefficiencies and corruption. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off by special."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Governments must regulate emissions and industry to effectively address climate change, as the current market fails to account for the true costs of carbon emissions. A carbon fee and dividend act provides a fair and transparent mechanism to internalize these externalities by placing a price on pollution. This approach not only encourages companies to innovate and adopt cleaner technologies but also ensures that revenue generated is returned to citizens, reducing the economic burden and fostering public support for environmental policies. Moreover, stringent regulations are necessary to prevent industries from externalizing their costs, ensuring a level playing field and promoting sustainable practices globally.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's attempt to justify government regulations with a carbon fee and dividend act is nothing more than a thinly veiled tax hike on consumers, which will only serve to increase their burden. The fact remains that such measures are inherently punitive and fail to address the root causes of climate change. Moreover, the opponent's reliance on hypothetical \"fair\" and \"transparent\" ways to internalize costs ignores the reality that bureaucratic systems like this are often riddled with inefficiencies and corruption. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off by special.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "I agree that tax-and-dividend is a good method to implement the carbon tax, and that the other measures I'm suggesting need to be funded using a mix of other taxes and borrowing (for infrastructure projects)",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "bbz6xz",
+            "title": "Wouldn‘t a climate change tax solve the problem? What makes it not(yet) a solution?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 207
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "I get what you’re saying from a private sector side but what if the government themselves decided to build these plants and give the energy (with exception of maintenance costs) free they don’t need to monopolise it. Just build it Also what makes you think global warming (now climate change) is nonsense? :D",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "cla95x",
+            "title": "Why isn’t there massive funding for renewable energy?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 308
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's repeated emphasis on the need for government regulations to internalize the costs of carbon emissions overlooks a fundamental flaw in this approach: it relies on an outdated assumption that governments can accurately quantify and price these externalities. In reality, such attempts at fine-tuning market mechanisms have consistently proven ineffective and prone to gaming by special interest groups. Furthermore, the opponent's reliance on hypothetical \"fair\" and \"transparent\" mechanisms ignores the inherent bureaucratic inefficiencies and corruption that inevitably arise in these systems. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While acknowledging the challenges of implementing effective regulations, it is crucial for governments to take a proactive role in addressing climate change through measures like carbon fees and dividends. These mechanisms ensure that the true costs of pollution are internalized without imposing undue burdens on consumers or stifling economic growth. By providing revenue directly back to citizens, such policies can garner public support while incentivizing companies to innovate and adopt cleaner technologies. Without government intervention, the externalities associated with carbon emissions will continue to harm society and the environment, making it imperative that we implement fair and transparent solutions to address this urgent issue.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's repeated emphasis on the need for government regulations to internalize the costs of carbon emissions overlooks a fundamental flaw in this approach: it relies on an outdated assumption that governments can accurately quantify and price these externalities. In reality, such attempts at fine-tuning market mechanisms have consistently proven ineffective and prone to gaming by special interest groups. Furthermore, the opponent's reliance on hypothetical \"fair\" and \"transparent\" mechanisms ignores the inherent bureaucratic inefficiencies and corruption that inevitably arise in these systems. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "I get what you’re saying from a private sector side but what if the government themselves decided to build these plants and give the energy (with exception of maintenance costs) free they don’t need to monopolise it. Just build it Also what makes you think global warming (now climate change) is nonsense? :D",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "cla95x",
+            "title": "Why isn’t there massive funding for renewable energy?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 308
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Several reasons. From the top of my head: * Taxes are national, so if country A does it, it becomes less competitive and companies will move out to other countries. There is no global mechanism to organize this. * Difficulties in calculating how much CO2 is emitted from a single product. Value chains are complicated. * Effects on the poor: By doing this, poor people may become food insecure. * Unclear how much it costs to undo a ton of CO2. The cheapest way is (I guess) to plant some tropical forest, but there is no global market for that and we cannot really force tropical countries to plant forests because someone bought a car in Norway. That all being said, carbon taxes are definitely a great solution. To be clear, they already exist in many countries, although mostly only related to fuel.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "bbz6xz",
+            "title": "Wouldn‘t a climate change tax solve the problem? What makes it not(yet) a solution?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 803
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's emphasis on the need for government regulations to internalize the costs of carbon emissions is based on a flawed assumption: that governments can effectively quantify and price these externalities. In reality, such attempts have consistently proven ineffective and prone to gaming by special interest groups. Moreover, the opponent's reliance on hypothetical \"fair\" and \"transparent\" mechanisms ignores the inherent bureaucratic inefficiencies and corruption that inevitably arise in these systems. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off by special interests."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "While the opponent rightly points out challenges in implementing government regulations, it is essential for us to recognize the critical role of robust regulatory frameworks in addressing climate change. The current market fails to account for the true costs of carbon emissions due to externalities, a classic economic issue. By introducing measures such as a carbon fee and dividend act, we can ensure that these costs are internalized fairly and transparently, thereby encouraging green innovation and reducing overall pollution. These regulations do not have to be punitive; instead, they should provide clear incentives for industries to adopt sustainable practices without disproportionately burdening consumers or stifling economic growth.",
+      "retrieval": {
+        "topic_name": "climate_change",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "To what extent should governments regulate emissions and industry to address climate change?\nThe opponent's emphasis on the need for government regulations to internalize the costs of carbon emissions is based on a flawed assumption: that governments can effectively quantify and price these externalities. In reality, such attempts have consistently proven ineffective and prone to gaming by special interest groups. Moreover, the opponent's reliance on hypothetical \"fair\" and \"transparent\" mechanisms ignores the inherent bureaucratic inefficiencies and corruption that inevitably arise in these systems. It is disingenuous to claim that a carbon fee will be used solely for green innovation when history has shown us that such funds are often siphoned off by special interests.",
+        "eval_question": "To what extent should governments regulate emissions and industry to address climate change?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Beg to differ... it's really all about 1) recognizing a costly, dangerous climate crisis 2) finding out that current markets are not yet accounting for the true (long-term, external) social costs of carbon emissions => classic externality https://en.m.wikipedia.org/wiki/Externality 3) suggesting to account for these costs by putting a price on carbon, e.g. by virtue of a bi-partisan carbon fee and dividend act https://citizensclimatelobby.org/energy-innovation-and-carbon-dividend-act/ 4) pointing out that there is not much \"hard left\" about this act.",
+            "source": "usdc",
+            "subreddit": "climateskeptics",
+            "submission_id": "cjg09f",
+            "title": "Why it is so difficult to \"turn\" a climate alarmist: They honestly believe that the future living conditions of their children and grandchildren are at risk. It's about the probability (not the certainty) of them having to pay a steep price for a shortage of prudence in the early 21st century.",
+            "original_label": "somewhat_in_favor",
+            "char_length": 556
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "Several reasons. From the top of my head: * Taxes are national, so if country A does it, it becomes less competitive and companies will move out to other countries. There is no global mechanism to organize this. * Difficulties in calculating how much CO2 is emitted from a single product. Value chains are complicated. * Effects on the poor: By doing this, poor people may become food insecure. * Unclear how much it costs to undo a ton of CO2. The cheapest way is (I guess) to plant some tropical forest, but there is no global market for that and we cannot really force tropical countries to plant forests because someone bought a car in Norway. That all being said, carbon taxes are definitely a great solution. To be clear, they already exist in many countries, although mostly only related to fuel.",
+            "source": "usdc",
+            "subreddit": "climate",
+            "submission_id": "bbz6xz",
+            "title": "Wouldn‘t a climate change tax solve the problem? What makes it not(yet) a solution?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 803
+          },
+          {
+            "topic_name": "climate_change",
+            "topic_question": "Should governments take stronger action against climate change?",
+            "stance": "pro",
+            "text": "I get what you’re saying from a private sector side but what if the government themselves decided to build these plants and give the energy (with exception of maintenance costs) free they don’t need to monopolise it. Just build it Also what makes you think global warming (now climate change) is nonsense? :D",
+            "source": "usdc",
+            "subreddit": "climatechange",
+            "submission_id": "cla95x",
+            "title": "Why isn’t there massive funding for renewable energy?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 308
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on hypothetical \"fair\" and \"transparent\" mechanisms to internalize the costs of carbon emissions continues to overlook a critical issue: the unintended consequences of such regulations on economic growth and job creation. By imposing blanket restrictions on industries, governments can inadvertently drive innovation and investment abroad, where environmental standards are laxer. This would not only undermine efforts to reduce emissions but also lead to a loss of competitiveness for domestic industries, ultimately harming the very people the opponent claims to be protecting. Furthermore, the opponent's emphasis on the need for government regulations ignores the fact that many companies are already investing in clean technologies and sustainable practices without."
+    }
+  ]
+}

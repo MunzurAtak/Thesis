@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_contra_seed123",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-22T17:18:56",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Firearm licensing can create dangerous exceptions for criminals while restricting lawful citizens. This matters because background checks and training may not prevent someone with malicious intent from obtaining a weapon. Therefore, public safety depends on addressing root causes rather than adding more restrictions. To support this view, consider that offenders can use illegal means to acquire firearms or ignore legal barriers."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "That's an interesting attempt to deflect responsibility from the issue at hand, but let's not get lost in hypotheticals about malicious individuals evading regulations. The crux of the matter remains: lax firearm ownership laws put innocent lives at risk. The test agent's assertion that background checks and training are ineffective is a blanket statement without concrete evidence to support it. In reality, rigorous background checks have been shown to significantly reduce gun violence in other countries with similar populations."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Firearm licensing can create dangerous exceptions for criminals while restricting lawful citizens. This matters because background checks and training may not prevent someone with malicious intent from obtaining a weapon. Therefore, public safety depends on addressing root causes rather than adding more restrictions. To support this view, consider that offenders can use illegal means to acquire firearms or ignore legal barriers."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument relies heavily on hypothetical scenarios, but what about empirical evidence from regions with stricter firearm regulations? Countries like Australia and Japan have seen significant reductions in gun-related violence despite having some of the toughest licensing requirements worldwide. The Opponent's assertion that offenders can evade regulations via illegal means is true, but it's also a weak counterargument when considering that stronger laws would at least deter law-abiding citizens from contributing to gun violence. By dismissing background checks and training as ineffective, the Opponent ignores the fact that these measures have been implemented successfully in various jurisdictions with lower rates of gun-related crime."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Firearm licensing can create dangerous exceptions for criminals while restricting lawful citizens. This matters because background checks and training may not prevent someone with malicious intent from obtaining a weapon. Therefore, public safety depends on addressing root causes rather than adding more restrictions. To support this view, consider that offenders can use illegal means to acquire firearms or ignore legal barriers."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument continues to rely on hypotheticals, but let's examine the real-world consequences of weak regulations. If we don't take a more proactive approach in regulating firearm ownership, we risk perpetuating a cycle of violence. The Opponent's assertion that offenders can use illegal means to acquire firearms is true, but it's also a result of our current lax laws. By not addressing this issue through stronger regulations, aren't we essentially condoning the idea that some individuals are willing to break the law to get what they want?"
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Firearm licensing can create dangerous exceptions for criminals while restricting lawful citizens. This matters because background checks and training may not prevent someone with malicious intent from obtaining a weapon. Therefore, public safety depends on addressing root causes rather than adding more restrictions. To support this view, consider that offenders can use illegal means to acquire firearms or ignore legal barriers."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's continued reliance on hypothetical scenarios about offenders evading regulations via illegal means is a clear attempt to distract from the fact that our current lax laws are still causing harm. However, this line of reasoning ignores the empirical evidence showing that stronger regulations lead to significant reductions in gun-related violence. For instance, studies have consistently shown that countries with stricter firearm ownership laws experience lower rates of mass shootings and gun deaths. The Opponent's argument also fails to address the root cause of the problem: the ease with which individuals can acquire firearms without proper screening or training."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Firearm licensing can create dangerous exceptions for criminals while restricting lawful citizens. This matters because background checks and training may not prevent someone with malicious intent from obtaining a weapon. Therefore, public safety depends on addressing root causes rather than adding more restrictions. To support this view, consider that offenders can use illegal means to acquire firearms or ignore legal barriers."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument continues to focus on hypothetical exceptions rather than addressing the broader issue of public safety. By claiming that background checks and training are ineffective, they ignore the fact that these measures have been implemented successfully in various countries with lower rates of gun-related crime. The Opponent also fails to acknowledge that stronger regulations can deter law-abiding citizens from contributing to gun violence, thereby indirectly reducing the overall risk of harm. Furthermore, their assertion that offenders can use illegal means to acquire firearms is a red herring, as it's precisely the existence of these loopholes that highlights the need for stricter laws in the first place."
+    }
+  ]
+}

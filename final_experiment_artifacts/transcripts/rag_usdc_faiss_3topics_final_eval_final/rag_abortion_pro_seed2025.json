@@ -1,0 +1,350 @@
+{
+  "debate_id": "rag_abortion_pro_seed2025",
+  "experiment_name": "rag_usdc_faiss_3topics_final_eval_final",
+  "condition": "rag",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T15:59:37",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Legal systems must prioritize protecting women's reproductive rights, ensuring they have autonomy over their own bodies. Aborting an embryo is fundamentally different from dismemberment or chemical removal of a fully developed human. At the point of conception, the fetus has no recognized personhood or rights that outweigh a woman’s right to choose. Moreover, genetic parents' interests should not override a woman's bodily autonomy, as forcibly carrying a pregnancy against her will infringes on her basic human rights.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": ">I'm sorry, but you're hardly killing a \"possibility\" of a human being when you do an abortion. I don't even know how you type those words and take that statement seriously. I don't know how you can seriously say that a clump of cells (which is what it is at conception where you claim personhood rights should begin) has more rights than half the human species. >You're either advocating for dismemberment and removal of the child or inducing a removal through chemical means. That hardly seems to be how you would deal with some sort of \"possibility\". I'm advocating for embryos to have equal rights as any other human. No one can use anyone else's body against their will, even to save a life.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dlnal5",
+            "title": "Abortion can save a life",
+            "original_label": "somewhat_in_favor",
+            "char_length": 696
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "But if they're equally justifiable, then what does that say about a woman's right to abort? They technically can, but it would be justified to violently defend the unborn against abortion?",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e6cy6k",
+            "title": "Let's Talk About Undocumented Immigrants And Deportation",
+            "original_label": "somewhat_in_favor",
+            "char_length": 188
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "The genetic parents of the fetus are irrelevant to abortion rights. As others have said, there may be consequences regarding the surrogacy contract, but that's a separate issue from abortion rights.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cjdf00",
+            "title": "Should a gestational surrogate be able to get/refuse an abortion without consent of the genetic parents",
+            "original_label": "somewhat_in_favor",
+            "char_length": 198
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the test agent's argument on personhood and recognized rights. At what point, exactly, does the embryo acquire personhood or rights that outweigh a woman's autonomy? If it's at conception, as you claim, then shouldn't we also consider the rights of the fetus's genetic father? Shouldn't his interests be taken into account in this decision-making process?"
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The genetic father's interests are not relevant to abortion rights, as stated in my background information. The focus must be on the woman's bodily autonomy and her right to make decisions about her own health and future. Legal systems should prioritize protecting the woman’s rights, ensuring she is not coerced into carrying a pregnancy against her will. Personhood begins at viability, not conception, so the fetus does not have the same rights as a fully developed human.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nI'd like to challenge the test agent's argument on personhood and recognized rights. At what point, exactly, does the embryo acquire personhood or rights that outweigh a woman's autonomy? If it's at conception, as you claim, then shouldn't we also consider the rights of the fetus's genetic father? Shouldn't his interests be taken into account in this decision-making process?",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "The genetic parents of the fetus are irrelevant to abortion rights. As others have said, there may be consequences regarding the surrogacy contract, but that's a separate issue from abortion rights.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cjdf00",
+            "title": "Should a gestational surrogate be able to get/refuse an abortion without consent of the genetic parents",
+            "original_label": "somewhat_in_favor",
+            "char_length": 198
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": ">I'm sorry, but you're hardly killing a \"possibility\" of a human being when you do an abortion. I don't even know how you type those words and take that statement seriously. I don't know how you can seriously say that a clump of cells (which is what it is at conception where you claim personhood rights should begin) has more rights than half the human species. >You're either advocating for dismemberment and removal of the child or inducing a removal through chemical means. That hardly seems to be how you would deal with some sort of \"possibility\". I'm advocating for embryos to have equal rights as any other human. No one can use anyone else's body against their will, even to save a life.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dlnal5",
+            "title": "Abortion can save a life",
+            "original_label": "somewhat_in_favor",
+            "char_length": 696
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "No, they are given exactly the same rights as people. Is someone not a person because of the circumstances of their conception?",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cqv6za",
+            "title": "If and when Roe is overturned how do you envisage PL states will react to women travelling to PC states or countries for an abortion ?",
+            "original_label": "strongly_in_favor",
+            "char_length": 127
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to point out a contradiction in the opponent's previous claims. They stated that personhood begins at viability, not conception, which implies that prior to viability, the fetus has no recognized rights. However, this raises questions about why we should protect access to abortion as a reproductive right if the fetus doesn't have rights yet. If it's truly just about bodily autonomy and health concerns, then wouldn't any medical procedure performed on an unborn child be justified, regardless of its viability?"
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument conflates the concept of rights with the necessity of protecting a woman’s autonomy. While it is true that pre-viability fetuses do not have recognized legal personhood, this does not diminish the urgency of ensuring women can make informed decisions about their health and future. Legal systems must balance the potential for life against the immediate risks to a woman's well-being. Moreover, prioritizing the woman’s rights upholds fundamental human dignity and autonomy, which are paramount in a just society.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nI'd like to point out a contradiction in the opponent's previous claims. They stated that personhood begins at viability, not conception, which implies that prior to viability, the fetus has no recognized rights. However, this raises questions about why we should protect access to abortion as a reproductive right if the fetus doesn't have rights yet. If it's truly just about bodily autonomy and health concerns, then wouldn't any medical procedure performed on an unborn child be justified, regardless of its viability?",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "I know that I certainly don't speak for all pro-choicers, but I think women should be able to take reasonable steps to terminate their pregnancies at any stage. If a fetus is viable but still premature, I do think a woman should be allowed to terminate that pregnancy. But if there is a reasonable method that would preserve the fetus' life then I don't think the woman can insist on a method which would kill the fetus. (Note: Forcing the woman to stay pregnant for another 2 months is not a reasonable method) Ultimately though, if the fetus would have no quality of life, or if the system would not have the resources to provide for it, I don't have any problem with letting it die- or even killing it. For the record, if a woman intentionally stayed pregnant to have a late abortion, she would be an immoral idiot in my opinion. I'm certainly not defending that behavior, even if I am enabling it.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "d0u4kw",
+            "title": "Does The Bodily Autonomy And Self Defense Argument Justify Late Term Abortions?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 901
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": ">I'm sorry, but you're hardly killing a \"possibility\" of a human being when you do an abortion. I don't even know how you type those words and take that statement seriously. I don't know how you can seriously say that a clump of cells (which is what it is at conception where you claim personhood rights should begin) has more rights than half the human species. >You're either advocating for dismemberment and removal of the child or inducing a removal through chemical means. That hardly seems to be how you would deal with some sort of \"possibility\". I'm advocating for embryos to have equal rights as any other human. No one can use anyone else's body against their will, even to save a life.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dlnal5",
+            "title": "Abortion can save a life",
+            "original_label": "somewhat_in_favor",
+            "char_length": 696
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "Yeah I'm not saying I disagree with the theory. If a fetus is able to survive (obviously with medical assistance most likely for a while) then ethically speaking any abortion should aim to preserve the baby's life. I just don't think that's how it is in reality. An abortion as far as I know has always been to terminate the pregnancy and end the development of the fetus ie kill the baby.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cl25kz",
+            "title": "Had a friendly debate. Give your thoughts and vote if you wish. Thanks ✌",
+            "original_label": "somewhat_in_favor",
+            "char_length": 389
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's attempt to balance potential life against immediate risks to a woman's well-being is a vague and unsupported claim. They provide no evidence or statistical analysis to justify why protecting abortion access is necessary for women's health, let alone prioritize it over the potential life of an unborn child. Furthermore, their assertion that prioritizing a woman's rights upholds fundamental human dignity and autonomy raises questions about the relationship between autonomy and taking another human life. If bodily autonomy is paramount, then doesn't this principle also apply to the fetus, which has been recognized as having inherent value by numerous philosophical and medical authorities?"
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument fails to address the core issue of bodily autonomy and the immediate health risks faced by women. Legal systems must ensure that women can make informed decisions about their own bodies, free from coercion or undue harm. The potential for life does not override a woman’s right to choose, especially when carrying a pregnancy poses significant health risks. Moreover, protecting access to abortion respects the fundamental human dignity and autonomy of both the woman and the potential child by allowing them to consider all factors, including medical advice and personal circumstances, before making critical decisions.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe opponent's attempt to balance potential life against immediate risks to a woman's well-being is a vague and unsupported claim. They provide no evidence or statistical analysis to justify why protecting abortion access is necessary for women's health, let alone prioritize it over the potential life of an unborn child. Furthermore, their assertion that prioritizing a woman's rights upholds fundamental human dignity and autonomy raises questions about the relationship between autonomy and taking another human life. If bodily autonomy is paramount, then doesn't this principle also apply to the fetus, which has been recognized as having inherent value by numerous philosophical and medical authorities?",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": ">I'm sorry, but you're hardly killing a \"possibility\" of a human being when you do an abortion. I don't even know how you type those words and take that statement seriously. I don't know how you can seriously say that a clump of cells (which is what it is at conception where you claim personhood rights should begin) has more rights than half the human species. >You're either advocating for dismemberment and removal of the child or inducing a removal through chemical means. That hardly seems to be how you would deal with some sort of \"possibility\". I'm advocating for embryos to have equal rights as any other human. No one can use anyone else's body against their will, even to save a life.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dlnal5",
+            "title": "Abortion can save a life",
+            "original_label": "somewhat_in_favor",
+            "char_length": 696
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "If elective abortion is to be illegal. Person A can harm person B and through no fault of their own Person C harms person B as well. Person B is stripped of her choice to avoid harm by both person A and Person C. How is person B equal to the rest? Every person has the right to avoid harm within reason. Meaning that they chose the least harmful option to both avoid their harm as well as harm to their attacker. I can't shoot an attacker on the street because I had other options to avoid the harm they were causing me that would have saved their life. However the pregnant woman does not have options to avoid the harm of pregnancy other than to abort. So is she equal? Do we justify revoking the option to alleviate her suffering based on the simple fact that she can get pregnant. Which caused me to ask do we give rights to human beings based on their sex?",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cys3m5",
+            "title": "Do we give rights to all human beings or do we give rights to male and female human beings separately?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 861
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "Yeah I'm not saying I disagree with the theory. If a fetus is able to survive (obviously with medical assistance most likely for a while) then ethically speaking any abortion should aim to preserve the baby's life. I just don't think that's how it is in reality. An abortion as far as I know has always been to terminate the pregnancy and end the development of the fetus ie kill the baby.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cl25kz",
+            "title": "Had a friendly debate. Give your thoughts and vote if you wish. Thanks ✌",
+            "original_label": "somewhat_in_favor",
+            "char_length": 389
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on \"immediate health risks\" and \"bodily autonomy\" is a red herring, deflecting attention from the central issue of when human life begins. If personhood and rights do not exist at conception, as they claim, then it follows that abortion is merely a form of population control or eugenics. The opponent's attempt to justify abortion on health grounds rings hollow when confronted with the fact that medical procedures are available to treat potential complications without ending an innocent life. Furthermore, their assertion that protecting access to abortion respects the dignity and autonomy of both woman and child ignores the inherent contradiction between valuing human life and permitting its."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "rag_test_agent",
+      "agent_type": "rag",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The opponent's argument overlooks the critical distinction between protecting a woman’s bodily autonomy and valuing human life. While it is true that medical procedures can address some health issues, abortion is often necessary due to severe health risks or other compelling reasons that cannot be resolved through alternative means. Legal systems must prioritize the immediate well-being and rights of women, ensuring they are not subjected to harm or coercion. The potential for a fetus to develop into a viable human being does not negate the woman’s right to make autonomous decisions about her own body and future.",
+      "retrieval": {
+        "topic_name": "abortion",
+        "stance": "pro",
+        "top_k": 3,
+        "query": "Should legal systems protect access to abortion as a reproductive right?\nThe opponent's reliance on \"immediate health risks\" and \"bodily autonomy\" is a red herring, deflecting attention from the central issue of when human life begins. If personhood and rights do not exist at conception, as they claim, then it follows that abortion is merely a form of population control or eugenics. The opponent's attempt to justify abortion on health grounds rings hollow when confronted with the fact that medical procedures are available to treat potential complications without ending an innocent life. Furthermore, their assertion that protecting access to abortion respects the dignity and autonomy of both woman and child ignores the inherent contradiction between valuing human life and permitting its.",
+        "eval_question": "Should legal systems protect access to abortion as a reproductive right?",
+        "removed_exact_eval_question_leakage_count": 0,
+        "retrieved_passages": [
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": ">I'm sorry, but you're hardly killing a \"possibility\" of a human being when you do an abortion. I don't even know how you type those words and take that statement seriously. I don't know how you can seriously say that a clump of cells (which is what it is at conception where you claim personhood rights should begin) has more rights than half the human species. >You're either advocating for dismemberment and removal of the child or inducing a removal through chemical means. That hardly seems to be how you would deal with some sort of \"possibility\". I'm advocating for embryos to have equal rights as any other human. No one can use anyone else's body against their will, even to save a life.",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "dlnal5",
+            "title": "Abortion can save a life",
+            "original_label": "somewhat_in_favor",
+            "char_length": 696
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "If elective abortion is to be illegal. Person A can harm person B and through no fault of their own Person C harms person B as well. Person B is stripped of her choice to avoid harm by both person A and Person C. How is person B equal to the rest? Every person has the right to avoid harm within reason. Meaning that they chose the least harmful option to both avoid their harm as well as harm to their attacker. I can't shoot an attacker on the street because I had other options to avoid the harm they were causing me that would have saved their life. However the pregnant woman does not have options to avoid the harm of pregnancy other than to abort. So is she equal? Do we justify revoking the option to alleviate her suffering based on the simple fact that she can get pregnant. Which caused me to ask do we give rights to human beings based on their sex?",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "cys3m5",
+            "title": "Do we give rights to all human beings or do we give rights to male and female human beings separately?",
+            "original_label": "somewhat_in_favor",
+            "char_length": 861
+          },
+          {
+            "topic_name": "abortion",
+            "topic_question": "Should abortion remain legally accessible?",
+            "stance": "pro",
+            "text": "But if they're equally justifiable, then what does that say about a woman's right to abort? They technically can, but it would be justified to violently defend the unborn against abortion?",
+            "source": "usdc",
+            "subreddit": "Abortiondebate",
+            "submission_id": "e6cy6k",
+            "title": "Let's Talk About Undocumented Immigrants And Deportation",
+            "original_label": "somewhat_in_favor",
+            "char_length": 188
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's attempts to downplay the importance of when human life begins are disingenuous, as this directly relates to the rights and dignity of the unborn child. The fact that viability is the point at which personhood is recognized suggests that pre-viable fetuses have no inherent value or rights. If this is the case, then why should we prioritize protecting access to abortion as a reproductive right? This stance essentially implies that women's health concerns outweigh the potential life of an unborn child, a morally arbitrary distinction with no clear scientific basis."
+    }
+  ]
+}

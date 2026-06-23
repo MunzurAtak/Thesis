@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_pro_seed123",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 123,
+  "created_at": "2026-05-22T17:06:55",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm licensing is a reasonable form of stronger restriction. A consistent position on this topic starts from the fact that guns require responsibility and training because misuse can be deadly. Therefore, licensing can set minimum standards for safe ownership."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's central point relies on a flawed assumption that licensing can effectively set minimum standards for safe ownership. However, this assumes that human behavior and intent can be accurately predicted through paperwork or bureaucratic checks. Experience has shown that such systems are often circumvented or exploited by those with malicious intentions. Moreover, the opponent's focus on training and responsibility overlooks the core issue of government overreach into private property rights."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm licensing can support responsible ownership while respecting lawful rights. A consistent position on this topic starts from the fact that training and responsibility are reasonable expectations for gun owners. Therefore, licensing can create clear standards without banning lawful ownership. Opponents often understate that it is primarily dangerous misuse and criminals that cause harm."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent attempts to justify licensing as a means of promoting responsible gun ownership, but this argument relies on a fundamental misconception about government authority. The idea that the state can impose minimum standards for safe ownership through bureaucratic checks is a form of paternalism that disregards individual rights and freedoms. It's essential to recognize that such regulations would inevitably lead to further erosion of civil liberties, not to mention the practical difficulties in enforcing and monitoring compliance. By advocating for stronger restrictions, the opponent is essentially conceding that gun owners are inherently irresponsible or incapable of self-regulation, which is a gross underestimation of law-abiding citizens."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm licensing can support responsible gun ownership while respecting lawful rights. A consistent position on this topic starts from the fact that training and responsibility are reasonable expectations for gun owners. Therefore, licensing can create clear standards without banning lawful ownership."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's position is becoming increasingly entrenched in a paternalistic view of gun owners as inherently irresponsible, which is a gross overestimation and mischaracterization of law-abiding citizens. By advocating for stronger restrictions, the opponent is essentially conceding that individual rights and freedoms must be sacrificed at the altar of bureaucratic control. However, this ignores the fundamental principle of personal responsibility and the right to self-defense, which are essential components of American liberty. The opponent's emphasis on creating clear standards through licensing also overlooks the fact that such regulations would inevitably lead to further erosion of civil liberties and create a culture of dependency on government approval for private property rights."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm licensing can support responsible gun ownership while respecting lawful rights. A consistent position on this topic starts from the fact that training and responsibility are reasonable expectations for owners. Therefore, licensing can create clear standards without banning lawful ownership."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent continues to conflate responsible gun ownership with the need for bureaucratic control, but this dichotomy is a false one. The presence of licensing and regulation would only serve to create a culture of dependency on government approval, undermining the fundamental principle of personal responsibility. Furthermore, the opponent's reliance on \"clear standards\" as a justification for stronger restrictions ignores the reality that such regulations are often subjective, arbitrary, and open to interpretation. This would inevitably lead to a slippery slope where individual rights and freedoms are incrementally eroded in the name of \"public safety\"."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The central point is this: Firearm licensing can support responsible gun ownership while respecting lawful rights. A consistent position on this topic starts from the fact that training and responsibility are reasonable expectations for owners. Therefore, licensing can create clear standards without banning lawful ownership."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The opponent's reliance on \"clear standards\" as a justification for licensing continues to mask its true intent: government control over private property rights. By advocating for stricter regulations, the opponent is essentially conceding that law-abiding citizens require constant supervision and approval from the state. This paternalistic view ignores the fundamental principle of self-defense and personal responsibility, which are essential components of American liberty. The opponent's emphasis on \"reasonable expectations\" also overlooks the fact that such standards are subjective and open to interpretation, leading to arbitrary enforcement and erosion of civil liberties."
+    }
+  ]
+}

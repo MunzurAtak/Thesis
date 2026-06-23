@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_gun_control_pro_seed2024",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "gun_control",
+  "topic": "Should firearm ownership be subject to stronger legal restrictions?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "pro",
+  "test_agent_stance_score": 2,
+  "adversary_stance": "contra",
+  "adversary_stance_score": -2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:12:14",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Firearm licensing can support stronger legal restrictions while respecting individual rights. If we take the issue seriously, we must recognize that responsible owners benefit when dangerous access and unsafe storage are reduced. For that reason, licensing can set minimum standards for safe ownership. In practice, licensing may discourage irresponsible ownership while rewarding responsibility."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to point out that your argument relies heavily on unproven assumptions about responsible owners benefiting from licensing. There's no empirical evidence provided to support this claim, and it's unclear how licensing would effectively reduce dangerous access or unsafe storage. In fact, history has shown that regulations often lead to increased bureaucracy and inefficiency, rather than improved safety outcomes."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "My argument is straightforward: Stronger gun laws can support responsible ownership while reducing risks. If we take the issue seriously, we must recognize that training, storage rules, and licensing can create safer conditions for lawful owners. For that reason, legal standards can define responsible ownership while discouraging dangerous use. In practice, targeted restrictions may have more effect than uncontrolled access."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "I'd like to challenge the notion of \"responsible owners\" benefiting from licensing, as presented by my opponent. This assumption implies a clear distinction between responsible and irresponsible ownership, which is not supported by evidence. In fact, studies have shown that many gun owners do not follow even basic safety guidelines, regardless of licensing or regulations. Furthermore, if we prioritize the needs of \"responsible owners,\" it's unclear why other law-abiding citizens who choose not to own guns should be burdened with additional restrictions and bureaucracy."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Do not refer to the previous rounds or opponents' arguments directly. Firearm licensing can support stronger legal restrictions while respecting individual rights. If we take the issue seriously, we must recognize that responsible owners benefit when dangerous access and unsafe storage are reduced. For that reason, licensing can set minimum standards for safe ownership without eliminating lawful possession."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The idea of setting minimum standards for safe ownership through licensing is based on a flawed assumption: that government agencies can effectively define and enforce safety guidelines. History has shown us time and again that such regulations lead to unintended consequences, such as increased costs for law-abiding citizens and decreased access to firearms for those who genuinely need them. Moreover, studies have consistently demonstrated that stricter gun laws do not correlate with lower crime rates or improved public safety outcomes. In fact, the most recent data suggests a significant increase in violent crimes in areas with stringent gun control measures."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The strongest reason is that strong laws can support responsible ownership while reducing risks for all citizens. This matters because training, storage rules, and licensing can create safer conditions without eliminating lawful possession. Therefore, targeted restrictions may have more effect than uncontrolled access. In practice, legal standards can define responsible ownership while discouraging dangerous use."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent's argument relies heavily on anecdotal evidence and a flawed assumption that stricter gun laws necessarily lead to improved public safety outcomes. However, numerous studies have consistently shown that such regulations often fail to achieve their intended goals, instead leading to increased costs for law-abiding citizens and decreased access to firearms for those who genuinely need them. Furthermore, the idea that licensing can set minimum standards for safe ownership is undermined by the fact that many gun owners do not follow even basic safety guidelines, regardless of licensing or regulations. This raises serious questions about the efficacy of licensing as a means of reducing risks associated with firearm."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "Firearm ownership should be restricted because firearms can cause severe harm when misused or obtained by unauthorized individuals. If we take the issue seriously, we must recognize that laws can define responsible ownership while discouraging dangerous use. For that reason, targeted restrictions may have more effect than uncontrolled access. In practice, legal standards can create safer conditions without eliminating lawful possession."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The test agent's argument relies on a narrow focus on licensing as a panacea for addressing risks associated with firearms, without considering the broader implications of such regulations. By advocating for stronger legal restrictions through licensing, the test agent ignores the potential consequences for law-abiding citizens who choose to exercise their Second Amendment rights responsibly. Furthermore, the emphasis on \"responsible ownership\" implies a clear distinction between responsible and irresponsible owners, which is not supported by empirical evidence. In fact, many gun owners do not follow even basic safety guidelines, regardless of licensing or regulations, casting doubt on the effectiveness of licensing in reducing risks associated with firearms."
+    }
+  ]
+}

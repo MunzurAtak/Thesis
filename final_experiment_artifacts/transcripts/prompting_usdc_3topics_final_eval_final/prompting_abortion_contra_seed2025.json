@@ -1,0 +1,120 @@
+{
+  "debate_id": "prompting_abortion_contra_seed2025",
+  "experiment_name": "prompting_usdc_3topics_final_eval_final",
+  "condition": "prompting",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5:7b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2025,
+  "created_at": "2026-06-23T15:38:28",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "Legal systems should not prioritize access to abortion as a reproductive right because it undermines the value of life and can lead to increased unsafe practices. Abortion is a complex medical procedure with significant risks, including physical harm and psychological trauma. By criminalizing abortion, legal systems can ensure that procedures are performed safely by qualified professionals in controlled environments, thus protecting women's health without compromising their autonomy. Moreover, focusing on comprehensive sexual education and access to contraception can effectively reduce the need for abortions while respecting moral and ethical considerations."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "I'd like to challenge the Opponent's assumption that restricting access to abortion can ensure safe procedures are performed in controlled environments. This argument assumes that women will not seek out clandestine or unqualified providers if they are unable to obtain a safe and legal abortion, which is not supported by evidence. In many countries where abortion is heavily restricted, women still resort to unsafe methods due to lack of access to reproductive healthcare. Furthermore, the Opponent's focus on physical harm and psychological trauma as risks associated with abortion overlooks the significant emotional and mental health consequences that women experience when forced to carry an unwanted pregnancy to term."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that restricting access to abortion leads women to seek unsafe procedures ignores the reality of women's agency and decision-making in crisis pregnancies. Women often face severe circumstances, such as economic instability or health risks, which can compel them to seek out unregulated providers despite the dangers. By not providing legal avenues for safe abortions, the state infringes on personal autonomy without ensuring better outcomes. Moreover, focusing solely on physical harm does not address the broader ethical concerns."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent claims that restricting access to abortion leads women to seek out unregulated providers, but this argument relies on a paternalistic view of women's agency and decision-making abilities. It assumes that women are incapable of navigating complex medical procedures or making informed choices about their own bodies. However, this ignores the reality that many women have been forced to undergo unsafe abortions due to lack of access to safe and legal alternatives. By restricting access to abortion, the Opponent's proposed solution effectively punishes women for exercising their autonomy and makes them more vulnerable to harm."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that restricting access to abortion forces women into unsafe practices overlooks the broader context of informed consent and personal responsibility. Legal systems must recognize that women often make difficult decisions based on complex factors, including health, safety, and socioeconomic status. By criminalizing abortion, legal systems inadvertently create a black market for unsafe procedures, which can exacerbate existing inequalities and disproportionately affect marginalized communities. Furthermore, focusing solely on the physical risks of abortion ignores the long-term consequences of carrying an unwanted pregnancy to term, such as social stigmatization and economic burdens, which can have lasting impacts on women's lives."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion that restricting access to abortion leads women into unsafe practices relies heavily on anecdotal evidence and ignores the fact that safe and legal abortion procedures are often unaffordable for many women, particularly in low-income communities. The Opponent fails to provide a concrete solution to address this issue, instead resorting to vague calls for \"comprehensive sexual education\" and \"contraception access.\" However, these measures are insufficient to mitigate the need for abortion in cases of rape, incest, or when the mother's life is at risk due to pre-existing health conditions. Moreover, the Opponent's focus on physical harm as a primary concern neglects the fundamental right to bodily autonomy and."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that comprehensive sexual education and contraception can fully address the need for abortion overlooks the reality of unintended pregnancies, especially in cases of rape or incest where consent is impossible. Moreover, focusing solely on prevention ignores the ethical implications of forcing women to carry unwanted pregnancies to term, which can lead to severe psychological trauma and long-term societal stigma. Legal systems must prioritize protecting women's health by ensuring safe and legal abortion services are available, rather than criminalizing a procedure that has existed throughout history. Criminalization does not eliminate the need for abortions; it only forces them into unsafe and often unethical conditions."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion that restricting access to abortion prioritizes women's health by ensuring safe procedures in controlled environments is fundamentally flawed. By criminalizing abortion, legal systems do not eliminate the need for abortions; they simply drive them underground, making it more difficult for women to access essential reproductive healthcare. This approach neglects the reality of women's lives and ignores the fact that many will continue to seek out unsafe methods regardless of legislation. Moreover, the Opponent's focus on physical harm as a primary concern overlooks the significant emotional and mental health consequences that women experience when denied access to safe and legal abortion services."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "prompting_test_agent",
+      "agent_type": "prompting",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The argument that criminalizing abortion protects women's health by driving procedures into controlled environments is unrealistic and ignores the evidence from countries with strict restrictions. In practice, these laws do not prevent abortions but instead force them into dangerous conditions where women face higher risks of complications and death. By focusing on physical harm, the argument overlooks the broader ethical concerns and the autonomy that women should have over their own bodies. Legal systems must recognize that access to safe and legal abortion services is essential for protecting women's health and well-being, rather than perpetuating harmful and ineffective policies."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's claim that restricting access to abortion does not eliminate the need for abortions, but rather drives them underground, is not supported by empirical evidence. In fact, numerous studies have shown that countries with more permissive abortion laws experience lower rates of unsafe and illegal abortions. The Opponent's assumption that women will always find a way to obtain an abortion, regardless of the law, implies a lack of agency on the part of women who are denied access to safe and legal services. Furthermore, this argument overlooks the fact that restricting access to abortion disproportionately affects marginalized communities, exacerbating existing health disparities and perpetuating systemic inequalities."
+    }
+  ]
+}

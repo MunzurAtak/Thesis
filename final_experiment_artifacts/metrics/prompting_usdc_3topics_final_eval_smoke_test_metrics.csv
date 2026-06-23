@@ -1,0 +1,7 @@
+debate_id,experiment_name,condition,topic_name,test_agent_stance,test_agent_stance_score,adversary_stance,adversary_stance_score,rounds,seed,judge_type,strict_tof,strict_nof,polarity_tof,polarity_nof,adversary_strict_tof,adversary_strict_nof,adversary_polarity_tof,adversary_polarity_nof
+prompting_abortion_contra_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,abortion,contra,-2,pro,2,1,42,ollama,2,0,2,0,1,1,1,1
+prompting_abortion_pro_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,abortion,pro,2,contra,-2,1,42,ollama,2,0,2,0,1,1,2,0
+prompting_climate_change_contra_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,climate_change,contra,-2,pro,2,1,42,ollama,2,0,2,0,2,0,2,0
+prompting_climate_change_pro_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,climate_change,pro,2,contra,-2,1,42,ollama,2,0,2,0,2,0,2,0
+prompting_gun_control_contra_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,gun_control,contra,-2,pro,2,1,42,ollama,2,0,2,0,1,1,2,0
+prompting_gun_control_pro_seed42,prompting_usdc_3topics_final_eval_smoke_test,prompting,gun_control,pro,2,contra,-2,1,42,ollama,2,0,2,0,2,0,2,0

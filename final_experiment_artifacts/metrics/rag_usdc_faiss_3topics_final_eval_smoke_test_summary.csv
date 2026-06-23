@@ -1,0 +1,2 @@
+experiment_name,condition,n_debates,mean_strict_tof,mean_strict_nof,mean_polarity_tof,mean_polarity_nof,mean_adversary_strict_tof,mean_adversary_strict_nof,mean_adversary_polarity_tof,mean_adversary_polarity_nof
+rag_usdc_faiss_3topics_final_eval_smoke_test,rag,6,2.0,0.0,2.0,0.0,1.6666666666666667,0.3333333333333333,2.0,0.0

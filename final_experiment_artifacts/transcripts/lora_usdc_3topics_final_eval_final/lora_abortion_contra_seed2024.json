@@ -1,0 +1,120 @@
+{
+  "debate_id": "lora_abortion_contra_seed2024",
+  "experiment_name": "lora_usdc_3topics_final_eval_final",
+  "condition": "lora",
+  "topic_name": "abortion",
+  "topic": "Should legal systems protect access to abortion as a reproductive right?",
+  "test_agent_llm": {
+    "backend": "ollama",
+    "model_name": "qwen2.5-7b-stance-lora-merged",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "adversary_llm": {
+    "backend": "ollama",
+    "model_name": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 180
+  },
+  "test_agent_stance": "contra",
+  "test_agent_stance_score": -2,
+  "adversary_stance": "pro",
+  "adversary_stance_score": 2,
+  "rounds": 5,
+  "seed": 2024,
+  "created_at": "2026-06-23T16:10:47",
+  "turns": [
+    {
+      "round": 1,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Restricting abortion can express society's commitment to protecting life. This matters because law shapes moral norms as well as individual options. Therefore, legal systems should enforce protections for unborn life rather than treating abortion primarily as a personal choice."
+    },
+    {
+      "round": 1,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's assertion relies heavily on the assumption that restricting abortion conveys a societal commitment to protecting life. However, this overlooks the fact that such restrictions disproportionately affect vulnerable populations, particularly low-income women and those in rural areas who already face significant barriers to healthcare access. By prioritizing unborn life over reproductive rights, legal systems would essentially be perpetuating existing social inequalities rather than promoting the well-being of all individuals involved. Furthermore, the Opponent's emphasis on law shaping moral norms is a slippery slope argument that neglects the fundamental principle of individual autonomy and bodily integrity enshrined in human rights frameworks."
+    },
+    {
+      "round": 2,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "My argument is straightforward: Restricting abortion can express society's commitment to protecting life without ignoring social inequality. This stance does not require ignoring tradeoffs; it means recognizing that law should balance individual choice with duties toward unborn life and public welfare. As a result, legal systems should enforce protections for vulnerable life while addressing practical barriers to access for those seeking care."
+    },
+    {
+      "round": 2,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to balance individual choice with duties toward unborn life falls flat, as it relies on an arbitrary distinction between \"vulnerable\" and \"non-vulnerable\" individuals. This dichotomy ignores the inherent value of bodily autonomy, which applies equally to all individuals, regardless of socioeconomic status or geographical location. Furthermore, the Opponent's emphasis on public welfare raises questions about whose interests are being prioritized: those of the unborn or those of pregnant women who may face coerced pregnancies due to a lack of access to reproductive healthcare. The Opponent's stance also neglects the fact that restrictive abortion laws often lead to an increase in unsafe abortions, which disproportionately harm low-income and."
+    },
+    {
+      "round": 3,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "In practice, restricting abortion can express society's commitment to protecting life without ignoring social inequality. The central point is this: Legal systems should enforce protections for unborn life while addressing practical barriers to access for those seeking care. This stance does not require ignoring tradeoffs; it means recognizing that law should balance individual choice with duties toward vulnerable life and public welfare. As a result, legal rules can support responsible reproductive decision-making without forcing one set of values on every citizen."
+    },
+    {
+      "round": 3,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's attempt to frame this issue as one of balancing individual choice with duties toward unborn life is fundamentally misguided, as it implies that pregnant women have a duty to carry a pregnancy to term, regardless of their circumstances or desires. This stance ignores the fact that abortion is often a matter of last resort for individuals who are facing coercive pregnancies, abuse, or other forms of harm. By prioritizing the rights and interests of unborn life over those of pregnant women, the Opponent's position perpetuates a paternalistic view of women's bodies as mere vessels for fetal development, rather than recognizing their autonomy and agency in reproductive decision-making."
+    },
+    {
+      "round": 4,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The central point is this: Legal restrictions on abortion can express society's commitment to protecting life without ignoring social inequality. This matters because law shapes moral norms and individual options, especially for vulnerable populations who may face greater barriers to care. Therefore, legal rules should enforce protections for unborn life while addressing practical access challenges for those seeking care. The opposing side often underestimates that some restrictions can reflect a strong commitment to defending the value of human life without disregarding the needs of pregnant individuals and their families."
+    },
+    {
+      "round": 4,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's argument relies heavily on the assumption that restricting abortion can express society's commitment to protecting life without ignoring social inequality. However, this overlooks the fact that such restrictions often come with severe consequences for pregnant women, including increased risk of maternal mortality and morbidity. By prioritizing unborn life over reproductive rights, legal systems would essentially be putting the interests of one group above those of another. Furthermore, the Opponent's emphasis on balancing individual choice with duties toward unborn life is a euphemism for imposing a particular set of moral values on women who may not share them."
+    },
+    {
+      "round": 5,
+      "speaker": "test_agent",
+      "agent_name": "lora_test_agent",
+      "agent_type": "lora",
+      "stance": "contra",
+      "stance_score": -2,
+      "utterance": "The core point is this: Restricting abortion can express society's commitment to protecting life without ignoring social inequality. This stance does not require ignoring tradeoffs; it means recognizing that law shapes moral norms and individual options, especially for vulnerable populations who may face greater barriers to care. As a result, legal systems should enforce protections for unborn life while addressing practical access challenges for those seeking care. The opposing side often underestimates that some restrictions can reflect a strong commitment to defending the value of human life without disregarding the needs of pregnant individuals and their families."
+    },
+    {
+      "round": 5,
+      "speaker": "adversary",
+      "agent_name": "fixed_prompting_adversary",
+      "agent_type": "prompting",
+      "stance": "pro",
+      "stance_score": 2,
+      "utterance": "The Opponent's emphasis on restricting abortion as a means of expressing society's commitment to protecting life is fundamentally at odds with the fundamental principle of bodily autonomy. By prioritizing unborn life over reproductive rights, legal systems would essentially be imposing a particular set of moral values on women who may not share them. The Opponent's argument that some restrictions can reflect a strong commitment to defending human life without disregarding pregnant individuals' needs is a euphemism for coercive control over women's bodies. Furthermore, the Opponent's stance neglects the fact that restricting access to abortion often leads to an increase in unsafe abortions, which disproportionately harm low-income and marginalized communities."
+    }
+  ]
+}

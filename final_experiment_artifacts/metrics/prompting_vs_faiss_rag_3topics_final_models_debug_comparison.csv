@@ -1,0 +1,3 @@
+experiment_name,condition,n_debates,mean_strict_tof,mean_strict_nof,mean_polarity_tof,mean_polarity_nof,mean_adversary_strict_tof,mean_adversary_strict_nof,mean_adversary_polarity_tof,mean_adversary_polarity_nof
+prompting_usdc_3topics_final_models_debug,prompting,6,2.6666666666666665,2.1666666666666665,4.0,1.5,2.6666666666666665,1.5,3.5,1.1666666666666667
+rag_usdc_faiss_3topics_final_models_debug,rag,6,3.0,1.5,4.666666666666667,0.3333333333333333,4.0,1.3333333333333333,4.0,0.8333333333333334

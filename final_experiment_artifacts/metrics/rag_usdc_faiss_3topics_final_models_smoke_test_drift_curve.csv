@@ -1,0 +1,7 @@
+experiment_name,condition,topic_name,test_agent_stance,round,mean_judged_stance_score,n_turns
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,abortion,contra,1,-2.0,1
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,abortion,pro,1,2.0,1
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,climate_change,contra,1,-2.0,1
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,climate_change,pro,1,2.0,1
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,gun_control,contra,1,-2.0,1
+rag_usdc_faiss_3topics_final_models_smoke_test,rag,gun_control,pro,1,1.0,1
