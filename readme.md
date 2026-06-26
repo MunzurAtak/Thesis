@@ -6,10 +6,10 @@ This repository contains the final code for a bachelor thesis experiment compari
 
 - 3 topics: climate_change, abortion, gun_control
 - 2 stances per topic: pro and contra
-- 3 seeds: 42, 123, 999
+- 5 seeds: 42, 123, 999, 2024, 2025
 - 5 rounds per debate
 - 18 debates per condition
-- 54 debates total
+- 90 debates total
 
 ## Conditions
 
